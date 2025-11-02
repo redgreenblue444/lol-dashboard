@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends Performance Analytics</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        
+        /* Player Dropdown Styles */
+        .player-dropdown-item {
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.15s;
+        }
+        .player-dropdown-item:hover {
+            background-color: #4b5563;
+        }
+        .player-dropdown-item input[type="checkbox"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+        .player-dropdown-divider {
+            border-top: 1px solid #4b5563;
+            margin: 0.25rem 0;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Card hover effect */
+        .stat-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Table styles */
+        .data-table {
+            font-size: 0.875rem;
+        }
+        .data-table th {
+            position: sticky;
+            top: 0;
+            background: #1f2937;
+            z-index: 10;
+        }
+        
+        /* Section divider */
+        .section-divider {
+            border-top: 2px solid #374151;
+            margin: 3rem 0;
+        }
+        
+        /* Win/Loss colors */
+        .win-bg { background-color: rgba(34, 197, 94, 0.1); }
+        .loss-bg { background-color: rgba(239, 68, 68, 0.1); }
+        .win-text { color: #22c55e; }
+        .loss-text { color: #ef4444; }
+        
+        /* Badge styles */
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            color: #111;
+            position: relative;
+            cursor: help;
+            white-space: nowrap;
+        }
+        
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            max-height: 48px; /* 2 rows max (roughly 20px per row + gaps) */
+            overflow: hidden;
+            gap: 2px;
+            min-width: 300px;
+            max-width: 400px;
+        }
+        .badge-gold {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+        }
+        .badge-silver {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+        }
+        .badge-bronze {
+            background: linear-gradient(135deg, #cd7f32, #e9967a);
+        }
+        .badge-negative {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+        .badge-neutral {
+            background: linear-gradient(135deg, #6b7280, #9ca3af);
+            color: white;
+        }
+        
+        /* Custom Tooltip Styles */
+        .badge-tooltip {
+            position: fixed;
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid #4b5563;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: white;
+            font-size: 12px;
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s ease-in-out;
+            max-width: 250px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            white-space: normal;
+            line-height: 1.4;
+            display: none;
+        }
+        
+        .badge-tooltip.show {
+            opacity: 1;
+            display: block;
+        }
+        
+        /* Expandable match rows */
+        .match-row {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .match-row:hover {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+        }
+        .match-details {
+            background-color: #1f2937;
+        }
+        .match-details.hidden {
+            display: none;
+        }
+        .expand-arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+            margin-right: 8px;
+        }
+        .expand-arrow.expanded {
+            transform: rotate(90deg);
+        }
+        
+        /* Team scoreboard */
+        .team-header {
+            background: #374151;
+            padding: 8px 16px;
+            font-weight: bold;
+            border-bottom: 2px solid #4b5563;
+        }
+        .participant-row {
+            padding: 8px 16px;
+            border-bottom: 1px solid #374151;
+            display: grid;
+            grid-template-columns: 180px 1fr 120px 320px;
+            align-items: center;
+            gap: 16px;
+        }
+        .participant-row:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .participant-row.player {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-left: 4px solid #3b82f6;
+        }
+        .participant-name {
+            min-width: 120px;
+            font-weight: 500;
+        }
+        .participant-stats {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(80px, 1fr));
+            gap: 12px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .participant-stats > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .item-container {
+            display: flex;
+            gap: 2px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 120px;
+        }
+        .stat-label {
+            color: #9ca3af;
+            font-size: 11px;
+        }
+        
+        /* Date inputs */
+        input[type="date"] {
+            color-scheme: dark;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
+        <div class="text-center">
+            <div class="spinner mx-auto mb-4"></div>
+            <p class="text-xl font-semibold">Loading Analytics Data...</p>
+            <p class="text-gray-400 mt-2" id="loadingStatus">Initializing...</p>
+        </div>
+    </div>
+    
+    <!-- Main Container -->
+    <div id="mainContent">
+        
+        <!-- Header -->
+        <header class="bg-gradient-to-r from-blue-900 to-purple-900 shadow-lg">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-4xl font-bold text-white mb-2">League of Legends Performance Analytics</h1>
+                <p class="text-blue-200">In-depth performance analysis and insights</p>
+            </div>
+        </header>
+        
+        <!-- Filters and Controls - All on One Row -->
+        <div class="bg-gray-800 border-b border-gray-700 sticky top-0 z-40 shadow-md">
+            <div class="container mx-auto px-4 py-4">
+                <div class="bg-gray-700 rounded-lg p-4">
+                    <div class="flex gap-3 items-end flex-wrap">
+                        <!-- Player Multi-Select Filter -->
+                        <div class="min-w-[180px] relative">
+                            <label class="block text-sm font-medium text-gray-300 mb-1">👤 Players</label>
+                            <div class="player-selector-wrapper">
+                                <button type="button" id="playerDropdownBtn" class="bg-gray-600 text-white rounded px-2 py-1.5 text-sm w-full border border-gray-500 text-left flex justify-between items-center hover:bg-gray-550 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <span id="playerDropdownText">Loading...</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="playerDropdown" class="hidden absolute z-50 mt-1 w-full bg-gray-700 border border-gray-500 rounded shadow-lg max-h-60 overflow-y-auto">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Date Range Picker -->
+                        <div class="flex-1 min-w-[220px]">
+                            <label class="block text-sm font-medium text-gray-300 mb-1">📅 Date Range</label>
+                            <div class="flex gap-1 items-center">
+                                <input type="date" id="startDate" class="bg-gray-600 text-white rounded px-2 py-1.5 text-sm border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1">
+                                <span class="text-gray-400 text-xs">to</span>
+                                <input type="date" id="endDate" class="bg-gray-600 text-white rounded px-2 py-1.5 text-sm border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1">
+                            </div>
+                        </div>
+                        
+                        <!-- Time Bucketing Dropdown -->
+                        <div class="min-w-[120px]">
+                            <label class="block text-sm font-medium text-gray-300 mb-1">📊 Group By</label>
+                            <select id="timeBucket" class="bg-gray-600 text-white rounded px-2 py-1.5 text-sm w-full border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Time Period Filter -->
+                        <div class="min-w-[140px]">
+                            <label class="block text-sm font-medium text-gray-300 mb-1">⏱️ Period</label>
+                            <select id="timePeriodFilter" class="bg-gray-600 border border-gray-500 text-white rounded px-2 py-1.5 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="all">All Matches</option>
+                                <option value="20">Last 20</option>
+                                <option value="50">Last 50</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Queue Type Filter -->
+                        <div class="min-w-[140px]">
+                            <label class="block text-sm font-medium text-gray-300 mb-1">🎮 Queue</label>
+                            <select id="queueFilter" class="bg-gray-600 border border-gray-500 text-white rounded px-2 py-1.5 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="all">All Queues</option>
+                                <option value="420">Ranked</option>
+                                <option value="400">Normal</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Champion Filter -->
+                        <div class="min-w-[140px]">
+                            <label class="block text-sm font-medium text-gray-300 mb-1">⚔️ Champion</label>
+                            <select id="championFilter" class="bg-gray-600 border border-gray-500 text-white rounded px-2 py-1.5 text-sm w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="all">All Champions</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Apply & Reset Buttons -->
+                        <button id="applyDateFilters" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded text-sm font-medium transition whitespace-nowrap">
+                            Apply Filters
+                        </button>
+                        
+                        <button id="resetDateFilters" class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1.5 rounded text-sm font-medium transition whitespace-nowrap">
+                            Reset
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">💡 Hold Ctrl/Cmd to select multiple players</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div id="analyticsContent">
+        <div class="container mx-auto px-4 py-8">
+            
+            <!-- Summary Cards -->
+            <section id="summarySection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Performance Overview</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- Total Games -->
+                    <div class="stat-card bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <div class="text-gray-400 text-sm font-medium mb-1">Total Games</div>
+                        <div id="totalGames" class="text-3xl font-bold text-white">0</div>
+                    </div>
+                    
+                    <!-- Win Rate -->
+                    <div class="stat-card bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <div class="text-gray-400 text-sm font-medium mb-1">Win Rate</div>
+                        <div id="winRate" class="text-3xl font-bold text-green-400">0%</div>
+                        <div id="winLoss" class="text-xs text-gray-500 mt-1">0W - 0L</div>
+                    </div>
+                    
+                    <!-- Average KDA -->
+                    <div class="stat-card bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <div class="text-gray-400 text-sm font-medium mb-1">Avg KDA</div>
+                        <div id="avgKDA" class="text-3xl font-bold text-yellow-400">0.00</div>
+                        <div id="avgKills" class="text-xs text-gray-500 mt-1">0 / 0 / 0</div>
+                    </div>
+                    
+                    <!-- CS per Minute -->
+                    <div class="stat-card bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <div class="text-gray-400 text-sm font-medium mb-1">Avg CS/min</div>
+                        <div id="avgCS" class="text-3xl font-bold text-purple-400">0.0</div>
+                    </div>
+                    
+                    <!-- Vision Score -->
+                    <div class="stat-card bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <div class="text-gray-400 text-sm font-medium mb-1">Avg Vision</div>
+                        <div id="avgVision" class="text-3xl font-bold text-pink-400">0.0</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Performance Charts -->
+            <section id="performanceSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Performance Trends</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <!-- Win Rate Over Time -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Win Rate Over Time</h3>
+                        <canvas id="winRateChart"></canvas>
+                    </div>
+                    
+                    <!-- KDA Progression -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">KDA Progression</h3>
+                        <canvas id="kdaChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Performance Radar -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Overall Performance Profile</h3>
+                    <div class="max-w-2xl mx-auto">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Champion Analysis -->
+            <section id="championSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Champion Analysis</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <!-- Best Performing Champions -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Best Performing</h3>
+                        <div id="bestChampions" class="space-y-2">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Most Played -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Most Played</h3>
+                        <div id="mostPlayedChampions" class="space-y-2">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Needs Improvement -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-red-400">Needs Improvement</h3>
+                        <div id="worstChampions" class="space-y-2">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Champion Stats Table -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 overflow-x-auto">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Detailed Champion Statistics</h3>
+                    <div class="overflow-x-auto">
+                        <table id="championTable" class="data-table w-full text-left">
+                            <thead class="text-gray-400 text-xs uppercase">
+                                <tr>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">Champion</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">Games</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">Win Rate</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">KDA</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">K/D/A</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">CS/min</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">Gold/min</th>
+                                    <th class="px-4 py-3 cursor-pointer hover:text-white">DMG/min</th>
+                                </tr>
+                            </thead>
+                            <tbody id="championTableBody" class="text-gray-300">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Combat Metrics -->
+            <section id="combatSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Combat Performance</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <!-- Damage Charts -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Damage Metrics</h3>
+                        <canvas id="damageChart"></canvas>
+                    </div>
+                    
+                    <!-- Kill Participation -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Kill Participation Rate</h3>
+                        <canvas id="killParticipationChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Multi-kills Stats -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Multi-kill Statistics</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-gray-700 rounded">
+                            <div class="text-3xl font-bold text-blue-400" id="doubleKills">0</div>
+                            <div class="text-sm text-gray-400 mt-1">Double Kills</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-700 rounded">
+                            <div class="text-3xl font-bold text-purple-400" id="tripleKills">0</div>
+                            <div class="text-sm text-gray-400 mt-1">Triple Kills</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-700 rounded">
+                            <div class="text-3xl font-bold text-orange-400" id="quadraKills">0</div>
+                            <div class="text-sm text-gray-400 mt-1">Quadra Kills</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-700 rounded">
+                            <div class="text-3xl font-bold text-red-400" id="pentaKills">0</div>
+                            <div class="text-sm text-gray-400 mt-1">Penta Kills</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Economy & Farming -->
+            <section id="economySection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Economy & Farming</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Gold per Minute Trend -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Gold per Minute</h3>
+                        <canvas id="goldChart"></canvas>
+                    </div>
+                    
+                    <!-- CS per Minute Trend -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">CS per Minute</h3>
+                        <canvas id="csChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Vision & Map Control -->
+            <section id="visionSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Vision & Map Control</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <!-- Vision Score Trend -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Vision Score Trend</h3>
+                        <canvas id="visionChart"></canvas>
+                    </div>
+                    
+                    <!-- Ward Stats -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Ward Statistics</h3>
+                        <canvas id="wardChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Items & Builds -->
+            <section id="itemsSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Items & Builds</h2>
+                
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Most Common Item Builds</h3>
+                    <div id="itemBuilds" class="space-y-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Runes Analysis -->
+            <section id="runesSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Runes Analysis</h2>
+                
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Most Used Rune Setups</h3>
+                    <div id="runeSetups" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Match History Table -->
+            <section id="matchHistorySection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Match History</h2>
+                
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <div class="overflow-x-auto">
+                        <table id="matchHistoryTable" class="data-table w-full text-left">
+                            <thead class="text-gray-400 text-xs uppercase">
+                                <tr>
+                                    <th class="px-4 py-3">Result</th>
+                                    <th class="px-4 py-3">Champion</th>
+                                    <th class="px-4 py-3">Queue</th>
+                                    <th class="px-4 py-3">Date</th>
+                                    <th class="px-4 py-3">Duration</th>
+                                    <th class="px-4 py-3">K/D/A</th>
+                                    <th class="px-4 py-3">KDA</th>
+                                    <th class="px-4 py-3">CS</th>
+                                    <th class="px-4 py-3">Gold</th>
+                                    <th class="px-4 py-3">Damage</th>
+                                    <th class="px-4 py-3">Items</th>
+                                </tr>
+                            </thead>
+                            <tbody id="matchHistoryBody" class="text-gray-300">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <!-- Trends & Insights -->
+            <section id="insightsSection" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-blue-400">Trends & Insights</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Streaks -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Current Form</h3>
+                        <div id="streakInfo" class="space-y-3">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Key Insights -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-200">Key Insights</h3>
+                        <div id="keyInsights" class="space-y-3">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance by Day/Time -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 mt-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-200">Performance by Time</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-400 mb-3">By Day of Week</h4>
+                            <canvas id="dayOfWeekChart"></canvas>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-400 mb-3">By Hour of Day</h4>
+                            <canvas id="hourOfDayChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+        <!-- Footer -->
+        <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-12">
+            <div class="container mx-auto px-4 text-center text-gray-400">
+                <p>League of Legends Performance Analytics Dashboard</p>
+                <p class="text-sm mt-2">Data powered by Riot Games API</p>
+            </div>
+        </footer>
+        </div> <!-- End analyticsContent -->
+        
+    </div> <!-- End mainContent -->
+    
+    <!-- Badge System - Must load before data-loader.js -->
+    <script src="./badges.js?v=17"></script>
+    
+    <!-- Main Dashboard JavaScript -->
+    <script src="./data-loader.js?v=22"></script>
+    
+</body>
+</html>
+

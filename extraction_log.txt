@@ -1,0 +1,109 @@
+🚀 League of Legends - Extract ALL Matches
+📊 Extracting data for 3 player(s)
+🎮 Queues: [400, 420] (Draft Normal, Ranked Solo/Duo)
+🔄 FORCE MODE: Overwriting existing data
+
+
+============================================================
+👤 Player: Zyra#USA (Zyra#USA)
+   ID: zyra
+   Region: americas
+============================================================
+  🔍 Extracting ALL matches...
+  🎮 Queue: Draft Normal (400)
+    Fetching match IDs (offset 0)... Got 100 IDs
+    Fetching match 1/100: NA1_5392469799    Fetching match 2/100: NA1_5391964529    Fetching match 3/100: NA1_5391928888    Fetching match 4/100: NA1_5391889410    Fetching match 5/100: NA1_5387304078    Fetching match 6/100: NA1_5387280735    Fetching match 7/100: NA1_5386561156    Fetching match 8/100: NA1_5386523513    Fetching match 9/100: NA1_5386422427    Fetching match 10/100: NA1_5386392541    Fetching match 11/100: NA1_5386369882    Fetching match 12/100: NA1_5379228791    Fetching match 13/100: NA1_5379176993    Fetching match 14/100: NA1_5379000933    Fetching match 15/100: NA1_5378968939    Fetching match 16/100: NA1_5378934432    Fetching match 17/100: NA1_5378883696    Fetching match 18/100: NA1_5378844146    Fetching match 19/100: NA1_5373315683    Fetching match 20/100: NA1_5372699658    Fetching match 21/100: NA1_5372678298    Fetching match 22/100: NA1_5372654625    Fetching match 23/100: NA1_5372641006    Fetching match 24/100: NA1_5372626464    Fetching match 25/100: NA1_5372610966    Fetching match 26/100: NA1_5372597165    Fetching match 27/100: NA1_5372185919    Fetching match 28/100: NA1_5371592445    Fetching match 29/100: NA1_5371559612    Fetching match 30/100: NA1_5371546204    Fetching match 31/100: NA1_5371525138    Fetching match 32/100: NA1_5371476818    Fetching match 33/100: NA1_5369088537    Fetching match 34/100: NA1_5358851605    Fetching match 35/100: NA1_5324182438    Fetching match 36/100: NA1_5324162029    Fetching match 37/100: NA1_5323962441    Fetching match 38/100: NA1_5323954500    Fetching match 39/100: NA1_5323948144    Fetching match 40/100: NA1_5323530199    Fetching match 41/100: NA1_5323513703    Fetching match 42/100: NA1_5321201046    Fetching match 43/100: NA1_5321181031    Fetching match 44/100: NA1_5321155427    Fetching match 45/100: NA1_5321140412    Fetching match 46/100: NA1_5321127374    Fetching match 47/100: NA1_5320878599    Fetching match 48/100: NA1_5320704518    Fetching match 49/100: NA1_5320672572    Fetching match 50/100: NA1_5320505232    Fetching match 51/100: NA1_5320493258    Fetching match 52/100: NA1_5320483264    Fetching match 53/100: NA1_5320466453    Fetching match 54/100: NA1_5320450220    Fetching match 55/100: NA1_5307266309    Fetching match 56/100: NA1_5307243768    Fetching match 57/100: NA1_5244434111Error fetching match NA1_5244434111: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5244434111
+    Fetching match 58/100: NA1_5244416400Error fetching match NA1_5244416400: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5244416400
+    Fetching match 59/100: NA1_5240366593Error fetching match NA1_5240366593: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5240366593
+    Fetching match 60/100: NA1_5240347276Error fetching match NA1_5240347276: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5240347276
+    Fetching match 61/100: NA1_5240331476Error fetching match NA1_5240331476: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5240331476
+    Fetching match 62/100: NA1_5240001679Error fetching match NA1_5240001679: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5240001679
+    Fetching match 63/100: NA1_5239637391Error fetching match NA1_5239637391: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239637391
+    Fetching match 64/100: NA1_5239611533Error fetching match NA1_5239611533: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239611533
+    Fetching match 65/100: NA1_5239322929Error fetching match NA1_5239322929: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239322929
+    Fetching match 66/100: NA1_5239289963Error fetching match NA1_5239289963: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239289963
+    Fetching match 67/100: NA1_5239097357Error fetching match NA1_5239097357: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239097357
+    Fetching match 68/100: NA1_5239086141Error fetching match NA1_5239086141: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239086141
+    Fetching match 69/100: NA1_5239073208Error fetching match NA1_5239073208: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239073208
+    Fetching match 70/100: NA1_5239056059Error fetching match NA1_5239056059: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5239056059
+    Fetching match 71/100: NA1_5238516509Error fetching match NA1_5238516509: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5238516509
+    Fetching match 72/100: NA1_5235321262Error fetching match NA1_5235321262: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5235321262
+    Fetching match 73/100: NA1_5234690468Error fetching match NA1_5234690468: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5234690468
+    Fetching match 74/100: NA1_5234008394Error fetching match NA1_5234008394: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5234008394
+    Fetching match 75/100: NA1_5231780061Error fetching match NA1_5231780061: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5231780061
+    Fetching match 76/100: NA1_5231755953Error fetching match NA1_5231755953: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5231755953
+    Fetching match 77/100: NA1_5231741820Error fetching match NA1_5231741820: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5231741820
+    Fetching match 78/100: NA1_5231211921Error fetching match NA1_5231211921: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5231211921
+    Fetching match 79/100: NA1_5231175752Error fetching match NA1_5231175752: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5231175752
+    Fetching match 80/100: NA1_5231147576Error fetching match NA1_5231147576: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5231147576
+    Fetching match 81/100: NA1_5230498208Error fetching match NA1_5230498208: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5230498208
+    Fetching match 82/100: NA1_5230204402Error fetching match NA1_5230204402: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5230204402
+    Fetching match 83/100: NA1_5215882955Error fetching match NA1_5215882955: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5215882955
+    Fetching match 84/100: NA1_5215162960Error fetching match NA1_5215162960: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5215162960
+    Fetching match 85/100: NA1_5215125821Error fetching match NA1_5215125821: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5215125821
+    Fetching match 86/100: NA1_5215119008Error fetching match NA1_5215119008: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5215119008
+    Fetching match 87/100: NA1_5215075640Error fetching match NA1_5215075640: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5215075640
+    Fetching match 88/100: NA1_5214103990Error fetching match NA1_5214103990: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5214103990
+    Fetching match 89/100: NA1_5214064977Error fetching match NA1_5214064977: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5214064977
+    Fetching match 90/100: NA1_5213245555Error fetching match NA1_5213245555: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5213245555
+    Fetching match 91/100: NA1_5213121168Error fetching match NA1_5213121168: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5213121168
+    Fetching match 92/100: NA1_5213073434Error fetching match NA1_5213073434: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5213073434
+    Fetching match 93/100: NA1_5213019998Error fetching match NA1_5213019998: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5213019998
+    Fetching match 94/100: NA1_5213008401Error fetching match NA1_5213008401: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/NA1_5213008401
+    Fetching match 95/100: NA1_5211904049  ⏳ Rate limit reached. Waiting 90s...
+    Fetching match 96/100: NA1_5211887012    Fetching match 97/100: NA1_5211250159    Fetching match 98/100: NA1_5211223220    Fetching match 99/100: NA1_5211186571    Fetching match 100/100: NA1_5209907511    Added 62 new matches                    
+    Fetching match IDs (offset 100)... Got 33 IDs
+    Fetching match 1/33: NA1_5209889359    Fetching match 2/33: NA1_5209854299    Fetching match 3/33: NA1_5209816698    Fetching match 4/33: NA1_5209576645    Fetching match 5/33: NA1_5209556279    Fetching match 6/33: NA1_5209493830    Fetching match 7/33: NA1_5209462502    Fetching match 8/33: NA1_5208990032    Fetching match 9/33: NA1_5208957152    Fetching match 10/33: NA1_5208168307    Fetching match 11/33: NA1_5207497771    Fetching match 12/33: NA1_5207464458    Fetching match 13/33: NA1_5206141189    Fetching match 14/33: NA1_5204470759    Fetching match 15/33: NA1_5204422309    Fetching match 16/33: NA1_5204402139    Fetching match 17/33: NA1_5204383157    Fetching match 18/33: NA1_5202933117    Fetching match 19/33: NA1_5202909119    Fetching match 20/33: NA1_5202882187    Fetching match 21/33: NA1_5202455451    Fetching match 22/33: NA1_5202394850    Fetching match 23/33: NA1_5202343281    Fetching match 24/33: NA1_5201465874    Fetching match 25/33: NA1_5201445081    Fetching match 26/33: NA1_5200780276    Fetching match 27/33: NA1_5200748011    Fetching match 28/33: NA1_5200714093    Fetching match 29/33: NA1_5200700180    Fetching match 30/33: NA1_5200066067    Fetching match 31/33: NA1_5199966238    Fetching match 32/33: NA1_5199962836    Fetching match 33/33: NA1_5199922588    Added 33 new matches                    
+  🎮 Queue: Ranked Solo/Duo (420)
+    Fetching match IDs (offset 0)... No more matches.
+  ✅ Extracted 95 total matches
+  💾 Saved to data/zyra/raw_matches_all.json
+
+✓ Extraction complete for Zyra#USA
+  Total matches: 95
+============================================================
+
+============================================================
+👤 Player: Nautilus#USA (Nautilus#USA)
+   ID: nautilus
+   Region: americas
+============================================================
+  🔍 Extracting ALL matches...
+  🎮 Queue: Draft Normal (400)
+    Fetching match IDs (offset 0)... Got 44 IDs
+    Fetching match 1/44: NA1_5369853448    Fetching match 2/44: NA1_5369202505    Fetching match 3/44: NA1_5369194041    Fetching match 4/44: NA1_5369185241    Fetching match 5/44: NA1_5369180537    Fetching match 6/44: NA1_5369105536    Fetching match 7/44: NA1_5368635221    Fetching match 8/44: NA1_5368534068    Fetching match 9/44: NA1_5368513799    Fetching match 10/44: NA1_5367949503    Fetching match 11/44: NA1_5367926042    Fetching match 12/44: NA1_5367899385    Fetching match 13/44: NA1_5367878432    Fetching match 14/44: NA1_5367863222    Fetching match 15/44: NA1_5177787176    Fetching match 16/44: NA1_5177752658    Fetching match 17/44: NA1_5177013226    Fetching match 18/44: NA1_5176975074    Fetching match 19/44: NA1_5176940811    Fetching match 20/44: NA1_5176922034    Fetching match 21/44: NA1_5176153068    Fetching match 22/44: NA1_5176123456    Fetching match 23/44: NA1_5175874227    Fetching match 24/44: NA1_5146268365    Fetching match 25/44: NA1_5142640936    Fetching match 26/44: NA1_5142609124    Fetching match 27/44: NA1_5141911420    Fetching match 28/44: NA1_5141888337    Fetching match 29/44: NA1_5125992483    Fetching match 30/44: NA1_4960130271    Fetching match 31/44: NA1_4960112720    Fetching match 32/44: NA1_4896431908    Fetching match 33/44: NA1_4895475252    Fetching match 34/44: NA1_4895437315    Fetching match 35/44: NA1_4895408570    Fetching match 36/44: NA1_4895397896    Fetching match 37/44: NA1_4894394282    Fetching match 38/44: NA1_4893325647    Fetching match 39/44: NA1_4893286157    Fetching match 40/44: NA1_4889961225    Fetching match 41/44: NA1_4889920169    Fetching match 42/44: NA1_4847126165    Fetching match 43/44: NA1_4847102065    Fetching match 44/44: NA1_4847056590    Added 44 new matches                    
+  🎮 Queue: Ranked Solo/Duo (420)
+    Fetching match IDs (offset 0)... No more matches.
+  ✅ Extracted 44 total matches
+  💾 Saved to data/nautilus/raw_matches_all.json
+
+✓ Extraction complete for Nautilus#USA
+  Total matches: 44
+============================================================
+
+============================================================
+👤 Player: Malzahar#USA (Malzahar#USA)
+   ID: malzahar
+   Region: americas
+============================================================
+  🔍 Extracting ALL matches...
+  🎮 Queue: Draft Normal (400)
+    Fetching match IDs (offset 0)... Error fetching match IDs: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/ihmyWUBOo4pt7rzpE7BNmbehM2CGpgcoD0cu6dl0I2tiWJ3iHX3NyAC65kq8Cpq9wYOQQbe_sCeftw/ids?start=0&count=100&queue=400
+No more matches.
+  🎮 Queue: Ranked Solo/Duo (420)
+    Fetching match IDs (offset 0)... Error fetching match IDs: 429 Client Error: Too Many Requests for url: https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/ihmyWUBOo4pt7rzpE7BNmbehM2CGpgcoD0cu6dl0I2tiWJ3iHX3NyAC65kq8Cpq9wYOQQbe_sCeftw/ids?start=0&count=100&queue=420
+No more matches.
+  ✅ Extracted 0 total matches
+  💾 Saved to data/malzahar/raw_matches_all.json
+
+✓ Extraction complete for Malzahar#USA
+  Total matches: 0
+============================================================
+
+============================================================
+🎉 All extractions complete!
+📊 Total matches extracted: 139
+============================================================
+
+Next step: Transform data
+  python src/transform_player_data.py
