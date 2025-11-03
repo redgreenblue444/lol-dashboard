@@ -1,0 +1,1499 @@
+{
+  "266": {
+    "name": "Aatrox",
+    "id": "Aatrox",
+    "title": "the Darkin Blade",
+    "tags": [
+      "Fighter"
+    ]
+  },
+  "103": {
+    "name": "Ahri",
+    "id": "Ahri",
+    "title": "the Nine-Tailed Fox",
+    "tags": [
+      "Mage",
+      "Assassin"
+    ]
+  },
+  "84": {
+    "name": "Akali",
+    "id": "Akali",
+    "title": "the Rogue Assassin",
+    "tags": [
+      "Assassin"
+    ]
+  },
+  "166": {
+    "name": "Akshan",
+    "id": "Akshan",
+    "title": "the Rogue Sentinel",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "12": {
+    "name": "Alistar",
+    "id": "Alistar",
+    "title": "the Minotaur",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "799": {
+    "name": "Ambessa",
+    "id": "Ambessa",
+    "title": "Matriarch of War",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "32": {
+    "name": "Amumu",
+    "id": "Amumu",
+    "title": "the Sad Mummy",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "34": {
+    "name": "Anivia",
+    "id": "Anivia",
+    "title": "the Cryophoenix",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "1": {
+    "name": "Annie",
+    "id": "Annie",
+    "title": "the Dark Child",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "523": {
+    "name": "Aphelios",
+    "id": "Aphelios",
+    "title": "the Weapon of the Faithful",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "22": {
+    "name": "Ashe",
+    "id": "Ashe",
+    "title": "the Frost Archer",
+    "tags": [
+      "Marksman",
+      "Support"
+    ]
+  },
+  "136": {
+    "name": "Aurelion Sol",
+    "id": "AurelionSol",
+    "title": "The Star Forger",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "893": {
+    "name": "Aurora",
+    "id": "Aurora",
+    "title": "the Witch Between Worlds",
+    "tags": [
+      "Mage",
+      "Assassin"
+    ]
+  },
+  "268": {
+    "name": "Azir",
+    "id": "Azir",
+    "title": "the Emperor of the Sands",
+    "tags": [
+      "Mage",
+      "Marksman"
+    ]
+  },
+  "432": {
+    "name": "Bard",
+    "id": "Bard",
+    "title": "the Wandering Caretaker",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "200": {
+    "name": "Bel'Veth",
+    "id": "Belveth",
+    "title": "the Empress of the Void",
+    "tags": [
+      "Fighter"
+    ]
+  },
+  "53": {
+    "name": "Blitzcrank",
+    "id": "Blitzcrank",
+    "title": "the Great Steam Golem",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "63": {
+    "name": "Brand",
+    "id": "Brand",
+    "title": "the Burning Vengeance",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "201": {
+    "name": "Braum",
+    "id": "Braum",
+    "title": "the Heart of the Freljord",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "233": {
+    "name": "Briar",
+    "id": "Briar",
+    "title": "the Restrained Hunger",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "51": {
+    "name": "Caitlyn",
+    "id": "Caitlyn",
+    "title": "the Sheriff of Piltover",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "164": {
+    "name": "Camille",
+    "id": "Camille",
+    "title": "the Steel Shadow",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "69": {
+    "name": "Cassiopeia",
+    "id": "Cassiopeia",
+    "title": "the Serpent's Embrace",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "31": {
+    "name": "Cho'Gath",
+    "id": "Chogath",
+    "title": "the Terror of the Void",
+    "tags": [
+      "Tank",
+      "Mage"
+    ]
+  },
+  "42": {
+    "name": "Corki",
+    "id": "Corki",
+    "title": "the Daring Bombardier",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "122": {
+    "name": "Darius",
+    "id": "Darius",
+    "title": "the Hand of Noxus",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "131": {
+    "name": "Diana",
+    "id": "Diana",
+    "title": "Scorn of the Moon",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "119": {
+    "name": "Draven",
+    "id": "Draven",
+    "title": "the Glorious Executioner",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "36": {
+    "name": "Dr. Mundo",
+    "id": "DrMundo",
+    "title": "the Madman of Zaun",
+    "tags": [
+      "Tank",
+      "Fighter"
+    ]
+  },
+  "245": {
+    "name": "Ekko",
+    "id": "Ekko",
+    "title": "the Boy Who Shattered Time",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "60": {
+    "name": "Elise",
+    "id": "Elise",
+    "title": "the Spider Queen",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "28": {
+    "name": "Evelynn",
+    "id": "Evelynn",
+    "title": "Agony's Embrace",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "81": {
+    "name": "Ezreal",
+    "id": "Ezreal",
+    "title": "the Prodigal Explorer",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "9": {
+    "name": "Fiddlesticks",
+    "id": "Fiddlesticks",
+    "title": "the Ancient Fear",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "114": {
+    "name": "Fiora",
+    "id": "Fiora",
+    "title": "the Grand Duelist",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "105": {
+    "name": "Fizz",
+    "id": "Fizz",
+    "title": "the Tidal Trickster",
+    "tags": [
+      "Assassin",
+      "Fighter"
+    ]
+  },
+  "3": {
+    "name": "Galio",
+    "id": "Galio",
+    "title": "the Colossus",
+    "tags": [
+      "Tank",
+      "Mage"
+    ]
+  },
+  "41": {
+    "name": "Gangplank",
+    "id": "Gangplank",
+    "title": "the Saltwater Scourge",
+    "tags": [
+      "Fighter"
+    ]
+  },
+  "86": {
+    "name": "Garen",
+    "id": "Garen",
+    "title": "The Might of Demacia",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "150": {
+    "name": "Gnar",
+    "id": "Gnar",
+    "title": "the Missing Link",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "79": {
+    "name": "Gragas",
+    "id": "Gragas",
+    "title": "the Rabble Rouser",
+    "tags": [
+      "Fighter",
+      "Mage"
+    ]
+  },
+  "104": {
+    "name": "Graves",
+    "id": "Graves",
+    "title": "the Outlaw",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "887": {
+    "name": "Gwen",
+    "id": "Gwen",
+    "title": "The Hallowed Seamstress",
+    "tags": [
+      "Fighter"
+    ]
+  },
+  "120": {
+    "name": "Hecarim",
+    "id": "Hecarim",
+    "title": "the Shadow of War",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "74": {
+    "name": "Heimerdinger",
+    "id": "Heimerdinger",
+    "title": "the Revered Inventor",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "910": {
+    "name": "Hwei",
+    "id": "Hwei",
+    "title": "the Visionary",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "420": {
+    "name": "Illaoi",
+    "id": "Illaoi",
+    "title": "the Kraken Priestess",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "39": {
+    "name": "Irelia",
+    "id": "Irelia",
+    "title": "the Blade Dancer",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "427": {
+    "name": "Ivern",
+    "id": "Ivern",
+    "title": "the Green Father",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "40": {
+    "name": "Janna",
+    "id": "Janna",
+    "title": "the Storm's Fury",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "59": {
+    "name": "Jarvan IV",
+    "id": "JarvanIV",
+    "title": "the Exemplar of Demacia",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "24": {
+    "name": "Jax",
+    "id": "Jax",
+    "title": "Grandmaster at Arms",
+    "tags": [
+      "Fighter"
+    ]
+  },
+  "126": {
+    "name": "Jayce",
+    "id": "Jayce",
+    "title": "the Defender of Tomorrow",
+    "tags": [
+      "Fighter",
+      "Marksman"
+    ]
+  },
+  "202": {
+    "name": "Jhin",
+    "id": "Jhin",
+    "title": "the Virtuoso",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "222": {
+    "name": "Jinx",
+    "id": "Jinx",
+    "title": "the Loose Cannon",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "145": {
+    "name": "Kai'Sa",
+    "id": "Kaisa",
+    "title": "Daughter of the Void",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "429": {
+    "name": "Kalista",
+    "id": "Kalista",
+    "title": "the Spear of Vengeance",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "43": {
+    "name": "Karma",
+    "id": "Karma",
+    "title": "the Enlightened One",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "30": {
+    "name": "Karthus",
+    "id": "Karthus",
+    "title": "the Deathsinger",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "38": {
+    "name": "Kassadin",
+    "id": "Kassadin",
+    "title": "the Void Walker",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "55": {
+    "name": "Katarina",
+    "id": "Katarina",
+    "title": "the Sinister Blade",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "10": {
+    "name": "Kayle",
+    "id": "Kayle",
+    "title": "the Righteous",
+    "tags": [
+      "Mage",
+      "Marksman"
+    ]
+  },
+  "141": {
+    "name": "Kayn",
+    "id": "Kayn",
+    "title": "the Shadow Reaper",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "85": {
+    "name": "Kennen",
+    "id": "Kennen",
+    "title": "the Heart of the Tempest",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "121": {
+    "name": "Kha'Zix",
+    "id": "Khazix",
+    "title": "the Voidreaver",
+    "tags": [
+      "Assassin"
+    ]
+  },
+  "203": {
+    "name": "Kindred",
+    "id": "Kindred",
+    "title": "The Eternal Hunters",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "240": {
+    "name": "Kled",
+    "id": "Kled",
+    "title": "the Cantankerous Cavalier",
+    "tags": [
+      "Fighter"
+    ]
+  },
+  "96": {
+    "name": "Kog'Maw",
+    "id": "KogMaw",
+    "title": "the Mouth of the Abyss",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "897": {
+    "name": "K'Sante",
+    "id": "KSante",
+    "title": "the Pride of Nazumah",
+    "tags": [
+      "Tank",
+      "Fighter"
+    ]
+  },
+  "7": {
+    "name": "LeBlanc",
+    "id": "Leblanc",
+    "title": "the Deceiver",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "64": {
+    "name": "Lee Sin",
+    "id": "LeeSin",
+    "title": "the Blind Monk",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "89": {
+    "name": "Leona",
+    "id": "Leona",
+    "title": "the Radiant Dawn",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "876": {
+    "name": "Lillia",
+    "id": "Lillia",
+    "title": "the Bashful Bloom",
+    "tags": [
+      "Fighter",
+      "Mage"
+    ]
+  },
+  "127": {
+    "name": "Lissandra",
+    "id": "Lissandra",
+    "title": "the Ice Witch",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "236": {
+    "name": "Lucian",
+    "id": "Lucian",
+    "title": "the Purifier",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "117": {
+    "name": "Lulu",
+    "id": "Lulu",
+    "title": "the Fae Sorceress",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "99": {
+    "name": "Lux",
+    "id": "Lux",
+    "title": "the Lady of Luminosity",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "54": {
+    "name": "Malphite",
+    "id": "Malphite",
+    "title": "Shard of the Monolith",
+    "tags": [
+      "Tank",
+      "Mage"
+    ]
+  },
+  "90": {
+    "name": "Malzahar",
+    "id": "Malzahar",
+    "title": "the Prophet of the Void",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "57": {
+    "name": "Maokai",
+    "id": "Maokai",
+    "title": "the Twisted Treant",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "11": {
+    "name": "Master Yi",
+    "id": "MasterYi",
+    "title": "the Wuju Bladesman",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "800": {
+    "name": "Mel",
+    "id": "Mel",
+    "title": "the Soul's Reflection",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "902": {
+    "name": "Milio",
+    "id": "Milio",
+    "title": "The Gentle Flame",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "21": {
+    "name": "Miss Fortune",
+    "id": "MissFortune",
+    "title": "the Bounty Hunter",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "62": {
+    "name": "Wukong",
+    "id": "MonkeyKing",
+    "title": "the Monkey King",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "82": {
+    "name": "Mordekaiser",
+    "id": "Mordekaiser",
+    "title": "the Iron Revenant",
+    "tags": [
+      "Fighter",
+      "Mage"
+    ]
+  },
+  "25": {
+    "name": "Morgana",
+    "id": "Morgana",
+    "title": "the Fallen",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "950": {
+    "name": "Naafiri",
+    "id": "Naafiri",
+    "title": "the Hound of a Hundred Bites",
+    "tags": [
+      "Assassin",
+      "Fighter"
+    ]
+  },
+  "267": {
+    "name": "Nami",
+    "id": "Nami",
+    "title": "the Tidecaller",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "75": {
+    "name": "Nasus",
+    "id": "Nasus",
+    "title": "the Curator of the Sands",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "111": {
+    "name": "Nautilus",
+    "id": "Nautilus",
+    "title": "the Titan of the Depths",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "518": {
+    "name": "Neeko",
+    "id": "Neeko",
+    "title": "the Curious Chameleon",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "76": {
+    "name": "Nidalee",
+    "id": "Nidalee",
+    "title": "the Bestial Huntress",
+    "tags": [
+      "Assassin",
+      "Mage"
+    ]
+  },
+  "895": {
+    "name": "Nilah",
+    "id": "Nilah",
+    "title": "the Joy Unbound",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "56": {
+    "name": "Nocturne",
+    "id": "Nocturne",
+    "title": "the Eternal Nightmare",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "20": {
+    "name": "Nunu & Willump",
+    "id": "Nunu",
+    "title": "the Boy and His Yeti",
+    "tags": [
+      "Tank",
+      "Mage"
+    ]
+  },
+  "2": {
+    "name": "Olaf",
+    "id": "Olaf",
+    "title": "the Berserker",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "61": {
+    "name": "Orianna",
+    "id": "Orianna",
+    "title": "the Lady of Clockwork",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "516": {
+    "name": "Ornn",
+    "id": "Ornn",
+    "title": "The Fire below the Mountain",
+    "tags": [
+      "Tank"
+    ]
+  },
+  "80": {
+    "name": "Pantheon",
+    "id": "Pantheon",
+    "title": "the Unbreakable Spear",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "78": {
+    "name": "Poppy",
+    "id": "Poppy",
+    "title": "Keeper of the Hammer",
+    "tags": [
+      "Tank",
+      "Fighter"
+    ]
+  },
+  "555": {
+    "name": "Pyke",
+    "id": "Pyke",
+    "title": "the Bloodharbor Ripper",
+    "tags": [
+      "Support",
+      "Assassin"
+    ]
+  },
+  "246": {
+    "name": "Qiyana",
+    "id": "Qiyana",
+    "title": "Empress of the Elements",
+    "tags": [
+      "Assassin"
+    ]
+  },
+  "133": {
+    "name": "Quinn",
+    "id": "Quinn",
+    "title": "Demacia's Wings",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "497": {
+    "name": "Rakan",
+    "id": "Rakan",
+    "title": "The Charmer",
+    "tags": [
+      "Support"
+    ]
+  },
+  "33": {
+    "name": "Rammus",
+    "id": "Rammus",
+    "title": "the Armordillo",
+    "tags": [
+      "Tank"
+    ]
+  },
+  "421": {
+    "name": "Rek'Sai",
+    "id": "RekSai",
+    "title": "the Void Burrower",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "526": {
+    "name": "Rell",
+    "id": "Rell",
+    "title": "the Iron Maiden",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "888": {
+    "name": "Renata Glasc",
+    "id": "Renata",
+    "title": "the Chem-Baroness",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "58": {
+    "name": "Renekton",
+    "id": "Renekton",
+    "title": "the Butcher of the Sands",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "107": {
+    "name": "Rengar",
+    "id": "Rengar",
+    "title": "the Pridestalker",
+    "tags": [
+      "Assassin",
+      "Fighter"
+    ]
+  },
+  "92": {
+    "name": "Riven",
+    "id": "Riven",
+    "title": "the Exile",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "68": {
+    "name": "Rumble",
+    "id": "Rumble",
+    "title": "the Mechanized Menace",
+    "tags": [
+      "Fighter",
+      "Mage"
+    ]
+  },
+  "13": {
+    "name": "Ryze",
+    "id": "Ryze",
+    "title": "the Rune Mage",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "360": {
+    "name": "Samira",
+    "id": "Samira",
+    "title": "the Desert Rose",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "113": {
+    "name": "Sejuani",
+    "id": "Sejuani",
+    "title": "Fury of the North",
+    "tags": [
+      "Tank"
+    ]
+  },
+  "235": {
+    "name": "Senna",
+    "id": "Senna",
+    "title": "the Redeemer",
+    "tags": [
+      "Support",
+      "Marksman"
+    ]
+  },
+  "147": {
+    "name": "Seraphine",
+    "id": "Seraphine",
+    "title": "the Starry-Eyed Songstress",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "875": {
+    "name": "Sett",
+    "id": "Sett",
+    "title": "the Boss",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "35": {
+    "name": "Shaco",
+    "id": "Shaco",
+    "title": "the Demon Jester",
+    "tags": [
+      "Assassin"
+    ]
+  },
+  "98": {
+    "name": "Shen",
+    "id": "Shen",
+    "title": "the Eye of Twilight",
+    "tags": [
+      "Tank"
+    ]
+  },
+  "102": {
+    "name": "Shyvana",
+    "id": "Shyvana",
+    "title": "the Half-Dragon",
+    "tags": [
+      "Fighter",
+      "Mage"
+    ]
+  },
+  "27": {
+    "name": "Singed",
+    "id": "Singed",
+    "title": "the Mad Chemist",
+    "tags": [
+      "Tank",
+      "Mage"
+    ]
+  },
+  "14": {
+    "name": "Sion",
+    "id": "Sion",
+    "title": "The Undead Juggernaut",
+    "tags": [
+      "Tank",
+      "Fighter"
+    ]
+  },
+  "15": {
+    "name": "Sivir",
+    "id": "Sivir",
+    "title": "the Battle Mistress",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "72": {
+    "name": "Skarner",
+    "id": "Skarner",
+    "title": "the Primordial Sovereign",
+    "tags": [
+      "Tank",
+      "Fighter"
+    ]
+  },
+  "901": {
+    "name": "Smolder",
+    "id": "Smolder",
+    "title": "the Fiery Fledgling",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "37": {
+    "name": "Sona",
+    "id": "Sona",
+    "title": "Maven of the Strings",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "16": {
+    "name": "Soraka",
+    "id": "Soraka",
+    "title": "the Starchild",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "50": {
+    "name": "Swain",
+    "id": "Swain",
+    "title": "the Noxian Grand General",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "517": {
+    "name": "Sylas",
+    "id": "Sylas",
+    "title": "the Unshackled",
+    "tags": [
+      "Mage",
+      "Assassin"
+    ]
+  },
+  "134": {
+    "name": "Syndra",
+    "id": "Syndra",
+    "title": "the Dark Sovereign",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "223": {
+    "name": "Tahm Kench",
+    "id": "TahmKench",
+    "title": "The River King",
+    "tags": [
+      "Tank",
+      "Support"
+    ]
+  },
+  "163": {
+    "name": "Taliyah",
+    "id": "Taliyah",
+    "title": "the Stoneweaver",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "91": {
+    "name": "Talon",
+    "id": "Talon",
+    "title": "the Blade's Shadow",
+    "tags": [
+      "Assassin"
+    ]
+  },
+  "44": {
+    "name": "Taric",
+    "id": "Taric",
+    "title": "the Shield of Valoran",
+    "tags": [
+      "Support",
+      "Tank"
+    ]
+  },
+  "17": {
+    "name": "Teemo",
+    "id": "Teemo",
+    "title": "the Swift Scout",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "412": {
+    "name": "Thresh",
+    "id": "Thresh",
+    "title": "the Chain Warden",
+    "tags": [
+      "Support",
+      "Tank"
+    ]
+  },
+  "18": {
+    "name": "Tristana",
+    "id": "Tristana",
+    "title": "the Yordle Gunner",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "48": {
+    "name": "Trundle",
+    "id": "Trundle",
+    "title": "the Troll King",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "23": {
+    "name": "Tryndamere",
+    "id": "Tryndamere",
+    "title": "the Barbarian King",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "4": {
+    "name": "Twisted Fate",
+    "id": "TwistedFate",
+    "title": "the Card Master",
+    "tags": [
+      "Mage",
+      "Marksman"
+    ]
+  },
+  "29": {
+    "name": "Twitch",
+    "id": "Twitch",
+    "title": "the Plague Rat",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "77": {
+    "name": "Udyr",
+    "id": "Udyr",
+    "title": "the Spirit Walker",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "6": {
+    "name": "Urgot",
+    "id": "Urgot",
+    "title": "the Dreadnought",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "110": {
+    "name": "Varus",
+    "id": "Varus",
+    "title": "the Arrow of Retribution",
+    "tags": [
+      "Marksman",
+      "Mage"
+    ]
+  },
+  "67": {
+    "name": "Vayne",
+    "id": "Vayne",
+    "title": "the Night Hunter",
+    "tags": [
+      "Marksman",
+      "Assassin"
+    ]
+  },
+  "45": {
+    "name": "Veigar",
+    "id": "Veigar",
+    "title": "the Tiny Master of Evil",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "161": {
+    "name": "Vel'Koz",
+    "id": "Velkoz",
+    "title": "the Eye of the Void",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "711": {
+    "name": "Vex",
+    "id": "Vex",
+    "title": "the Gloomist",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "254": {
+    "name": "Vi",
+    "id": "Vi",
+    "title": "the Piltover Enforcer",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "234": {
+    "name": "Viego",
+    "id": "Viego",
+    "title": "The Ruined King",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "112": {
+    "name": "Viktor",
+    "id": "Viktor",
+    "title": "the Herald of the Arcane",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "8": {
+    "name": "Vladimir",
+    "id": "Vladimir",
+    "title": "the Crimson Reaper",
+    "tags": [
+      "Mage",
+      "Fighter"
+    ]
+  },
+  "106": {
+    "name": "Volibear",
+    "id": "Volibear",
+    "title": "the Relentless Storm",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "19": {
+    "name": "Warwick",
+    "id": "Warwick",
+    "title": "the Uncaged Wrath of Zaun",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "498": {
+    "name": "Xayah",
+    "id": "Xayah",
+    "title": "the Rebel",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "101": {
+    "name": "Xerath",
+    "id": "Xerath",
+    "title": "the Magus Ascendant",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  },
+  "5": {
+    "name": "Xin Zhao",
+    "id": "XinZhao",
+    "title": "the Seneschal of Demacia",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "157": {
+    "name": "Yasuo",
+    "id": "Yasuo",
+    "title": "the Unforgiven",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "777": {
+    "name": "Yone",
+    "id": "Yone",
+    "title": "the Unforgotten",
+    "tags": [
+      "Fighter",
+      "Assassin"
+    ]
+  },
+  "83": {
+    "name": "Yorick",
+    "id": "Yorick",
+    "title": "Shepherd of Souls",
+    "tags": [
+      "Fighter",
+      "Tank"
+    ]
+  },
+  "804": {
+    "name": "Yunara",
+    "id": "Yunara",
+    "title": "the Unbroken Faith",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "350": {
+    "name": "Yuumi",
+    "id": "Yuumi",
+    "title": "the Magical Cat",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "154": {
+    "name": "Zac",
+    "id": "Zac",
+    "title": "the Secret Weapon",
+    "tags": [
+      "Tank",
+      "Fighter"
+    ]
+  },
+  "238": {
+    "name": "Zed",
+    "id": "Zed",
+    "title": "the Master of Shadows",
+    "tags": [
+      "Assassin"
+    ]
+  },
+  "221": {
+    "name": "Zeri",
+    "id": "Zeri",
+    "title": "The Spark of Zaun",
+    "tags": [
+      "Marksman"
+    ]
+  },
+  "115": {
+    "name": "Ziggs",
+    "id": "Ziggs",
+    "title": "the Hexplosives Expert",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "26": {
+    "name": "Zilean",
+    "id": "Zilean",
+    "title": "the Chronokeeper",
+    "tags": [
+      "Support",
+      "Mage"
+    ]
+  },
+  "142": {
+    "name": "Zoe",
+    "id": "Zoe",
+    "title": "the Aspect of Twilight",
+    "tags": [
+      "Mage"
+    ]
+  },
+  "143": {
+    "name": "Zyra",
+    "id": "Zyra",
+    "title": "Rise of the Thorns",
+    "tags": [
+      "Mage",
+      "Support"
+    ]
+  }
+}

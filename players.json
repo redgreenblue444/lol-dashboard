@@ -1,0 +1,25 @@
+{
+  "players": [
+    {
+      "id": "malzahar",
+      "riot_id": "Malzahar#USA",
+      "puuid": "ihmyWUBOo4pt7rzpE7BNmbehM2CGpgcoD0cu6dl0I2tiWJ3iHX3NyAC65kq8Cpq9wYOQQbe_sCeftw",
+      "display_name": "Malzahar#USA",
+      "region": "americas"
+    },
+    {
+      "id": "zyra",
+      "riot_id": "Zyra#USA",
+      "puuid": "LOxcL5PsKIzfhzdkrhJmVUodUBIcZ0i175oQ1kjpIOiwiKsTodi9mKsO2y5IyEiM0PzmcN-BJSz4wg",
+      "display_name": "Zyra#USA",
+      "region": "americas"
+    },
+    {
+      "id": "nautilus",
+      "riot_id": "Nautilus#USA",
+      "puuid": "WD6ZyrInHL8CLl6qbLbleYEOTvhfv859-LN6rS_rBcU6_a3-OFGsg-vwUwlNwMEdelJ1-Y22a-fqzg",
+      "display_name": "Nautilus#USA",
+      "region": "americas"
+    }
+  ]
+}

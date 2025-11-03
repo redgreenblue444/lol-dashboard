@@ -24,12 +24,135 @@ const AppData = {
         champion: 'all'
     },
     
+    // Date filters
+    dateFilters: {
+        startDate: null,
+        endDate: null,
+        timeBucket: 'monthly'
+    },
+    
+    // Player management
+    players: [],
+    currentPlayerId: null,
+    
     // Charts
     charts: {},
     
     // Data Dragon version (loaded from data)
     ddragonVersion: null
 };
+
+// ============================================================================
+// Player Management
+// ============================================================================
+
+async function loadPlayerList() {
+    // Load list of players from players.json
+    try {
+        const response = await fetch('players.json');
+        if (!response.ok) {
+            throw new Error('Failed to load players.json');
+        }
+        const data = await response.json();
+        AppData.players = data.players || [];
+        
+        // Populate custom checkbox dropdown
+        const dropdown = document.getElementById('playerDropdown');
+        dropdown.innerHTML = '';
+        
+        if (AppData.players.length === 0) {
+            dropdown.innerHTML = '<div class="player-dropdown-item">No players configured</div>';
+            document.getElementById('playerDropdownText').textContent = 'No players';
+            return false;
+        }
+        
+        // Add "Select All" checkbox
+        const selectAllDiv = document.createElement('div');
+        selectAllDiv.className = 'player-dropdown-item';
+        selectAllDiv.innerHTML = `
+            <input type="checkbox" id="selectAllPlayers" checked>
+            <label for="selectAllPlayers" class="cursor-pointer">Select All</label>
+        `;
+        dropdown.appendChild(selectAllDiv);
+        
+        // Add divider
+        const divider = document.createElement('div');
+        divider.className = 'player-dropdown-divider';
+        dropdown.appendChild(divider);
+        
+        // Add player checkboxes
+        AppData.players.forEach(player => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'player-dropdown-item';
+            itemDiv.innerHTML = `
+                <input type="checkbox" id="player-${player.id}" value="${player.id}" class="player-checkbox" checked>
+                <label for="player-${player.id}" class="cursor-pointer">${player.display_name}</label>
+            `;
+            dropdown.appendChild(itemDiv);
+        });
+        
+        // Setup dropdown toggle
+        const dropdownBtn = document.getElementById('playerDropdownBtn');
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('hidden');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && e.target !== dropdownBtn) {
+                dropdown.classList.add('hidden');
+            }
+        });
+        
+        // Setup Select All functionality
+        const selectAllCheckbox = document.getElementById('selectAllPlayers');
+        selectAllCheckbox.addEventListener('change', (e) => {
+            const checkboxes = document.querySelectorAll('.player-checkbox');
+            checkboxes.forEach(cb => cb.checked = e.target.checked);
+            updatePlayerDropdownText();
+        });
+        
+        // Update text when individual checkboxes change
+        const playerCheckboxes = document.querySelectorAll('.player-checkbox');
+        playerCheckboxes.forEach(cb => {
+            cb.addEventListener('change', () => {
+                updatePlayerDropdownText();
+                // Update Select All state
+                const allChecked = Array.from(playerCheckboxes).every(c => c.checked);
+                const noneChecked = Array.from(playerCheckboxes).every(c => !c.checked);
+                selectAllCheckbox.checked = allChecked;
+                selectAllCheckbox.indeterminate = !allChecked && !noneChecked;
+            });
+        });
+        
+        // Set initial text
+        updatePlayerDropdownText();
+        
+        return true;
+    } catch (error) {
+        console.error('Error loading player list:', error);
+        document.getElementById('playerDropdownText').textContent = 'Error loading players';
+        return false;
+    }
+}
+
+function updatePlayerDropdownText() {
+    const selected = getSelectedPlayers();
+    const total = AppData.players.length;
+    const text = selected.length === total 
+        ? `All Players (${total})` 
+        : selected.length === 0
+            ? 'No players selected'
+            : `${selected.length} of ${total} players`;
+    document.getElementById('playerDropdownText').textContent = text;
+}
+
+function getSelectedPlayers() {
+    // Get array of selected player IDs from checkboxes
+    const checkboxes = document.querySelectorAll('.player-checkbox:checked');
+    return Array.from(checkboxes).map(cb => cb.value);
+}
 
 // ============================================================================
 // Data Dragon Helper Functions
@@ -43,11 +166,49 @@ function getChampionIconUrl(championKey) {
     return '';  // Fallback to placeholder
 }
 
+function getChampionIconUrlById(championId, championName) {
+    // First try to find in our dimension table
+    const champion = Object.values(AppData.dimChampions).find(c => c.champion_id == championId);
+    if (champion && champion.icon_url) {
+        return champion.icon_url;
+    }
+    
+    // If not found, generate URL directly from champion name
+    // Data Dragon URL format: https://ddragon.leagueoflegends.com/cdn/VERSION/img/champion/CHAMPION_NAME.png
+    if (championName) {
+        // Use the latest version from any champion in our data
+        const sampleChamp = Object.values(AppData.dimChampions)[0];
+        if (sampleChamp && sampleChamp.icon_url) {
+            // Extract version from existing URL (e.g., "15.21.1" from the URL)
+            const versionMatch = sampleChamp.icon_url.match(/cdn\/([\d.]+)\//);
+            if (versionMatch) {
+                const version = versionMatch[1];
+                return `https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`;
+            }
+        }
+    }
+    
+    return '';  // Fallback to placeholder
+}
+
 function getItemIconUrl(itemKey) {
     const item = AppData.dimItems[itemKey];
     if (item && item.icon_url) {
         return item.icon_url;
     }
+    
+    // If not found, try to generate URL directly
+    if (itemKey && itemKey !== 0) {
+        const sampleItem = Object.values(AppData.dimItems)[0];
+        if (sampleItem && sampleItem.icon_url) {
+            const versionMatch = sampleItem.icon_url.match(/cdn\/([\d.]+)\//);
+            if (versionMatch) {
+                const version = versionMatch[1];
+                return `https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemKey}.png`;
+            }
+        }
+    }
+    
     return '';  // Fallback to placeholder
 }
 
@@ -55,6 +216,23 @@ function createChampionIcon(championKey, size = 40) {
     const iconUrl = getChampionIconUrl(championKey);
     const champion = AppData.dimChampions[championKey];
     const name = champion ? champion.champion_name : 'Unknown';
+    
+    if (iconUrl) {
+        return `<img src="${iconUrl}" alt="${name}" 
+                     class="w-${size} h-${size} rounded-full border-2 border-gray-600" 
+                     title="${name}" 
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%234b5563%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2220%22%3E${name.charAt(0)}%3C/text%3E%3C/svg%3E'">`;
+    }
+    
+    // Fallback: text initial
+    return `<div class="w-${size} h-${size} rounded-full bg-gray-600 flex items-center justify-center text-white font-bold" title="${name}">
+        ${name.charAt(0)}
+    </div>`;
+}
+
+function createChampionIconById(championId, championName, size = 40) {
+    const iconUrl = getChampionIconUrlById(championId, championName);
+    const name = championName || 'Unknown';
     
     if (iconUrl) {
         return `<img src="${iconUrl}" alt="${name}" 
@@ -79,14 +257,16 @@ function createItemIcon(itemKey, size = 8) {
     const name = item ? item.item_name : `Item ${itemKey}`;
     
     if (iconUrl) {
+        // Use data URI fallback that shows item ID if image fails
+        const fallbackSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23374151' width='32' height='32'/%3E%3Ctext x='16' y='18' text-anchor='middle' fill='white' font-size='10'%3E${itemKey}%3C/text%3E%3C/svg%3E`;
         return `<img src="${iconUrl}" alt="${name}" 
                      class="w-${size} h-${size} rounded border border-gray-600" 
                      title="${name}"
-                     onerror="this.style.display='none'">`;
+                     onerror="this.onerror=null; this.src='${fallbackSvg}'">`;
     }
     
-    // Fallback: empty box
-    return `<div class="w-${size} h-${size} bg-gray-700 rounded border border-gray-600" title="${name}"></div>`;
+    // Fallback: box with item ID
+    return `<div class="w-${size} h-${size} bg-gray-700 rounded border border-gray-600 flex items-center justify-center text-xs text-white" title="${name}" style="font-size: 8px;">${itemKey}</div>`;
 }
 
 // ============================================================================
@@ -106,55 +286,116 @@ async function loadCSV(filepath) {
     });
 }
 
-async function loadAllData() {
+async function loadAllData(playerIds) {
+    // Accept single player ID or array of player IDs
+    if (!playerIds || (Array.isArray(playerIds) && playerIds.length === 0)) {
+        throw new Error('At least one player ID is required');
+    }
+    
+    // Normalize to array
+    const playerIdArray = Array.isArray(playerIds) ? playerIds : [playerIds];
+    AppData.currentPlayerId = playerIdArray.join(',');
+    
+    // Reset data structures
+    AppData.factMatches = [];
+    AppData.dimChampions = {};
+    AppData.dimDates = {};
+    AppData.dimQueues = {};
+    AppData.dimRunes = {};
+    AppData.dimItems = {};
+    AppData.bridgeMatchItems = [];
+    AppData.dimMatchMetadata = {};
+    AppData.matchParticipants = {};
+    
     try {
-        updateLoadingStatus('Loading fact table...');
-        AppData.factMatches = await loadCSV('data/fact_matches.csv');
+        // Load data from all selected players
+        for (const playerId of playerIdArray) {
+            const dataPath = `data/${playerId}`;
+            
+            updateLoadingStatus(`Loading data for ${playerId}...`);
+            
+            // Load fact matches
+            const factMatches = await loadCSV(`${dataPath}/fact_matches.csv`);
+            AppData.factMatches = AppData.factMatches.concat(factMatches);
+            
+            // Load and merge champions (avoid duplicates)
+            const champions = await loadCSV(`${dataPath}/dim_champion.csv`);
+            champions.forEach(c => {
+                if (!AppData.dimChampions[c.champion_key]) {
+                    AppData.dimChampions[c.champion_key] = c;
+                }
+            });
+            
+            // Load and merge dates
+            const dates = await loadCSV(`${dataPath}/dim_date.csv`);
+            dates.forEach(d => {
+                if (!AppData.dimDates[d.date_key]) {
+                    AppData.dimDates[d.date_key] = d;
+                }
+            });
+            
+            // Load and merge queues
+            const queues = await loadCSV(`${dataPath}/dim_queue.csv`);
+            queues.forEach(q => {
+                if (!AppData.dimQueues[q.queue_key]) {
+                    AppData.dimQueues[q.queue_key] = q;
+                }
+            });
+            
+            // Load and merge runes
+            const runes = await loadCSV(`${dataPath}/dim_rune.csv`);
+            runes.forEach(r => {
+                if (!AppData.dimRunes[r.rune_key]) {
+                    AppData.dimRunes[r.rune_key] = r;
+                }
+            });
+            
+            // Load and merge items
+            const items = await loadCSV(`${dataPath}/dim_items.csv`);
+            items.forEach(i => {
+                if (!AppData.dimItems[i.item_key]) {
+                    AppData.dimItems[i.item_key] = i;
+                }
+            });
+            
+            // Load and concat bridge match items
+            const bridgeItems = await loadCSV(`${dataPath}/bridge_match_items.csv`);
+            AppData.bridgeMatchItems = AppData.bridgeMatchItems.concat(bridgeItems);
+            
+            // Load and merge match metadata
+            const metadata = await loadCSV(`${dataPath}/dim_match_metadata.csv`);
+            metadata.forEach(m => {
+                if (!AppData.dimMatchMetadata[m.match_key]) {
+                    AppData.dimMatchMetadata[m.match_key] = m;
+                }
+            });
+            
+            // Load and process participants
+            const participants = await loadCSV(`${dataPath}/bridge_match_participants.csv`);
+            participants.forEach(p => {
+                if (!AppData.matchParticipants[p.match_key]) {
+                    AppData.matchParticipants[p.match_key] = [];
+                }
+                // Parse items JSON string
+                if (p.items && typeof p.items === 'string') {
+                    p.items = JSON.parse(p.items);
+                }
+                AppData.matchParticipants[p.match_key].push(p);
+            });
+        }
         
-        updateLoadingStatus('Loading champion data...');
-        const champions = await loadCSV('data/dim_champion.csv');
-        champions.forEach(c => AppData.dimChampions[c.champion_key] = c);
+        // Validate that we have match data
+        if (!AppData.factMatches || AppData.factMatches.length === 0) {
+            throw new Error(`No matches found for selected player(s). Players may not have any games in queues 400 (Draft Normal) or 420 (Ranked Solo/Duo) during 2024-2025, or extraction may have failed.`);
+        }
         
-        updateLoadingStatus('Loading date data...');
-        const dates = await loadCSV('data/dim_date.csv');
-        dates.forEach(d => AppData.dimDates[d.date_key] = d);
-        
-        updateLoadingStatus('Loading queue data...');
-        const queues = await loadCSV('data/dim_queue.csv');
-        queues.forEach(q => AppData.dimQueues[q.queue_key] = q);
-        
-        updateLoadingStatus('Loading rune data...');
-        const runes = await loadCSV('data/dim_rune.csv');
-        runes.forEach(r => AppData.dimRunes[r.rune_key] = r);
-        
-        updateLoadingStatus('Loading item data...');
-        const items = await loadCSV('data/dim_items.csv');
-        items.forEach(i => AppData.dimItems[i.item_key] = i);
-        
-        updateLoadingStatus('Loading match items...');
-        AppData.bridgeMatchItems = await loadCSV('data/bridge_match_items.csv');
-        
-        updateLoadingStatus('Loading match metadata...');
-        const metadata = await loadCSV('data/dim_match_metadata.csv');
-        metadata.forEach(m => AppData.dimMatchMetadata[m.match_key] = m);
-        
-        updateLoadingStatus('Loading participants...');
-        const participants = await loadCSV('data/bridge_match_participants.csv');
-        participants.forEach(p => {
-            if (!AppData.matchParticipants[p.match_key]) {
-                AppData.matchParticipants[p.match_key] = [];
-            }
-            // Parse items JSON string
-            if (p.items && typeof p.items === 'string') {
-                p.items = JSON.parse(p.items);
-            }
-            AppData.matchParticipants[p.match_key].push(p);
-        });
+        updateLoadingStatus(`Loaded ${AppData.factMatches.length} total matches from ${playerIdArray.length} player(s)...`);
         
         updateLoadingStatus('Joining data...');
         enrichMatchData();
         
         updateLoadingStatus('Complete!');
+        initializeDateFilters(); // Initialize date filters with default 30-day range
         return true;
     } catch (error) {
         console.error('Error loading data:', error);
@@ -170,14 +411,26 @@ function enrichMatchData() {
         const queue = AppData.dimQueues[fact.queue_key] || {};
         const metadata = AppData.dimMatchMetadata[fact.match_key] || {};
         
+        // Get rune information with full details
+        const runes = AppData.dimRunes[fact.rune_key] || {};
+        
+        // Build combined rune names
+        const primaryStyle = runes.primary_style_name || 'Unknown';
+        const secondaryStyle = runes.sub_style_name || 'Unknown';
+        
         // Get items for this match
         const matchItems = AppData.bridgeMatchItems
             .filter(b => b.match_key === fact.match_key)
             .sort((a, b) => a.item_position - b.item_position)
             .map(b => b.item_key);
         
+        // Recalculate KDA with correct formula: (Kills + Assists) / Deaths (use 1 if deaths is 0)
+        const deaths = fact.deaths === 0 ? 1 : fact.deaths;
+        const kda = ((fact.kills + fact.assists) / deaths).toFixed(2);
+        
         return {
             ...fact,
+            kda: parseFloat(kda), // Override KDA with correct calculation
             champion_name: champion.champion_name,
             champion_id: champion.champion_id,
             role: champion.role,
@@ -189,7 +442,30 @@ function enrichMatchData() {
             hour_of_day: date.hour_of_day,
             match_id: metadata.match_id,
             timestamp: metadata.timestamp,
-            items: matchItems
+            items: matchItems,
+            // Add rune information
+            rune_primary: primaryStyle,
+            rune_secondary: secondaryStyle,
+            rune_combo: `${primaryStyle} / ${secondaryStyle}`,
+            // Add detailed rune data
+            keystone_id: runes.keystone_id,
+            keystone_name: runes.keystone_name,
+            keystone_icon: runes.keystone_icon,
+            primary_rune2_id: runes.primary_rune2_id,
+            primary_rune2_name: runes.primary_rune2_name,
+            primary_rune2_icon: runes.primary_rune2_icon,
+            primary_rune3_id: runes.primary_rune3_id,
+            primary_rune3_name: runes.primary_rune3_name,
+            primary_rune3_icon: runes.primary_rune3_icon,
+            primary_rune4_id: runes.primary_rune4_id,
+            primary_rune4_name: runes.primary_rune4_name,
+            primary_rune4_icon: runes.primary_rune4_icon,
+            secondary_rune1_id: runes.secondary_rune1_id,
+            secondary_rune1_name: runes.secondary_rune1_name,
+            secondary_rune1_icon: runes.secondary_rune1_icon,
+            secondary_rune2_id: runes.secondary_rune2_id,
+            secondary_rune2_name: runes.secondary_rune2_name,
+            secondary_rune2_icon: runes.secondary_rune2_icon
         };
     });
     
@@ -211,6 +487,17 @@ function updateLoadingStatus(message) {
 function getFilteredMatches() {
     let matches = [...AppData.enrichedMatches];
     
+    // Apply date range filter FIRST (before time period filter)
+    if (AppData.dateFilters.startDate && AppData.dateFilters.endDate) {
+        const startTime = AppData.dateFilters.startDate.getTime();
+        const endTime = AppData.dateFilters.endDate.getTime() + (24 * 60 * 60 * 1000); // Include end date
+        
+        matches = matches.filter(m => {
+            const matchTime = m.timestamp;
+            return matchTime >= startTime && matchTime < endTime;
+        });
+    }
+    
     // Apply time period filter
     if (AppData.filters.timePeriod !== 'all') {
         const limit = parseInt(AppData.filters.timePeriod);
@@ -229,6 +516,133 @@ function getFilteredMatches() {
     }
     
     return matches;
+}
+
+// ============================================================================
+// Date Filter Functions
+// ============================================================================
+
+function initializeDateFilters() {
+    // Set default: 2024-01-01 to today
+    const endDate = new Date();
+    const startDate = new Date('2024-01-01');
+    
+    document.getElementById('startDate').valueAsDate = startDate;
+    document.getElementById('endDate').valueAsDate = endDate;
+    document.getElementById('timeBucket').value = 'monthly';
+    
+    AppData.dateFilters.startDate = startDate;
+    AppData.dateFilters.endDate = endDate;
+    AppData.dateFilters.timeBucket = 'monthly';
+    
+    // Attach event listeners
+    document.getElementById('applyDateFilters').addEventListener('click', applyDateFilters);
+    document.getElementById('resetDateFilters').addEventListener('click', resetDateFilters);
+}
+
+function applyDateFilters() {
+    const startInput = document.getElementById('startDate');
+    const endInput = document.getElementById('endDate');
+    
+    AppData.dateFilters.startDate = startInput.valueAsDate;
+    AppData.dateFilters.endDate = endInput.valueAsDate;
+    AppData.dateFilters.timeBucket = document.getElementById('timeBucket').value;
+    
+    // Refresh all visualizations
+    refreshDashboard();
+}
+
+function resetDateFilters() {
+    const endDate = new Date();
+    const startDate = new Date('2024-01-01');
+    
+    document.getElementById('startDate').valueAsDate = startDate;
+    document.getElementById('endDate').valueAsDate = endDate;
+    document.getElementById('timeBucket').value = 'monthly';
+    
+    applyDateFilters();
+}
+
+// Time bucketing aggregation function
+function aggregateMatchesByTimeBucket(matches, bucket) {
+    if (matches.length === 0) return { buckets: [], individual: [] };
+    
+    // Sort by timestamp
+    const sorted = [...matches].sort((a, b) => a.timestamp - b.timestamp);
+    
+    // Create buckets
+    const bucketMap = new Map();
+    
+    sorted.forEach(match => {
+        const date = new Date(match.timestamp);
+        let bucketKey;
+        
+        switch(bucket) {
+            case 'daily':
+                bucketKey = date.toISOString().split('T')[0]; // YYYY-MM-DD
+                break;
+            case 'weekly':
+                const weekStart = new Date(date);
+                weekStart.setDate(date.getDate() - date.getDay());
+                bucketKey = weekStart.toISOString().split('T')[0];
+                break;
+            case 'monthly':
+                bucketKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+                break;
+            case 'quarterly':
+                const quarter = Math.floor(date.getMonth() / 3) + 1;
+                bucketKey = `${date.getFullYear()}-Q${quarter}`;
+                break;
+            case 'yearly':
+                bucketKey = `${date.getFullYear()}`;
+                break;
+            default:
+                bucketKey = date.toISOString().split('T')[0];
+        }
+        
+        if (!bucketMap.has(bucketKey)) {
+            bucketMap.set(bucketKey, []);
+        }
+        bucketMap.get(bucketKey).push(match);
+    });
+    
+    // Calculate aggregated metrics for each bucket
+    const buckets = Array.from(bucketMap.entries()).map(([key, matches]) => {
+        const totalGames = matches.length;
+        const wins = matches.filter(m => m.win).length;
+        
+        return {
+            date: key,
+            timestamp: matches[0].timestamp, // Use first match timestamp
+            games: totalGames,
+            winRate: (wins / totalGames * 100).toFixed(1),
+            avgKDA: (matches.reduce((sum, m) => sum + m.kda, 0) / totalGames).toFixed(2),
+            avgKills: (matches.reduce((sum, m) => sum + m.kills, 0) / totalGames).toFixed(1),
+            avgDeaths: (matches.reduce((sum, m) => sum + m.deaths, 0) / totalGames).toFixed(1),
+            avgAssists: (matches.reduce((sum, m) => sum + m.assists, 0) / totalGames).toFixed(1),
+            avgKP: (matches.reduce((sum, m) => sum + (m.kill_participation * 100), 0) / totalGames).toFixed(1),
+            avgGoldPerMin: (matches.reduce((sum, m) => sum + m.gold_per_minute, 0) / totalGames).toFixed(0),
+            avgCSPerMin: (matches.reduce((sum, m) => sum + m.cs_per_minute, 0) / totalGames).toFixed(1),
+            avgVision: (matches.reduce((sum, m) => sum + m.vision_score, 0) / totalGames).toFixed(0),
+            matches: matches // Keep individual matches for tooltip
+        };
+    });
+    
+    return {
+        buckets: buckets,
+        individual: sorted
+    };
+}
+
+function getTimeUnit(bucket) {
+    const units = {
+        daily: 'day',
+        weekly: 'week',
+        monthly: 'month',
+        quarterly: 'quarter',
+        yearly: 'year'
+    };
+    return units[bucket] || 'day';
 }
 
 // ============================================================================
@@ -585,16 +999,16 @@ function createMatchDetailsRow(match) {
         <tr class="match-details hidden" id="details-${match.match_key}">
             <td colspan="11" class="px-0 py-0">
                 <div class="p-4 bg-gray-800">
-                    ${renderTeamScoreboard(blueTeam, 'BLUE TEAM', match)}
+                    ${renderTeamScoreboard(blueTeam, 'BLUE TEAM', match, participants)}
                     <div class="my-3 border-t border-gray-600"></div>
-                    ${renderTeamScoreboard(redTeam, 'RED TEAM', match)}
+                    ${renderTeamScoreboard(redTeam, 'RED TEAM', match, participants)}
                 </div>
             </td>
         </tr>
     `;
 }
 
-function renderTeamScoreboard(team, teamName, match) {
+function renderTeamScoreboard(team, teamName, match, allParticipants) {
     const teamWon = team[0].win === 1;
     const teamColor = teamName.startsWith('BLUE') ? 'text-blue-400' : 'text-red-400';
     
@@ -603,25 +1017,27 @@ function renderTeamScoreboard(team, teamName, match) {
             <div class="team-header ${teamColor}">
                 ${teamName} ${teamWon ? '(VICTORY)' : '(DEFEAT)'}
             </div>
-            ${team.map(p => renderParticipantRow(p, match)).join('')}
+            ${team.map(p => renderParticipantRow(p, match, allParticipants)).join('')}
         </div>
     `;
 }
 
-function renderParticipantRow(participant, match) {
+function renderParticipantRow(participant, match, allParticipants) {
     const isPlayer = participant.is_player === 1;
     const playerClass = isPlayer ? 'player' : '';
     
-    // Calculate badges
-    const badges = BadgeSystem.calculateBadges(participant, match);
-    const topBadges = badges.slice(0, 5); // Show top 5 badges
-    
-    // Build badge HTML
-    const badgeHTML = topBadges.map(badge => {
-        const badgeClass = badge.priority <= 2 ? 'badge-gold' : 
-                          badge.priority <= 4 ? 'badge-silver' : 'badge-bronze';
-        return `<span class="badge ${badgeClass}" title="${badge.description}">${badge.icon} ${badge.name}</span>`;
-    }).join('');
+    // Calculate badges (with safety check)
+    let badgeHTML = '';
+    if (typeof BadgeSystem !== 'undefined') {
+        const badgeKeys = BadgeSystem.calculateBadges(participant, allParticipants);
+        const topBadges = BadgeSystem.getTopBadges(badgeKeys, 5); // Get top 5 badge objects
+        
+        // Use BadgeSystem.renderBadge() for consistent tooltip behavior
+        badgeHTML = topBadges.map(badge => BadgeSystem.renderBadge(badge)).join('');
+    } else {
+        console.error('BadgeSystem is not defined! Make sure badges.js loads before data-loader.js');
+        badgeHTML = '<span class="text-gray-500 text-xs">Badges unavailable</span>';
+    }
     
     // Get item icons
     const itemIcons = (participant.items || []).slice(0, 7).map(itemKey => 
@@ -630,16 +1046,14 @@ function renderParticipantRow(participant, match) {
     
     return `
         <div class="participant-row ${playerClass}">
-            <div style="min-width: 150px;">
-                <div class="flex items-center gap-2">
-                    ${createChampionIcon(participant.champion_id, 8)}
-                    <div>
-                        <div class="font-medium text-sm">
-                            ${participant.summoner_name || participant.riot_id_game_name || 'Unknown'}
-                            ${isPlayer ? '<span class="text-blue-400 font-bold ml-2">(YOU)</span>' : ''}
-                        </div>
-                        <div class="text-xs text-gray-400">${participant.team_position}</div>
+            <div class="flex items-center gap-2">
+                ${createChampionIconById(participant.champion_id, participant.champion_name, 8)}
+                <div>
+                    <div class="font-medium text-sm">
+                        ${participant.summoner_name || participant.riot_id_game_name || 'Unknown'}
+                        ${isPlayer ? '<span class="text-blue-400 font-bold ml-2">(YOU)</span>' : ''}
                     </div>
+                    <div class="text-xs text-gray-400">${participant.team_position}</div>
                 </div>
             </div>
             
@@ -680,13 +1094,11 @@ function renderParticipantRow(participant, match) {
                 </div>
             </div>
             
-            <div style="min-width: 100px;">
-                <div class="flex gap-0.5 mb-1">
-                    ${itemIcons}
-                </div>
+            <div class="item-container">
+                ${itemIcons}
             </div>
             
-            <div style="min-width: 300px;">
+            <div class="badge-container">
                 ${badgeHTML || '<span class="text-gray-500 text-xs">No badges</span>'}
             </div>
         </div>
@@ -744,18 +1156,183 @@ function updateInsightsSection() {
     `).join('') || '<div class="text-gray-500">Not enough data for insights</div>';
 }
 
+function updateItemSection() {
+    const matches = getFilteredMatches();
+    
+    // Group items by match and count frequency
+    const itemCombos = {};
+    
+    matches.forEach(m => {
+        if (m.items && m.items.length > 0) {
+            // Get final build (last 6 items, excluding trinkets)
+            const build = m.items.filter(item => item !== 0).slice(0, 6);
+            if (build.length >= 3) {
+                const buildKey = build.sort((a, b) => a - b).join('-');
+                if (!itemCombos[buildKey]) {
+                    itemCombos[buildKey] = {
+                        items: build,
+                        count: 0,
+                        wins: 0,
+                        champion: m.champion_name
+                    };
+                }
+                itemCombos[buildKey].count++;
+                if (m.win) itemCombos[buildKey].wins++;
+            }
+        }
+    });
+    
+    // Sort by frequency and get top 5
+    const topBuilds = Object.values(itemCombos)
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 5);
+    
+    const itemBuildsHTML = topBuilds.map(build => {
+        const winRate = ((build.wins / build.count) * 100).toFixed(1);
+        const itemIcons = build.items.map(itemKey => createItemIcon(itemKey, 10)).join('');
+        
+        return `
+            <div class="flex items-center justify-between p-3 bg-gray-700 rounded">
+                <div class="flex items-center gap-3">
+                    <div class="flex gap-1">
+                        ${itemIcons}
+                    </div>
+                    <span class="text-sm text-gray-400">${build.champion}</span>
+                </div>
+                <div class="text-right">
+                    <div class="text-white font-semibold">${winRate}% WR</div>
+                    <div class="text-xs text-gray-400">${build.count} games</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    document.getElementById('itemBuilds').innerHTML = itemBuildsHTML || 
+        '<div class="text-gray-500 text-center py-8">No item build data available</div>';
+}
+
+function updateRuneSection() {
+    const matches = getFilteredMatches();
+    
+    // Group by rune setup (using keystone + all runes as unique identifier)
+    const runeSetups = {};
+    
+    matches.forEach(m => {
+        if (m.keystone_name && m.rune_primary) {
+            const key = `${m.keystone_name}-${m.rune_combo}`; // Unique key for this rune setup
+            if (!runeSetups[key]) {
+                runeSetups[key] = {
+                    primary: m.rune_primary,
+                    secondary: m.rune_secondary,
+                    keystone_name: m.keystone_name,
+                    keystone_icon: m.keystone_icon,
+                    primary_rune2_name: m.primary_rune2_name,
+                    primary_rune2_icon: m.primary_rune2_icon,
+                    primary_rune3_name: m.primary_rune3_name,
+                    primary_rune3_icon: m.primary_rune3_icon,
+                    primary_rune4_name: m.primary_rune4_name,
+                    primary_rune4_icon: m.primary_rune4_icon,
+                    secondary_rune1_name: m.secondary_rune1_name,
+                    secondary_rune1_icon: m.secondary_rune1_icon,
+                    secondary_rune2_name: m.secondary_rune2_name,
+                    secondary_rune2_icon: m.secondary_rune2_icon,
+                    count: 0,
+                    wins: 0
+                };
+            }
+            runeSetups[key].count++;
+            if (m.win) runeSetups[key].wins++;
+        }
+    });
+    
+    // Sort by frequency and get top 6
+    const topRunes = Object.values(runeSetups)
+        .filter(setup => setup.primary !== 'Unknown')
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 6);
+    
+    if (topRunes.length === 0) {
+        document.getElementById('runeSetups').innerHTML = 
+            '<div class="text-gray-500 text-center py-8 col-span-3">No rune data available</div>';
+        return;
+    }
+    
+    const runeSetupsHTML = topRunes.map(setup => {
+        const winRate = ((setup.wins / setup.count) * 100).toFixed(1);
+        const winColor = parseFloat(winRate) >= 50 ? 'text-green-400' : 'text-red-400';
+        const secondaryText = setup.secondary === 'None' ? '<span class="italic">No Secondary</span>' : setup.secondary;
+        
+        // Build primary runes display (keystone is larger, other 3 runes smaller)
+        const primaryRunesHTML = `
+            <div class="flex items-center gap-2 mb-2">
+                <img src="${setup.keystone_icon}" alt="${setup.keystone_name}" 
+                     class="w-10 h-10 rounded border border-gray-600" 
+                     title="${setup.keystone_name}">
+                <div class="flex flex-col justify-center">
+                    <span class="text-xs font-semibold text-white">${setup.keystone_name}</span>
+                    <span class="text-xs text-gray-400">${setup.primary}</span>
+                </div>
+            </div>
+            <div class="flex gap-1 mb-3">
+                ${setup.primary_rune2_icon && setup.primary_rune2_name !== 'None' ? 
+                    `<img src="${setup.primary_rune2_icon}" alt="${setup.primary_rune2_name}" 
+                          class="w-6 h-6 rounded border border-gray-700" 
+                          title="${setup.primary_rune2_name}">` : ''}
+                ${setup.primary_rune3_icon && setup.primary_rune3_name !== 'None' ? 
+                    `<img src="${setup.primary_rune3_icon}" alt="${setup.primary_rune3_name}" 
+                          class="w-6 h-6 rounded border border-gray-700" 
+                          title="${setup.primary_rune3_name}">` : ''}
+                ${setup.primary_rune4_icon && setup.primary_rune4_name !== 'None' ? 
+                    `<img src="${setup.primary_rune4_icon}" alt="${setup.primary_rune4_name}" 
+                          class="w-6 h-6 rounded border border-gray-700" 
+                          title="${setup.primary_rune4_name}">` : ''}
+            </div>
+        `;
+        
+        // Build secondary runes display
+        const secondaryRunesHTML = setup.secondary !== 'None' ? `
+            <div class="mb-2">
+                <span class="text-xs text-gray-400">${secondaryText}</span>
+            </div>
+            <div class="flex gap-1 mb-2">
+                ${setup.secondary_rune1_icon && setup.secondary_rune1_name !== 'None' ? 
+                    `<img src="${setup.secondary_rune1_icon}" alt="${setup.secondary_rune1_name}" 
+                          class="w-6 h-6 rounded border border-gray-700" 
+                          title="${setup.secondary_rune1_name}">` : ''}
+                ${setup.secondary_rune2_icon && setup.secondary_rune2_name !== 'None' ? 
+                    `<img src="${setup.secondary_rune2_icon}" alt="${setup.secondary_rune2_name}" 
+                          class="w-6 h-6 rounded border border-gray-700" 
+                          title="${setup.secondary_rune2_name}">` : ''}
+            </div>
+        ` : `<div class="mb-2"><span class="text-xs text-gray-400 italic">${secondaryText}</span></div>`;
+        
+        return `
+            <div class="p-4 bg-gray-700 rounded">
+                ${primaryRunesHTML}
+                ${secondaryRunesHTML}
+                <div class="flex justify-between items-center pt-2 border-t border-gray-600">
+                    <span class="text-xs text-gray-400">${setup.count} games</span>
+                    <span class="font-semibold ${winColor}">${winRate}% WR</span>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    document.getElementById('runeSetups').innerHTML = runeSetupsHTML;
+}
+
 // ============================================================================
 // Chart Functions
 // ============================================================================
 
 function createWinRateChart() {
     const matches = getFilteredMatches();
-    const chartData = matches.slice(0, 20).reverse().map((m, i) => {
-        // Calculate rolling win rate for last N games
-        const recent = matches.slice(i, i + 10);
-        const wins = recent.filter(m => m.win).length;
-        return (wins / recent.length * 100).toFixed(1);
-    });
+    if (matches.length === 0) return;
+    
+    const { buckets } = aggregateMatchesByTimeBucket(
+        matches, 
+        AppData.dateFilters.timeBucket
+    );
     
     const ctx = document.getElementById('winRateChart').getContext('2d');
     
@@ -763,33 +1340,78 @@ function createWinRateChart() {
         AppData.charts.winRate.destroy();
     }
     
+    // Aggregated trend line
+    const trendPoints = buckets.map(b => ({
+        x: new Date(b.timestamp),
+        y: parseFloat(b.winRate),
+        bucket: b // Store bucket data for tooltip
+    }));
+    
     AppData.charts.winRate = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: chartData.map((_, i) => `Game ${i + 1}`),
-            datasets: [{
-                label: 'Rolling Win Rate (10 games)',
-                data: chartData,
-                borderColor: '#22c55e',
-                backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
+            datasets: [
+                {
+                    label: `Win Rate (${AppData.dateFilters.timeBucket})`,
+                    data: trendPoints,
+                    borderColor: '#22c55e',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: true
+            },
             plugins: {
-                legend: { labels: { color: '#fff' } }
+                legend: { labels: { color: '#fff' } },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            const dataPoint = context[0].raw;
+                            return new Date(dataPoint.x).toLocaleDateString();
+                        },
+                        label: (context) => {
+                            const dataPoint = context[0].raw;
+                            const b = dataPoint.bucket;
+                            return [
+                                `Win Rate: ${b.winRate}%`,
+                                `Games: ${b.games}`,
+                                `Avg KDA: ${b.avgKDA}`
+                            ];
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
                     beginAtZero: true,
                     max: 100,
-                    ticks: { color: '#9ca3af' },
+                    ticks: { 
+                        color: '#9ca3af',
+                        callback: (value) => value + '%'
+                    },
                     grid: { color: '#374151' }
                 },
                 x: {
+                    type: 'time',
+                    time: {
+                        unit: getTimeUnit(AppData.dateFilters.timeBucket),
+                        displayFormats: {
+                            day: 'MMM d',
+                            week: 'MMM d',
+                            month: 'MMM yyyy',
+                            quarter: 'QQQ yyyy',
+                            year: 'yyyy'
+                        }
+                    },
                     ticks: { color: '#9ca3af' },
                     grid: { color: '#374151' }
                 }
@@ -799,7 +1421,13 @@ function createWinRateChart() {
 }
 
 function createKDAChart() {
-    const matches = getFilteredMatches().slice(0, 20).reverse();
+    const matches = getFilteredMatches();
+    if (matches.length === 0) return;
+    
+    const { buckets } = aggregateMatchesByTimeBucket(
+        matches, 
+        AppData.dateFilters.timeBucket
+    );
     
     const ctx = document.getElementById('kdaChart').getContext('2d');
     
@@ -807,36 +1435,53 @@ function createKDAChart() {
         AppData.charts.kda.destroy();
     }
     
+    // KDA trend line - only show the calculated KDA ratio
+    const trendKDA = buckets.map(b => ({ x: new Date(b.timestamp), y: parseFloat(b.avgKDA), bucket: b }));
+    
     AppData.charts.kda = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: matches.map((_, i) => `Game ${i + 1}`),
             datasets: [
                 {
-                    label: 'Kills',
-                    data: matches.map(m => m.kills),
-                    borderColor: '#22c55e',
-                    backgroundColor: 'rgba(34, 197, 94, 0.1)'
-                },
-                {
-                    label: 'Deaths',
-                    data: matches.map(m => m.deaths),
-                    borderColor: '#ef4444',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)'
-                },
-                {
-                    label: 'Assists',
-                    data: matches.map(m => m.assists),
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)'
+                    label: 'KDA',
+                    data: trendKDA,
+                    borderColor: '#a855f7',
+                    backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    fill: true
                 }
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: true
+            },
             plugins: {
-                legend: { labels: { color: '#fff' } }
+                legend: { labels: { color: '#fff' } },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            const dataPoint = context[0].raw;
+                            return new Date(dataPoint.x).toLocaleDateString();
+                        },
+                        label: (context) => {
+                            const dataPoint = context[0].raw;
+                            const b = dataPoint.bucket;
+                            return [
+                                `KDA Ratio: ${dataPoint.y}`,
+                                `Games: ${b.games}`,
+                                `Avg Kills: ${b.avgKills}`,
+                                `Avg Deaths: ${b.avgDeaths}`,
+                                `Avg Assists: ${b.avgAssists}`
+                            ];
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
@@ -845,6 +1490,17 @@ function createKDAChart() {
                     grid: { color: '#374151' }
                 },
                 x: {
+                    type: 'time',
+                    time: {
+                        unit: getTimeUnit(AppData.dateFilters.timeBucket),
+                        displayFormats: {
+                            day: 'MMM d',
+                            week: 'MMM d',
+                            month: 'MMM yyyy',
+                            quarter: 'QQQ yyyy',
+                            year: 'yyyy'
+                        }
+                    },
                     ticks: { color: '#9ca3af' },
                     grid: { color: '#374151' }
                 }
@@ -951,7 +1607,13 @@ function createDamageChart() {
 }
 
 function createKillParticipationChart() {
-    const matches = getFilteredMatches().slice(0, 20).reverse();
+    const matches = getFilteredMatches();
+    if (matches.length === 0) return;
+    
+    const { buckets } = aggregateMatchesByTimeBucket(
+        matches, 
+        AppData.dateFilters.timeBucket
+    );
     
     const ctx = document.getElementById('killParticipationChart').getContext('2d');
     
@@ -959,33 +1621,78 @@ function createKillParticipationChart() {
         AppData.charts.killParticipation.destroy();
     }
     
+    // Aggregated trend line
+    const trendPoints = buckets.map(b => ({
+        x: new Date(b.timestamp),
+        y: parseFloat(b.avgKP),
+        bucket: b
+    }));
+    
     AppData.charts.killParticipation = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: matches.map((_, i) => `Game ${i + 1}`),
-            datasets: [{
-                label: 'Kill Participation %',
-                data: matches.map(m => (m.kill_participation * 100).toFixed(1)),
-                borderColor: '#8b5cf6',
-                backgroundColor: 'rgba(139, 92, 246, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
+            datasets: [
+                {
+                    label: `Kill Participation (${AppData.dateFilters.timeBucket})`,
+                    data: trendPoints,
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: true
+            },
             plugins: {
-                legend: { labels: { color: '#fff' } }
+                legend: { labels: { color: '#fff' } },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            const dataPoint = context[0].raw;
+                            return new Date(dataPoint.x).toLocaleDateString();
+                        },
+                        label: (context) => {
+                            const dataPoint = context[0].raw;
+                            const b = dataPoint.bucket;
+                            return [
+                                `Avg KP: ${dataPoint.y}%`,
+                                `Games: ${b.games}`,
+                                `Win Rate: ${b.winRate}%`
+                            ];
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
                     beginAtZero: true,
                     max: 100,
-                    ticks: { color: '#9ca3af' },
+                    ticks: { 
+                        color: '#9ca3af',
+                        callback: (value) => value + '%'
+                    },
                     grid: { color: '#374151' }
                 },
                 x: {
+                    type: 'time',
+                    time: {
+                        unit: getTimeUnit(AppData.dateFilters.timeBucket),
+                        displayFormats: {
+                            day: 'MMM d',
+                            week: 'MMM d',
+                            month: 'MMM yyyy',
+                            quarter: 'QQQ yyyy',
+                            year: 'yyyy'
+                        }
+                    },
                     ticks: { color: '#9ca3af' },
                     grid: { color: '#374151' }
                 }
@@ -995,7 +1702,13 @@ function createKillParticipationChart() {
 }
 
 function createGoldChart() {
-    const matches = getFilteredMatches().slice(0, 20).reverse();
+    const matches = getFilteredMatches();
+    if (matches.length === 0) return;
+    
+    const { buckets } = aggregateMatchesByTimeBucket(
+        matches, 
+        AppData.dateFilters.timeBucket
+    );
     
     const ctx = document.getElementById('goldChart').getContext('2d');
     
@@ -1003,24 +1716,55 @@ function createGoldChart() {
         AppData.charts.gold.destroy();
     }
     
+    // Aggregated trend line
+    const trendPoints = buckets.map(b => ({
+        x: new Date(b.timestamp),
+        y: parseFloat(b.avgGoldPerMin),
+        bucket: b
+    }));
+    
     AppData.charts.gold = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: matches.map((_, i) => `Game ${i + 1}`),
-            datasets: [{
-                label: 'Gold per Minute',
-                data: matches.map(m => m.gold_per_minute),
-                borderColor: '#fbbf24',
-                backgroundColor: 'rgba(251, 191, 36, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
+            datasets: [
+                {
+                    label: `Gold per Minute (${AppData.dateFilters.timeBucket})`,
+                    data: trendPoints,
+                    borderColor: '#fbbf24',
+                    backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: true
+            },
             plugins: {
-                legend: { labels: { color: '#fff' } }
+                legend: { labels: { color: '#fff' } },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            const dataPoint = context[0].raw;
+                            return new Date(dataPoint.x).toLocaleDateString();
+                        },
+                        label: (context) => {
+                            const dataPoint = context[0].raw;
+                            const b = dataPoint.bucket;
+                            return [
+                                `Avg Gold/Min: ${dataPoint.y}`,
+                                `Games: ${b.games}`,
+                                `Win Rate: ${b.winRate}%`
+                            ];
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
@@ -1029,6 +1773,17 @@ function createGoldChart() {
                     grid: { color: '#374151' }
                 },
                 x: {
+                    type: 'time',
+                    time: {
+                        unit: getTimeUnit(AppData.dateFilters.timeBucket),
+                        displayFormats: {
+                            day: 'MMM d',
+                            week: 'MMM d',
+                            month: 'MMM yyyy',
+                            quarter: 'QQQ yyyy',
+                            year: 'yyyy'
+                        }
+                    },
                     ticks: { color: '#9ca3af' },
                     grid: { color: '#374151' }
                 }
@@ -1038,7 +1793,13 @@ function createGoldChart() {
 }
 
 function createCSChart() {
-    const matches = getFilteredMatches().slice(0, 20).reverse();
+    const matches = getFilteredMatches();
+    if (matches.length === 0) return;
+    
+    const { buckets } = aggregateMatchesByTimeBucket(
+        matches, 
+        AppData.dateFilters.timeBucket
+    );
     
     const ctx = document.getElementById('csChart').getContext('2d');
     
@@ -1046,24 +1807,55 @@ function createCSChart() {
         AppData.charts.cs.destroy();
     }
     
+    // Aggregated trend line
+    const trendPoints = buckets.map(b => ({
+        x: new Date(b.timestamp),
+        y: parseFloat(b.avgCSPerMin),
+        bucket: b
+    }));
+    
     AppData.charts.cs = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: matches.map((_, i) => `Game ${i + 1}`),
-            datasets: [{
-                label: 'CS per Minute',
-                data: matches.map(m => m.cs_per_minute),
-                borderColor: '#a78bfa',
-                backgroundColor: 'rgba(167, 139, 250, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
+            datasets: [
+                {
+                    label: `CS per Minute (${AppData.dateFilters.timeBucket})`,
+                    data: trendPoints,
+                    borderColor: '#a78bfa',
+                    backgroundColor: 'rgba(167, 139, 250, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: true
+            },
             plugins: {
-                legend: { labels: { color: '#fff' } }
+                legend: { labels: { color: '#fff' } },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            const dataPoint = context[0].raw;
+                            return new Date(dataPoint.x).toLocaleDateString();
+                        },
+                        label: (context) => {
+                            const dataPoint = context[0].raw;
+                            const b = dataPoint.bucket;
+                            return [
+                                `Avg CS/Min: ${dataPoint.y}`,
+                                `Games: ${b.games}`,
+                                `Win Rate: ${b.winRate}%`
+                            ];
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
@@ -1072,6 +1864,17 @@ function createCSChart() {
                     grid: { color: '#374151' }
                 },
                 x: {
+                    type: 'time',
+                    time: {
+                        unit: getTimeUnit(AppData.dateFilters.timeBucket),
+                        displayFormats: {
+                            day: 'MMM d',
+                            week: 'MMM d',
+                            month: 'MMM yyyy',
+                            quarter: 'QQQ yyyy',
+                            year: 'yyyy'
+                        }
+                    },
                     ticks: { color: '#9ca3af' },
                     grid: { color: '#374151' }
                 }
@@ -1081,7 +1884,13 @@ function createCSChart() {
 }
 
 function createVisionChart() {
-    const matches = getFilteredMatches().slice(0, 20).reverse();
+    const matches = getFilteredMatches();
+    if (matches.length === 0) return;
+    
+    const { buckets } = aggregateMatchesByTimeBucket(
+        matches, 
+        AppData.dateFilters.timeBucket
+    );
     
     const ctx = document.getElementById('visionChart').getContext('2d');
     
@@ -1089,24 +1898,55 @@ function createVisionChart() {
         AppData.charts.vision.destroy();
     }
     
+    // Aggregated trend line
+    const trendPoints = buckets.map(b => ({
+        x: new Date(b.timestamp),
+        y: parseFloat(b.avgVision),
+        bucket: b
+    }));
+    
     AppData.charts.vision = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: matches.map((_, i) => `Game ${i + 1}`),
-            datasets: [{
-                label: 'Vision Score',
-                data: matches.map(m => m.vision_score),
-                borderColor: '#ec4899',
-                backgroundColor: 'rgba(236, 72, 153, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
+            datasets: [
+                {
+                    label: `Vision Score (${AppData.dateFilters.timeBucket})`,
+                    data: trendPoints,
+                    borderColor: '#ec4899',
+                    backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            interaction: {
+                mode: 'nearest',
+                intersect: true
+            },
             plugins: {
-                legend: { labels: { color: '#fff' } }
+                legend: { labels: { color: '#fff' } },
+                tooltip: {
+                    callbacks: {
+                        title: (context) => {
+                            const dataPoint = context[0].raw;
+                            return new Date(dataPoint.x).toLocaleDateString();
+                        },
+                        label: (context) => {
+                            const dataPoint = context[0].raw;
+                            const b = dataPoint.bucket;
+                            return [
+                                `Avg Vision: ${dataPoint.y}`,
+                                `Games: ${b.games}`,
+                                `Win Rate: ${b.winRate}%`
+                            ];
+                        }
+                    }
+                }
             },
             scales: {
                 y: {
@@ -1115,6 +1955,17 @@ function createVisionChart() {
                     grid: { color: '#374151' }
                 },
                 x: {
+                    type: 'time',
+                    time: {
+                        unit: getTimeUnit(AppData.dateFilters.timeBucket),
+                        displayFormats: {
+                            day: 'MMM d',
+                            week: 'MMM d',
+                            month: 'MMM yyyy',
+                            quarter: 'QQQ yyyy',
+                            year: 'yyyy'
+                        }
+                    },
                     ticks: { color: '#9ca3af' },
                     grid: { color: '#374151' }
                 }
@@ -1290,32 +2141,30 @@ function updateAllCharts() {
 
 function setupEventListeners() {
     // Filter change handlers
-    document.getElementById('timePeriodFilter').addEventListener('change', (e) => {
-        AppData.filters.timePeriod = e.target.value;
-        refreshDashboard();
-    });
+    const timePeriodFilter = document.getElementById('timePeriodFilter');
+    const queueFilter = document.getElementById('queueFilter');
+    const championFilter = document.getElementById('championFilter');
     
-    document.getElementById('queueFilter').addEventListener('change', (e) => {
-        AppData.filters.queueType = e.target.value;
-        refreshDashboard();
-    });
+    if (timePeriodFilter) {
+        timePeriodFilter.addEventListener('change', (e) => {
+            AppData.filters.timePeriod = e.target.value;
+            refreshDashboard();
+        });
+    }
     
-    document.getElementById('championFilter').addEventListener('change', (e) => {
-        AppData.filters.champion = e.target.value;
-        refreshDashboard();
-    });
+    if (queueFilter) {
+        queueFilter.addEventListener('change', (e) => {
+            AppData.filters.queueType = e.target.value;
+            refreshDashboard();
+        });
+    }
     
-    document.getElementById('resetFilters').addEventListener('click', () => {
-        AppData.filters = {
-            timePeriod: 'all',
-            queueType: 'all',
-            champion: 'all'
-        };
-        document.getElementById('timePeriodFilter').value = 'all';
-        document.getElementById('queueFilter').value = 'all';
-        document.getElementById('championFilter').value = 'all';
-        refreshDashboard();
-    });
+    if (championFilter) {
+        championFilter.addEventListener('change', (e) => {
+            AppData.filters.champion = e.target.value;
+            refreshDashboard();
+        });
+    }
 }
 
 function refreshDashboard() {
@@ -1324,6 +2173,8 @@ function refreshDashboard() {
     updateCombatSection();
     updateMatchHistoryTable();
     updateInsightsSection();
+    updateItemSection();
+    updateRuneSection();
     updateAllCharts();
 }
 
@@ -1332,13 +2183,36 @@ function refreshDashboard() {
 // ============================================================================
 
 async function initialize() {
-    const success = await loadAllData();
+    console.log('Initializing dashboard...');
+    
+    // Keep loading screen visible during initialization
+    document.getElementById('loadingScreen').classList.remove('hidden');
+    
+    // First, load the player list
+    const playersLoaded = await loadPlayerList();
+    
+    if (!playersLoaded) {
+        document.getElementById('loadingScreen').classList.add('hidden');
+        alert('Error: Could not load players. Please check players.json');
+        return;
+    }
+    
+    // Automatically load data for all players
+    const selectedPlayers = getSelectedPlayers();
+    
+    if (selectedPlayers.length === 0) {
+        document.getElementById('loadingScreen').classList.add('hidden');
+        alert('No players available to load');
+        return;
+    }
+    
+    // Load data for all selected players (combined)
+    const success = await loadAllData(selectedPlayers);
+    
+    // Hide loading screen
+    document.getElementById('loadingScreen').classList.add('hidden');
     
     if (success) {
-        // Hide loading screen
-        document.getElementById('loadingScreen').classList.add('hidden');
-        document.getElementById('mainContent').classList.remove('hidden');
-        
         // Setup event listeners
         setupEventListeners();
         
@@ -1348,7 +2222,7 @@ async function initialize() {
         
         console.log('Dashboard initialized successfully!');
     } else {
-        updateLoadingStatus('Failed to load data. Please check console for errors.');
+        alert('Failed to load data. Please check console for errors.');
     }
 }
 

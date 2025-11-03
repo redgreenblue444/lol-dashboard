@@ -1,0 +1,520 @@
+{
+  "8100": {
+    "name": "Domination",
+    "key": "Domination",
+    "icon": "perk-images/Styles/7200_Domination.png",
+    "type": "tree"
+  },
+  "8112": {
+    "name": "Electrocute",
+    "key": "Electrocute",
+    "icon": "perk-images/Styles/Domination/Electrocute/Electrocute.png",
+    "shortDesc": "Hitting a champion with 3 <b>separate</b> attacks or abilities in 3s deals bonus <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_AdaptiveDmg'>adaptive damage</lol-uikit-tooltipped-keyword>.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8128": {
+    "name": "Dark Harvest",
+    "key": "DarkHarvest",
+    "icon": "perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png",
+    "shortDesc": "Damaging a low health champion inflicts <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_AdaptiveDmg'>adaptive damage</lol-uikit-tooltipped-keyword> and harvests a soul from the victim.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "9923": {
+    "name": "Hail of Blades",
+    "key": "HailOfBlades",
+    "icon": "perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png",
+    "shortDesc": "Gain a large amount of Attack Speed for the first 3 attacks made against enemy champions.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8126": {
+    "name": "Cheap Shot",
+    "key": "CheapShot",
+    "icon": "perk-images/Styles/Domination/CheapShot/CheapShot.png",
+    "shortDesc": "Deal bonus true damage to enemy champions with <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_ImpairAct'>impaired movement or actions</lol-uikit-tooltipped-keyword>. ",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8139": {
+    "name": "Taste of Blood",
+    "key": "TasteOfBlood",
+    "icon": "perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png",
+    "shortDesc": "Heal when you damage an enemy champion.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8143": {
+    "name": "Sudden Impact",
+    "key": "SuddenImpact",
+    "icon": "perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png",
+    "shortDesc": "Damaging basic attacks and abilities deal bonus true damage to enemy champions after using a dash, leap, blink, teleport, or when leaving stealth.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8137": {
+    "name": "Sixth Sense",
+    "key": "SixthSense",
+    "icon": "perk-images/Styles/Domination/SixthSense/SixthSense.png",
+    "shortDesc": "On a long Cooldown, automatically sense a nearby untracked and unseen ward, tracking it for the team. <br><br>Level 11: Also reveal the ward for 10s.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8140": {
+    "name": "Grisly Mementos",
+    "key": "GrislyMementos",
+    "icon": "perk-images/Styles/Domination/GrislyMementos/GrislyMementos.png",
+    "shortDesc": "Collect 1 memento on champion <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>takedowns</lol-uikit-tooltipped-keyword>, up to 18 total.<br><br>Gain 6 Trinket Haste for each collected.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8141": {
+    "name": "Deep Ward",
+    "key": "DeepWard",
+    "icon": "perk-images/Styles/Domination/DeepWard/DeepWard.png",
+    "shortDesc": "Your wards in the enemy jungle are <keywordMajor>Deep</keywordMajor>, gaining Health and Duration.<br><br>Level 9: Wards in the river are also <keywordMajor>Deep</keywordMajor>.",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8135": {
+    "name": "Treasure Hunter",
+    "key": "TreasureHunter",
+    "icon": "perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png",
+    "shortDesc": "<b>Unique</b> <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>takedowns</lol-uikit-tooltipped-keyword> grant additional gold the first time they are collected. ",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8105": {
+    "name": "Relentless Hunter",
+    "key": "RelentlessHunter",
+    "icon": "perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png",
+    "shortDesc": "<b>Unique</b> <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>takedowns</lol-uikit-tooltipped-keyword> grant permanent <b>out of combat <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_MS'>MS</lol-uikit-tooltipped-keyword></b>. ",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8106": {
+    "name": "Ultimate Hunter",
+    "key": "UltimateHunter",
+    "icon": "perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png",
+    "shortDesc": "<b>Unique</b> <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>takedowns</lol-uikit-tooltipped-keyword> grant permanent cooldown reduction on your Ultimate. ",
+    "tree": "Domination",
+    "type": "rune"
+  },
+  "8300": {
+    "name": "Inspiration",
+    "key": "Inspiration",
+    "icon": "perk-images/Styles/7203_Whimsy.png",
+    "type": "tree"
+  },
+  "8351": {
+    "name": "Glacial Augment",
+    "key": "GlacialAugment",
+    "icon": "perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png",
+    "shortDesc": "Immobilizing an enemy champion will cause 3 glacial rays that slow nearby enemies and reduce their damage to your allies.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8360": {
+    "name": "Unsealed Spellbook",
+    "key": "UnsealedSpellbook",
+    "icon": "perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png",
+    "shortDesc": "Swap Summoner Spells while out of combat. Swapping to unique Summoner Spells will increase the rate at which you can make future swaps.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8369": {
+    "name": "First Strike",
+    "key": "FirstStrike",
+    "icon": "perk-images/Styles/Inspiration/FirstStrike/FirstStrike.png",
+    "shortDesc": "When you initiate champion combat, deal 7% extra damage for 3 seconds and gain gold based on damage dealt.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8306": {
+    "name": "Hextech Flashtraption",
+    "key": "HextechFlashtraption",
+    "icon": "perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png",
+    "shortDesc": "While Flash is on cooldown it is replaced by <i>Hexflash</i>.<br><br><i>Hexflash</i>: Channel, then blink to a new location.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8304": {
+    "name": "Magical Footwear",
+    "key": "MagicalFootwear",
+    "icon": "perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png",
+    "shortDesc": "You get free boots at 12 min but you cannot buy boots before then. Each <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>takedown</lol-uikit-tooltipped-keyword> you get makes your boots come 45s sooner.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8321": {
+    "name": "Cash Back",
+    "key": "CashBack",
+    "icon": "perk-images/Styles/Inspiration/CashBack/CashBack2.png",
+    "shortDesc": "Get some gold back when you purchase Legendary Items.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8313": {
+    "name": "Triple Tonic",
+    "key": "PerfectTiming",
+    "icon": "perk-images/Styles/Inspiration/PerfectTiming/AlchemistCabinet.png",
+    "shortDesc": "Upon reaching level 3, gain an Elixir of Avarice.<br>Upon reaching level 6, gain an Elixir of Force.<br>Upon reaching level 9, gain an Elixir of Skill. ",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8352": {
+    "name": "Time Warp Tonic",
+    "key": "TimeWarpTonic",
+    "icon": "perk-images/Styles/Inspiration/TimeWarpTonic/TimeWarpTonic.png",
+    "shortDesc": "Potions grant some restoration immediately.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8345": {
+    "name": "Biscuit Delivery",
+    "key": "BiscuitDelivery",
+    "icon": "perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png",
+    "shortDesc": "Gain a free Biscuit every 2 min, until 6 min. Consuming or selling a Biscuit permanently increases your max health and restores health.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8347": {
+    "name": "Cosmic Insight",
+    "key": "CosmicInsight",
+    "icon": "perk-images/Styles/Inspiration/CosmicInsight/CosmicInsight.png",
+    "shortDesc": "+<attention>18</attention> Summoner Spell Haste<br>+<attention>10</attention> Item Haste",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8410": {
+    "name": "Approach Velocity",
+    "key": "ApproachVelocity",
+    "icon": "perk-images/Styles/Resolve/ApproachVelocity/ApproachVelocity.png",
+    "shortDesc": "Bonus <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_MS'>MS</lol-uikit-tooltipped-keyword> towards nearby enemy champions that are <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_ImpairMov'>movement impaired</lol-uikit-tooltipped-keyword>, increased for enemy champions that you impair.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8316": {
+    "name": "Jack Of All Trades",
+    "key": "JackOfAllTrades",
+    "icon": "perk-images/Styles/Inspiration/JackOfAllTrades/JackofAllTrades2.png",
+    "shortDesc": "For each different stat gained from items, gain one Jack stack. Each stack grants you <speed>1 Ability Haste</speed>.<br><br>Gain bonus <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Adaptive'>Adaptive Force</lol-uikit-tooltipped-keyword> at 5 and 10 stacks.",
+    "tree": "Inspiration",
+    "type": "rune"
+  },
+  "8000": {
+    "name": "Precision",
+    "key": "Precision",
+    "icon": "perk-images/Styles/7201_Precision.png",
+    "type": "tree"
+  },
+  "8005": {
+    "name": "Press the Attack",
+    "key": "PressTheAttack",
+    "icon": "perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png",
+    "shortDesc": "Hitting an enemy champion 3 consecutive times deals bonus damage and amplifies your damage until you leave combat with champions.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8008": {
+    "name": "Lethal Tempo",
+    "key": "LethalTempo",
+    "icon": "perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png",
+    "shortDesc": "Attacking an enemy champion grants you Attack Speed, up to 6 stacks. At max stacks, deal <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_AdaptiveDmg'><font color='#48C4B7'>bonus adaptive damage</font></lol-uikit-tooltipped-keyword> On-Attack.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8021": {
+    "name": "Fleet Footwork",
+    "key": "FleetFootwork",
+    "icon": "perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png",
+    "shortDesc": "Attacking and moving builds Energy stacks. At 100 stacks, your next attack heals you and grants increased <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_MS'>MS</lol-uikit-tooltipped-keyword>.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8010": {
+    "name": "Conqueror",
+    "key": "Conqueror",
+    "icon": "perk-images/Styles/Precision/Conqueror/Conqueror.png",
+    "shortDesc": "Gain stacks of adaptive force when attacking enemy champions. After reaching 12 stacks, heal for a portion of damage you deal to champions.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "9101": {
+    "name": "Absorb Life",
+    "key": "AbsorbLife",
+    "icon": "perk-images/Styles/Precision/AbsorbLife/AbsorbLife.png",
+    "shortDesc": "Killing a target heals you.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "9111": {
+    "name": "Triumph",
+    "key": "Triumph",
+    "icon": "perk-images/Styles/Precision/Triumph.png",
+    "shortDesc": "<lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>Takedowns</lol-uikit-tooltipped-keyword> restore 5% of your missing health and grant an additional 20 gold. ",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8009": {
+    "name": "Presence of Mind",
+    "key": "PresenceOfMind",
+    "icon": "perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png",
+    "shortDesc": "Restore a small amount of mana or energy when damaging an enemy champion. Takedowns restore mana or energy.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "9104": {
+    "name": "Legend: Alacrity",
+    "key": "LegendAlacrity",
+    "icon": "perk-images/Styles/Precision/LegendAlacrity/LegendAlacrity.png",
+    "shortDesc": "<lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>Takedowns</lol-uikit-tooltipped-keyword> on enemies grant permanent <b>Attack Speed</b>. ",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "9105": {
+    "name": "Legend: Haste",
+    "key": "LegendHaste",
+    "icon": "perk-images/Styles/Precision/LegendHaste/LegendHaste.png",
+    "shortDesc": "<lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>Takedowns</lol-uikit-tooltipped-keyword> on enemies grant permanent Basic Ability <b>Haste</b>. ",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "9103": {
+    "name": "Legend: Bloodline",
+    "key": "LegendBloodline",
+    "icon": "perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png",
+    "shortDesc": "<lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Takedown'>Takedowns</lol-uikit-tooltipped-keyword> on enemies grant permanent<b> Life Steal</b>, up to a cap. Once the cap is reached, increase your max health. Weaker earlier but stronger later game than other Legend Runes.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8014": {
+    "name": "Coup de Grace",
+    "key": "CoupDeGrace",
+    "icon": "perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png",
+    "shortDesc": "Deal more damage to low health enemy champions.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8017": {
+    "name": "Cut Down",
+    "key": "CutDown",
+    "icon": "perk-images/Styles/Precision/CutDown/CutDown.png",
+    "shortDesc": "Deal more damage to high health enemy champions.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8299": {
+    "name": "Last Stand",
+    "key": "LastStand",
+    "icon": "perk-images/Styles/Sorcery/LastStand/LastStand.png",
+    "shortDesc": "Deal more damage to champions while you are low on health.",
+    "tree": "Precision",
+    "type": "rune"
+  },
+  "8400": {
+    "name": "Resolve",
+    "key": "Resolve",
+    "icon": "perk-images/Styles/7204_Resolve.png",
+    "type": "tree"
+  },
+  "8437": {
+    "name": "Grasp of the Undying",
+    "key": "GraspOfTheUndying",
+    "icon": "perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png",
+    "shortDesc": "Every 4s your next attack on a champion deals bonus magic damage, heals you, and permanently increases your health.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8439": {
+    "name": "Aftershock",
+    "key": "Aftershock",
+    "icon": "perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png",
+    "shortDesc": "After <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Immobilize'>immobilizing</lol-uikit-tooltipped-keyword> an enemy champion gain defenses and later deal a burst of magic damage around you.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8465": {
+    "name": "Guardian",
+    "key": "Guardian",
+    "icon": "perk-images/Styles/Resolve/Guardian/Guardian.png",
+    "shortDesc": "Guard allies you cast spells on and those that are very nearby. If you or a guarded ally would take damage based on level, you're both granted a shield.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8446": {
+    "name": "Demolish",
+    "key": "Demolish",
+    "icon": "perk-images/Styles/Resolve/Demolish/Demolish.png",
+    "shortDesc": "Charge up a powerful attack against a tower while near it.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8463": {
+    "name": "Font of Life",
+    "key": "FontOfLife",
+    "icon": "perk-images/Styles/Resolve/FontOfLife/FontOfLife.png",
+    "shortDesc": "<lol-uikit-tooltipped-keyword key='LinkTooltip_Description_ImpairMov'>Impairing</lol-uikit-tooltipped-keyword> the movement of an enemy champion heals nearby allied champions. ",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8401": {
+    "name": "Shield Bash",
+    "key": "ShieldBash",
+    "icon": "perk-images/Styles/Resolve/MirrorShell/MirrorShell.png",
+    "shortDesc": "Whenever you gain a shield, your next basic attack against a champion deals bonus <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Adaptive'><font color='#48C4B7'>adaptive</font></lol-uikit-tooltipped-keyword> damage.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8429": {
+    "name": "Conditioning",
+    "key": "Conditioning",
+    "icon": "perk-images/Styles/Resolve/Conditioning/Conditioning.png",
+    "shortDesc": "After 12 min gain +8 Armor and +8 Magic Resist and increase your Armor and Magic Resist by 3%.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8444": {
+    "name": "Second Wind",
+    "key": "SecondWind",
+    "icon": "perk-images/Styles/Resolve/SecondWind/SecondWind.png",
+    "shortDesc": "After taking damage from an enemy champion heal back some missing health over time. ",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8473": {
+    "name": "Bone Plating",
+    "key": "BonePlating",
+    "icon": "perk-images/Styles/Resolve/BonePlating/BonePlating.png",
+    "shortDesc": "After taking damage from an enemy champion, the next 3 spells or attacks you receive from them deal 30-60 (based on level) less damage.<br><br>Duration: 1.5s<br>Cooldown: 55s",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8451": {
+    "name": "Overgrowth",
+    "key": "Overgrowth",
+    "icon": "perk-images/Styles/Resolve/Overgrowth/Overgrowth.png",
+    "shortDesc": "Gain permanent max health when minions or monsters die near you.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8453": {
+    "name": "Revitalize",
+    "key": "Revitalize",
+    "icon": "perk-images/Styles/Resolve/Revitalize/Revitalize.png",
+    "shortDesc": "Gain 5% Heal and Shield Power.<br><br>Heals and shields you cast or receive are 10% stronger on targets below 40% health.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8242": {
+    "name": "Unflinching",
+    "key": "Unflinching",
+    "icon": "perk-images/Styles/Sorcery/Unflinching/Unflinching.png",
+    "shortDesc": "Gain Armor and Magic Resist when receiving crowd control.",
+    "tree": "Resolve",
+    "type": "rune"
+  },
+  "8200": {
+    "name": "Sorcery",
+    "key": "Sorcery",
+    "icon": "perk-images/Styles/7202_Sorcery.png",
+    "type": "tree"
+  },
+  "8214": {
+    "name": "Summon Aery",
+    "key": "SummonAery",
+    "icon": "perk-images/Styles/Sorcery/SummonAery/SummonAery.png",
+    "shortDesc": "Your attacks and abilities send Aery to a target, damaging enemies or shielding allies.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8229": {
+    "name": "Arcane Comet",
+    "key": "ArcaneComet",
+    "icon": "perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png",
+    "shortDesc": "Damaging a champion with an ability hurls a damaging comet at their location.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8230": {
+    "name": "Phase Rush",
+    "key": "PhaseRush",
+    "icon": "perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png",
+    "shortDesc": "Hitting an enemy champion with 3 <b>separate</b> attacks or abilities grants a burst of <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_MS'>MS</lol-uikit-tooltipped-keyword> and Slow Resist. ",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8224": {
+    "name": "Axiom Arcanist",
+    "key": "NullifyingOrb",
+    "icon": "perk-images/Styles/Sorcery/NullifyingOrb/Axiom_Arcanist.png",
+    "shortDesc": "Your Ultimate has increased damage, healing, and shielding. Scoring a takedown on an enemy champion reduces your Ultimate's current cooldown.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8226": {
+    "name": "Manaflow Band",
+    "key": "ManaflowBand",
+    "icon": "perk-images/Styles/Sorcery/ManaflowBand/ManaflowBand.png",
+    "shortDesc": "Hitting an enemy champion with an ability permanently increases your maximum mana by 25, up to 250 mana.<br><br>After reaching 250 bonus mana, restore 1% of your missing mana every 5 seconds.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8275": {
+    "name": "Nimbus Cloak",
+    "key": "NimbusCloak",
+    "icon": "perk-images/Styles/Sorcery/NimbusCloak/6361.png",
+    "shortDesc": "After casting a Summoner Spell, gain a short <speed>Move Speed</speed> increase that allows you to pass through units.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8210": {
+    "name": "Transcendence",
+    "key": "Transcendence",
+    "icon": "perk-images/Styles/Sorcery/Transcendence/Transcendence.png",
+    "shortDesc": "Gain bonuses upon reaching the following levels:<br>Level 5: +5 <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_CDR'>Ability Haste</lol-uikit-tooltipped-keyword> <br>Level 8: +5 <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_CDR'>Ability Haste</lol-uikit-tooltipped-keyword> <br>Level 11: On Champion takedown, reduce the remaining cooldown of basic abilities by 20%.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8234": {
+    "name": "Celerity",
+    "key": "Celerity",
+    "icon": "perk-images/Styles/Sorcery/Celerity/CelerityTemp.png",
+    "shortDesc": "All <speed>Move Speed</speed> bonuses are 7% more effective on you and gain <speed>1% Move Speed</speed>.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8233": {
+    "name": "Absolute Focus",
+    "key": "AbsoluteFocus",
+    "icon": "perk-images/Styles/Sorcery/AbsoluteFocus/AbsoluteFocus.png",
+    "shortDesc": "While above 70% health, gain extra <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_AdaptiveDmg'>adaptive damage</lol-uikit-tooltipped-keyword>.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8237": {
+    "name": "Scorch",
+    "key": "Scorch",
+    "icon": "perk-images/Styles/Sorcery/Scorch/Scorch.png",
+    "shortDesc": "Your first damaging ability hit every 10s burns champions.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8232": {
+    "name": "Waterwalking",
+    "key": "Waterwalking",
+    "icon": "perk-images/Styles/Sorcery/Waterwalking/Waterwalking.png",
+    "shortDesc": "Gain <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_MS'>MS</lol-uikit-tooltipped-keyword> and AP or AD, <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Adaptive'>adaptive</lol-uikit-tooltipped-keyword> in the river.",
+    "tree": "Sorcery",
+    "type": "rune"
+  },
+  "8236": {
+    "name": "Gathering Storm",
+    "key": "GatheringStorm",
+    "icon": "perk-images/Styles/Sorcery/GatheringStorm/GatheringStorm.png",
+    "shortDesc": "Gain increasing amounts of AD or AP, <lol-uikit-tooltipped-keyword key='LinkTooltip_Description_Adaptive'>adaptive</lol-uikit-tooltipped-keyword> over the course of the game.",
+    "tree": "Sorcery",
+    "type": "rune"
+  }
+}

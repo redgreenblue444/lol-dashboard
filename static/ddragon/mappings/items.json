@@ -1,0 +1,3197 @@
+{
+  "1001": {
+    "name": "Boots",
+    "description": "Slightly increases Move Speed",
+    "gold": 300
+  },
+  "1004": {
+    "name": "Faerie Charm",
+    "description": "Slightly increases Mana Regen",
+    "gold": 200
+  },
+  "1006": {
+    "name": "Rejuvenation Bead",
+    "description": "Slightly increases Health Regen",
+    "gold": 300
+  },
+  "1011": {
+    "name": "Giant's Belt",
+    "description": "Greatly increases Health",
+    "gold": 900
+  },
+  "1018": {
+    "name": "Cloak of Agility",
+    "description": "Increases critical strike chance",
+    "gold": 600
+  },
+  "1026": {
+    "name": "Blasting Wand",
+    "description": "Moderately increases Ability Power",
+    "gold": 850
+  },
+  "1027": {
+    "name": "Sapphire Crystal",
+    "description": "Increases Mana",
+    "gold": 300
+  },
+  "1028": {
+    "name": "Ruby Crystal",
+    "description": "Increases Health",
+    "gold": 400
+  },
+  "1029": {
+    "name": "Cloth Armor",
+    "description": "Slightly increases Armor",
+    "gold": 300
+  },
+  "1031": {
+    "name": "Chain Vest",
+    "description": "Greatly increases Armor",
+    "gold": 800
+  },
+  "1033": {
+    "name": "Null-Magic Mantle",
+    "description": "Slightly increases Magic Resist",
+    "gold": 400
+  },
+  "1035": {
+    "name": "Emberknife",
+    "description": "",
+    "gold": 350
+  },
+  "1036": {
+    "name": "Long Sword",
+    "description": "Slightly increases Attack Damage",
+    "gold": 350
+  },
+  "1037": {
+    "name": "Pickaxe",
+    "description": "Moderately increases Attack Damage",
+    "gold": 875
+  },
+  "1038": {
+    "name": "B. F. Sword",
+    "description": "Greatly increases Attack Damage",
+    "gold": 1300
+  },
+  "1039": {
+    "name": "Hailblade",
+    "description": "Provides damage against Monsters and Mana Regen in the Jungle",
+    "gold": 350
+  },
+  "1040": {
+    "name": "Obsidian Edge",
+    "description": "",
+    "gold": 350
+  },
+  "1042": {
+    "name": "Dagger",
+    "description": "Slightly increases Attack Speed",
+    "gold": 250
+  },
+  "1043": {
+    "name": "Recurve Bow",
+    "description": "Greatly increases Attack Speed",
+    "gold": 700
+  },
+  "1052": {
+    "name": "Amplifying Tome",
+    "description": "Slightly increases Ability Power",
+    "gold": 400
+  },
+  "1053": {
+    "name": "Vampiric Scepter",
+    "description": "Basic attacks restore Health",
+    "gold": 900
+  },
+  "1054": {
+    "name": "Doran's Shield",
+    "description": "Good defensive starting item",
+    "gold": 450
+  },
+  "1055": {
+    "name": "Doran's Blade",
+    "description": "Good starting item for attackers",
+    "gold": 450
+  },
+  "1056": {
+    "name": "Doran's Ring",
+    "description": "Good starting item for casters",
+    "gold": 400
+  },
+  "1057": {
+    "name": "Negatron Cloak",
+    "description": "Moderately increases Magic Resist",
+    "gold": 850
+  },
+  "1058": {
+    "name": "Needlessly Large Rod",
+    "description": "Greatly increases Ability Power",
+    "gold": 1200
+  },
+  "1082": {
+    "name": "Dark Seal",
+    "description": "Provides Ability Power and Mana.  Increases in power as you kill enemies.",
+    "gold": 350
+  },
+  "1083": {
+    "name": "Cull",
+    "description": "Provides damage and Life Steal on hit - Killing minions grant bonus Gold",
+    "gold": 450
+  },
+  "1101": {
+    "name": "Scorchclaw Pup",
+    "description": "",
+    "gold": 450
+  },
+  "1102": {
+    "name": "Gustwalker Hatchling",
+    "description": "",
+    "gold": 450
+  },
+  "1103": {
+    "name": "Mosstomper Seedling",
+    "description": "",
+    "gold": 450
+  },
+  "1104": {
+    "name": "Eye of the Herald",
+    "description": "",
+    "gold": 0
+  },
+  "1105": {
+    "name": "Mosstomper Seedling",
+    "description": "",
+    "gold": 450
+  },
+  "1106": {
+    "name": "Gustwalker Hatchling",
+    "description": "",
+    "gold": 450
+  },
+  "1107": {
+    "name": "Scorchclaw Pup",
+    "description": "",
+    "gold": 450
+  },
+  "1111": {
+    "name": "Jarvan I's",
+    "description": "",
+    "gold": 300
+  },
+  "123430": {
+    "name": "Rite of Ruin",
+    "description": "",
+    "gold": 3000
+  },
+  "124011": {
+    "name": "Sword of Blossoming Dawn",
+    "description": "",
+    "gold": 2350
+  },
+  "126697": {
+    "name": "Hubris",
+    "description": "",
+    "gold": 2950
+  },
+  "1500": {
+    "name": "Penetrating Bullets",
+    "description": "",
+    "gold": 0
+  },
+  "1501": {
+    "name": "Fortification",
+    "description": "",
+    "gold": 0
+  },
+  "1502": {
+    "name": "Reinforced Armor",
+    "description": "",
+    "gold": 0
+  },
+  "1503": {
+    "name": "Warden's Eye",
+    "description": "",
+    "gold": 0
+  },
+  "1504": {
+    "name": "Vanguard",
+    "description": "",
+    "gold": 0
+  },
+  "1506": {
+    "name": "Reinforced Armor",
+    "description": "",
+    "gold": 0
+  },
+  "1507": {
+    "name": "Overcharged",
+    "description": "",
+    "gold": 0
+  },
+  "1508": {
+    "name": "Anti-tower Socks",
+    "description": "",
+    "gold": 0
+  },
+  "1509": {
+    "name": "Gusto",
+    "description": "",
+    "gold": 0
+  },
+  "1510": {
+    "name": "Phreakish Gusto",
+    "description": "",
+    "gold": 0
+  },
+  "1511": {
+    "name": "Super Mech Armor",
+    "description": "",
+    "gold": 0
+  },
+  "1512": {
+    "name": "Super Mech Power Field",
+    "description": "",
+    "gold": 0
+  },
+  "1515": {
+    "name": "Turret Plating",
+    "description": "",
+    "gold": 0
+  },
+  "1516": {
+    "name": "Structure Bounty",
+    "description": "",
+    "gold": 0
+  },
+  "1517": {
+    "name": "Structure Bounty",
+    "description": "",
+    "gold": 0
+  },
+  "1518": {
+    "name": "Structure Bounty",
+    "description": "",
+    "gold": 0
+  },
+  "1519": {
+    "name": "Structure Bounty",
+    "description": "",
+    "gold": 0
+  },
+  "1520": {
+    "name": "OvererchargedHA",
+    "description": "",
+    "gold": 0
+  },
+  "1521": {
+    "name": "Fortification",
+    "description": "",
+    "gold": 0
+  },
+  "1522": {
+    "name": "Tower Power-Up",
+    "description": "",
+    "gold": 0
+  },
+  "1523": {
+    "name": "Overcharged",
+    "description": "",
+    "gold": 0
+  },
+  "2003": {
+    "name": "Health Potion",
+    "description": "Consume to restore Health over time",
+    "gold": 50
+  },
+  "2010": {
+    "name": "Total Biscuit of Everlasting Will",
+    "description": "",
+    "gold": 50
+  },
+  "2015": {
+    "name": "Kircheis Shard",
+    "description": "Attack speed and a chargable magic hit",
+    "gold": 700
+  },
+  "2019": {
+    "name": "Steel Sigil",
+    "description": "",
+    "gold": 1100
+  },
+  "2020": {
+    "name": "The Brutalizer",
+    "description": "",
+    "gold": 1337
+  },
+  "2021": {
+    "name": "Tunneler",
+    "description": "",
+    "gold": 1150
+  },
+  "2022": {
+    "name": "Glowing Mote",
+    "description": "",
+    "gold": 250
+  },
+  "2031": {
+    "name": "Refillable Potion",
+    "description": "Restores Health over time. Refills at shop.",
+    "gold": 150
+  },
+  "2033": {
+    "name": "Corrupting Potion",
+    "description": "Restores Health and Mana over time and boosts combat power - Refills at Shop",
+    "gold": 500
+  },
+  "2049": {
+    "name": "Guardian's Amulet",
+    "description": "Increases Health and provides Stealth Wards over time",
+    "gold": 500
+  },
+  "2050": {
+    "name": "Guardian's Shroud",
+    "description": "",
+    "gold": 500
+  },
+  "2051": {
+    "name": "Guardian's Horn",
+    "description": "Good starting item for tanks",
+    "gold": 950
+  },
+  "2052": {
+    "name": "Poro-Snax",
+    "description": "",
+    "gold": 0
+  },
+  "2055": {
+    "name": "Control Ward",
+    "description": "Used to disable wards and invisible traps in an area.",
+    "gold": 75
+  },
+  "2056": {
+    "name": "Stealth Ward",
+    "description": "Use to temporarily provide vision in an area",
+    "gold": 40
+  },
+  "2065": {
+    "name": "Shurelya's Battlesong",
+    "description": "Activate to speed up nearby allies.",
+    "gold": 2200
+  },
+  "2138": {
+    "name": "Elixir of Iron",
+    "description": "Temporarily increases defenses. Leaves a trail for allies to follow.",
+    "gold": 500
+  },
+  "2139": {
+    "name": "Elixir of Sorcery",
+    "description": "Temporarily grants Ability Power and Bonus Damage to champions and turrets.",
+    "gold": 500
+  },
+  "2140": {
+    "name": "Elixir of Wrath",
+    "description": "Temporarily grants Attack Damage and heals you when dealing physical damage to champions.",
+    "gold": 500
+  },
+  "2141": {
+    "name": "Cappa Juice",
+    "description": "",
+    "gold": 300
+  },
+  "2142": {
+    "name": "Juice of Power",
+    "description": "",
+    "gold": 500
+  },
+  "2143": {
+    "name": "Juice of Vitality",
+    "description": "",
+    "gold": 500
+  },
+  "2144": {
+    "name": "Juice of Haste",
+    "description": "",
+    "gold": 500
+  },
+  "2145": {
+    "name": "Lucky Dice",
+    "description": "",
+    "gold": 0
+  },
+  "2146": {
+    "name": "Enhanced Lucky Dice",
+    "description": "",
+    "gold": 0
+  },
+  "2150": {
+    "name": "Elixir of Skill",
+    "description": "",
+    "gold": 0
+  },
+  "2151": {
+    "name": "Elixir of Avarice",
+    "description": "",
+    "gold": 50
+  },
+  "2152": {
+    "name": "Elixir of Force",
+    "description": "",
+    "gold": 50
+  },
+  "2161": {
+    "name": "Bandle Juice of Power",
+    "description": "",
+    "gold": 1000
+  },
+  "2162": {
+    "name": "Bandle Juice of Vitality",
+    "description": "",
+    "gold": 1000
+  },
+  "2163": {
+    "name": "Bandle Juice of Haste",
+    "description": "",
+    "gold": 1000
+  },
+  "220000": {
+    "name": "Stat Bonus",
+    "description": "",
+    "gold": 750
+  },
+  "220001": {
+    "name": "Legendary Fighter Item",
+    "description": "",
+    "gold": 2000
+  },
+  "220002": {
+    "name": "Legendary Marksman Item",
+    "description": "",
+    "gold": 2000
+  },
+  "220003": {
+    "name": "Legendary Assassin Item",
+    "description": "",
+    "gold": 2000
+  },
+  "220004": {
+    "name": "Legendary Mage Item",
+    "description": "",
+    "gold": 2000
+  },
+  "220005": {
+    "name": "Legendary Tank Item",
+    "description": "",
+    "gold": 2000
+  },
+  "220006": {
+    "name": "Legendary Support Item",
+    "description": "",
+    "gold": 2000
+  },
+  "220007": {
+    "name": "Prismatic Item",
+    "description": "",
+    "gold": 4000
+  },
+  "220008": {
+    "name": "Anvil Voucher",
+    "description": "",
+    "gold": 750
+  },
+  "220009": {
+    "name": "Gold Stat Anvil Voucher",
+    "description": "",
+    "gold": 750
+  },
+  "220010": {
+    "name": "Prismatic Stat Voucher",
+    "description": "",
+    "gold": 750
+  },
+  "220011": {
+    "name": "Bravery Voucher",
+    "description": "",
+    "gold": 750
+  },
+  "221011": {
+    "name": "Giant's Belt",
+    "description": "",
+    "gold": 500
+  },
+  "221026": {
+    "name": "Blasting Wand",
+    "description": "",
+    "gold": 500
+  },
+  "221031": {
+    "name": "Chain Vest",
+    "description": "",
+    "gold": 500
+  },
+  "221038": {
+    "name": "B. F. Sword",
+    "description": "",
+    "gold": 1300
+  },
+  "221043": {
+    "name": "Recurve Bow",
+    "description": "",
+    "gold": 500
+  },
+  "221053": {
+    "name": "Vampiric Scepter",
+    "description": "",
+    "gold": 500
+  },
+  "221057": {
+    "name": "Negatron Cloak",
+    "description": "",
+    "gold": 450
+  },
+  "221058": {
+    "name": "Needlessly Large Rod",
+    "description": "",
+    "gold": 500
+  },
+  "222022": {
+    "name": "Glowing Mote",
+    "description": "",
+    "gold": 250
+  },
+  "222051": {
+    "name": "Guardian's Horn",
+    "description": "",
+    "gold": 500
+  },
+  "222065": {
+    "name": "Shurelya's Battlesong",
+    "description": "",
+    "gold": 2500
+  },
+  "222141": {
+    "name": "Cappa Juice",
+    "description": "",
+    "gold": 500
+  },
+  "222502": {
+    "name": "Unending Despair",
+    "description": "",
+    "gold": 2500
+  },
+  "222503": {
+    "name": "Blackfire Torch",
+    "description": "",
+    "gold": 2500
+  },
+  "222504": {
+    "name": "Kaenic Rookern",
+    "description": "",
+    "gold": 2500
+  },
+  "223001": {
+    "name": "Evenshroud",
+    "description": "",
+    "gold": 2500
+  },
+  "223002": {
+    "name": "Trailblazer",
+    "description": "",
+    "gold": 2500
+  },
+  "223003": {
+    "name": "Archangel's Staff",
+    "description": "",
+    "gold": 2500
+  },
+  "223004": {
+    "name": "Manamune",
+    "description": "",
+    "gold": 2500
+  },
+  "223005": {
+    "name": "Ghostcrawlers",
+    "description": "",
+    "gold": 500
+  },
+  "223006": {
+    "name": "Berserker's Greaves",
+    "description": "",
+    "gold": 500
+  },
+  "223009": {
+    "name": "Boots of Swiftness",
+    "description": "",
+    "gold": 500
+  },
+  "223011": {
+    "name": "Chemtech Putrifier",
+    "description": "",
+    "gold": 1900
+  },
+  "223020": {
+    "name": "Sorcerer's Shoes",
+    "description": "",
+    "gold": 500
+  },
+  "223026": {
+    "name": "Guardian Angel",
+    "description": "",
+    "gold": 2500
+  },
+  "223031": {
+    "name": "Infinity Edge",
+    "description": "",
+    "gold": 2500
+  },
+  "223032": {
+    "name": "Yun Tal Wildarrows",
+    "description": "",
+    "gold": 2500
+  },
+  "223033": {
+    "name": "Mortal Reminder",
+    "description": "",
+    "gold": 2500
+  },
+  "223036": {
+    "name": "Lord Dominik's Regards",
+    "description": "",
+    "gold": 2500
+  },
+  "223039": {
+    "name": "Atma's Reckoning",
+    "description": "",
+    "gold": 2500
+  },
+  "223040": {
+    "name": "Seraph's Embrace",
+    "description": "",
+    "gold": 2500
+  },
+  "223042": {
+    "name": "Muramana",
+    "description": "",
+    "gold": 2500
+  },
+  "223046": {
+    "name": "Phantom Dancer",
+    "description": "",
+    "gold": 2500
+  },
+  "223047": {
+    "name": "Plated Steelcaps",
+    "description": "",
+    "gold": 500
+  },
+  "223050": {
+    "name": "Zeke's Convergence",
+    "description": "",
+    "gold": 2500
+  },
+  "223053": {
+    "name": "Sterak's Gage",
+    "description": "",
+    "gold": 2500
+  },
+  "223057": {
+    "name": "Sheen",
+    "description": "",
+    "gold": 2500
+  },
+  "223065": {
+    "name": "Spirit Visage",
+    "description": "",
+    "gold": 2500
+  },
+  "223067": {
+    "name": "Kindlegem",
+    "description": "",
+    "gold": 500
+  },
+  "223068": {
+    "name": "Sunfire Aegis",
+    "description": "",
+    "gold": 2500
+  },
+  "223071": {
+    "name": "Black Cleaver",
+    "description": "",
+    "gold": 2500
+  },
+  "223072": {
+    "name": "Bloodthirster",
+    "description": "",
+    "gold": 2500
+  },
+  "223073": {
+    "name": "Experimental Hexplate",
+    "description": "",
+    "gold": 2500
+  },
+  "223074": {
+    "name": "Ravenous Hydra",
+    "description": "",
+    "gold": 2500
+  },
+  "223075": {
+    "name": "Thornmail",
+    "description": "",
+    "gold": 2500
+  },
+  "223078": {
+    "name": "Trinity Force",
+    "description": "",
+    "gold": 2500
+  },
+  "223084": {
+    "name": "Heartsteel",
+    "description": "",
+    "gold": 2500
+  },
+  "223085": {
+    "name": "Runaan's Hurricane",
+    "description": "",
+    "gold": 2500
+  },
+  "223087": {
+    "name": "Statikk Shiv",
+    "description": "",
+    "gold": 2500
+  },
+  "223089": {
+    "name": "Rabadon's Deathcap",
+    "description": "",
+    "gold": 2500
+  },
+  "223091": {
+    "name": "Wit's End",
+    "description": "",
+    "gold": 2500
+  },
+  "223094": {
+    "name": "Rapid Firecannon",
+    "description": "",
+    "gold": 2500
+  },
+  "223095": {
+    "name": "Stormrazor",
+    "description": "",
+    "gold": 2500
+  },
+  "223100": {
+    "name": "Lich Bane",
+    "description": "",
+    "gold": 2500
+  },
+  "223102": {
+    "name": "Banshee's Veil",
+    "description": "",
+    "gold": 2500
+  },
+  "223105": {
+    "name": "Aegis of the Legion",
+    "description": "",
+    "gold": 500
+  },
+  "223107": {
+    "name": "Redemption",
+    "description": "",
+    "gold": 2500
+  },
+  "223109": {
+    "name": "Knight's Vow",
+    "description": "",
+    "gold": 2500
+  },
+  "223110": {
+    "name": "Frozen Heart",
+    "description": "",
+    "gold": 2500
+  },
+  "223111": {
+    "name": "Mercury's Treads",
+    "description": "",
+    "gold": 500
+  },
+  "223112": {
+    "name": "Guardian's Orb",
+    "description": "",
+    "gold": 500
+  },
+  "223115": {
+    "name": "Nashor's Tooth",
+    "description": "",
+    "gold": 2500
+  },
+  "223116": {
+    "name": "Rylai's Crystal Scepter",
+    "description": "",
+    "gold": 2500
+  },
+  "223118": {
+    "name": "Malignance",
+    "description": "",
+    "gold": 2500
+  },
+  "223119": {
+    "name": "Winter's Approach",
+    "description": "",
+    "gold": 2500
+  },
+  "223121": {
+    "name": "Fimbulwinter",
+    "description": "",
+    "gold": 2500
+  },
+  "223124": {
+    "name": "Guinsoo's Rageblade",
+    "description": "",
+    "gold": 2500
+  },
+  "223135": {
+    "name": "Void Staff",
+    "description": "",
+    "gold": 2500
+  },
+  "223137": {
+    "name": "Cryptbloom",
+    "description": "",
+    "gold": 2500
+  },
+  "223139": {
+    "name": "Mercurial Scimitar",
+    "description": "",
+    "gold": 2500
+  },
+  "223142": {
+    "name": "Youmuu's Ghostblade",
+    "description": "",
+    "gold": 2500
+  },
+  "223143": {
+    "name": "Randuin's Omen",
+    "description": "",
+    "gold": 2500
+  },
+  "223146": {
+    "name": "Hextech Gunblade",
+    "description": "",
+    "gold": 2500
+  },
+  "223152": {
+    "name": "Hextech Rocketbelt",
+    "description": "",
+    "gold": 2500
+  },
+  "223153": {
+    "name": "Blade of The Ruined King",
+    "description": "",
+    "gold": 2500
+  },
+  "223156": {
+    "name": "Maw of Malmortius",
+    "description": "",
+    "gold": 2500
+  },
+  "223157": {
+    "name": "Zhonya's Hourglass",
+    "description": "",
+    "gold": 2500
+  },
+  "223158": {
+    "name": "Ionian Boots of Lucidity",
+    "description": "",
+    "gold": 500
+  },
+  "223161": {
+    "name": "Spear of Shojin",
+    "description": "",
+    "gold": 2500
+  },
+  "223165": {
+    "name": "Morellonomicon",
+    "description": "",
+    "gold": 2500
+  },
+  "223172": {
+    "name": "Zephyr",
+    "description": "",
+    "gold": 2500
+  },
+  "223177": {
+    "name": "Guardian's Blade",
+    "description": "",
+    "gold": 500
+  },
+  "223181": {
+    "name": "Hullbreaker",
+    "description": "",
+    "gold": 2500
+  },
+  "223184": {
+    "name": "Guardian's Hammer",
+    "description": "",
+    "gold": 500
+  },
+  "223185": {
+    "name": "Guardian's Dirk",
+    "description": "",
+    "gold": 500
+  },
+  "223190": {
+    "name": "Locket of the Iron Solari",
+    "description": "",
+    "gold": 2500
+  },
+  "223193": {
+    "name": "Gargoyle Stoneplate",
+    "description": "",
+    "gold": 2500
+  },
+  "223222": {
+    "name": "Mikael's Blessing",
+    "description": "",
+    "gold": 2500
+  },
+  "223302": {
+    "name": "Terminus",
+    "description": "",
+    "gold": 2500
+  },
+  "223504": {
+    "name": "Ardent Censer",
+    "description": "",
+    "gold": 2500
+  },
+  "223508": {
+    "name": "Essence Reaver",
+    "description": "",
+    "gold": 2500
+  },
+  "223742": {
+    "name": "Dead Man's Plate",
+    "description": "",
+    "gold": 2500
+  },
+  "223748": {
+    "name": "Titanic Hydra",
+    "description": "",
+    "gold": 2500
+  },
+  "223814": {
+    "name": "Edge of Night",
+    "description": "",
+    "gold": 2500
+  },
+  "224004": {
+    "name": "Spectral Cutlass",
+    "description": "",
+    "gold": 2500
+  },
+  "224005": {
+    "name": "Imperial Mandate",
+    "description": "",
+    "gold": 2500
+  },
+  "224401": {
+    "name": "Force of Nature",
+    "description": "",
+    "gold": 2500
+  },
+  "224403": {
+    "name": "The Golden Spatula",
+    "description": "",
+    "gold": 2500
+  },
+  "224628": {
+    "name": "Horizon Focus",
+    "description": "",
+    "gold": 2500
+  },
+  "224629": {
+    "name": "Cosmic Drive",
+    "description": "",
+    "gold": 2500
+  },
+  "224633": {
+    "name": "Riftmaker",
+    "description": "",
+    "gold": 2500
+  },
+  "224636": {
+    "name": "Night Harvester",
+    "description": "",
+    "gold": 2500
+  },
+  "224637": {
+    "name": "Demonic Embrace",
+    "description": "",
+    "gold": 2500
+  },
+  "224644": {
+    "name": "Crown of the Shattered Queen",
+    "description": "",
+    "gold": 2500
+  },
+  "224645": {
+    "name": "Shadowflame",
+    "description": "",
+    "gold": 2500
+  },
+  "224646": {
+    "name": "Stormsurge",
+    "description": "",
+    "gold": 2500
+  },
+  "226035": {
+    "name": "Silvermere Dawn",
+    "description": "",
+    "gold": 2500
+  },
+  "226333": {
+    "name": "Death's Dance",
+    "description": "",
+    "gold": 2500
+  },
+  "226609": {
+    "name": "Chempunk Chainsword",
+    "description": "",
+    "gold": 2500
+  },
+  "226610": {
+    "name": "Sundered Sky",
+    "description": "",
+    "gold": 2500
+  },
+  "226616": {
+    "name": "Staff of Flowing Water",
+    "description": "",
+    "gold": 2500
+  },
+  "226617": {
+    "name": "Moonstone Renewer",
+    "description": "",
+    "gold": 2500
+  },
+  "226620": {
+    "name": "Echoes of Helia",
+    "description": "",
+    "gold": 2500
+  },
+  "226621": {
+    "name": "Dawncore",
+    "description": "",
+    "gold": 2500
+  },
+  "226630": {
+    "name": "Goredrinker",
+    "description": "",
+    "gold": 1000
+  },
+  "226631": {
+    "name": "Stridebreaker",
+    "description": "",
+    "gold": 2500
+  },
+  "226632": {
+    "name": "Divine Sunderer",
+    "description": "",
+    "gold": 2500
+  },
+  "226653": {
+    "name": "Liandry's Anguish",
+    "description": "",
+    "gold": 2500
+  },
+  "226655": {
+    "name": "Luden's Companion",
+    "description": "",
+    "gold": 2500
+  },
+  "226656": {
+    "name": "Everfrost",
+    "description": "",
+    "gold": 2500
+  },
+  "226657": {
+    "name": "Rod of Ages",
+    "description": "",
+    "gold": 2500
+  },
+  "226662": {
+    "name": "Iceborn Gauntlet",
+    "description": "",
+    "gold": 2500
+  },
+  "226664": {
+    "name": "Hollow Radiance",
+    "description": "",
+    "gold": 2500
+  },
+  "226665": {
+    "name": "Jak'Sho, The Protean",
+    "description": "",
+    "gold": 2500
+  },
+  "226667": {
+    "name": "Radiant Virtue",
+    "description": "",
+    "gold": 2500
+  },
+  "226671": {
+    "name": "Galeforce",
+    "description": "",
+    "gold": 2500
+  },
+  "226672": {
+    "name": "Kraken Slayer",
+    "description": "",
+    "gold": 2500
+  },
+  "226673": {
+    "name": "Immortal Shieldbow",
+    "description": "",
+    "gold": 2500
+  },
+  "226675": {
+    "name": "Navori Flickerblades",
+    "description": "",
+    "gold": 2500
+  },
+  "226676": {
+    "name": "The Collector",
+    "description": "",
+    "gold": 2500
+  },
+  "226691": {
+    "name": "Duskblade of Draktharr",
+    "description": "",
+    "gold": 2500
+  },
+  "226692": {
+    "name": "Eclipse",
+    "description": "",
+    "gold": 2500
+  },
+  "226693": {
+    "name": "Prowler's Claw",
+    "description": "",
+    "gold": 1000
+  },
+  "226694": {
+    "name": "Serylda's Grudge",
+    "description": "",
+    "gold": 2500
+  },
+  "226695": {
+    "name": "Serpent's Fang",
+    "description": "",
+    "gold": 2500
+  },
+  "226696": {
+    "name": "Axiom Arc",
+    "description": "",
+    "gold": 2500
+  },
+  "226697": {
+    "name": "Hubris",
+    "description": "",
+    "gold": 2500
+  },
+  "226698": {
+    "name": "Profane Hydra",
+    "description": "",
+    "gold": 2500
+  },
+  "226699": {
+    "name": "Voltaic Cyclosword",
+    "description": "",
+    "gold": 2500
+  },
+  "226701": {
+    "name": "Opportunity",
+    "description": "",
+    "gold": 2500
+  },
+  "228001": {
+    "name": "Anathema's Chains",
+    "description": "",
+    "gold": 2500
+  },
+  "228002": {
+    "name": "Wooglet's Witchcap",
+    "description": "",
+    "gold": 6000
+  },
+  "228003": {
+    "name": "Deathblade",
+    "description": "",
+    "gold": 9000
+  },
+  "228004": {
+    "name": "Adaptive Helm",
+    "description": "",
+    "gold": 6000
+  },
+  "228005": {
+    "name": "Obsidian Cleaver",
+    "description": "",
+    "gold": 3000
+  },
+  "228006": {
+    "name": "Sanguine Blade",
+    "description": "",
+    "gold": 3000
+  },
+  "228008": {
+    "name": "Runeglaive",
+    "description": "",
+    "gold": 9000
+  },
+  "228020": {
+    "name": "Abyssal Mask",
+    "description": "",
+    "gold": 2500
+  },
+  "2403": {
+    "name": "Minion Dematerializer",
+    "description": "",
+    "gold": 0
+  },
+  "2420": {
+    "name": "Seeker's Armguard",
+    "description": "Activate to become invincible but unable to take actions",
+    "gold": 1600
+  },
+  "2421": {
+    "name": "Shattered Armguard",
+    "description": "Upgrades to stopwatch",
+    "gold": 1600
+  },
+  "2422": {
+    "name": "Slightly Magical Footwear",
+    "description": "",
+    "gold": 300
+  },
+  "2501": {
+    "name": "Overlord's Bloodmail",
+    "description": "",
+    "gold": 3300
+  },
+  "2502": {
+    "name": "Unending Despair",
+    "description": "",
+    "gold": 2800
+  },
+  "2503": {
+    "name": "Blackfire Torch",
+    "description": "",
+    "gold": 2800
+  },
+  "2504": {
+    "name": "Kaenic Rookern",
+    "description": "",
+    "gold": 2900
+  },
+  "2508": {
+    "name": "Fated Ashes",
+    "description": "",
+    "gold": 900
+  },
+  "3001": {
+    "name": "Evenshroud",
+    "description": "Nearby enemies take more magic damage",
+    "gold": 2300
+  },
+  "3002": {
+    "name": "Trailblazer",
+    "description": "",
+    "gold": 2400
+  },
+  "3003": {
+    "name": "Archangel's Staff",
+    "description": "Increases Ability Power based on maximum Mana",
+    "gold": 2900
+  },
+  "3004": {
+    "name": "Manamune",
+    "description": "Increases Attack Damage based on maximum Mana",
+    "gold": 2900
+  },
+  "3005": {
+    "name": "Ghostcrawlers",
+    "description": "Increases Attack Damage based on maximum Health",
+    "gold": 1000
+  },
+  "3006": {
+    "name": "Berserker's Greaves",
+    "description": "Enhances Move Speed and Attack Speed",
+    "gold": 1100
+  },
+  "3009": {
+    "name": "Boots of Swiftness",
+    "description": "Enhances Move Speed and reduces the effect of slows",
+    "gold": 1000
+  },
+  "3010": {
+    "name": "Symbiotic Soles",
+    "description": "Spend Mana to recover Health",
+    "gold": 900
+  },
+  "3011": {
+    "name": "Chemtech Putrifier",
+    "description": "",
+    "gold": 1900
+  },
+  "3012": {
+    "name": "Chalice of Blessing",
+    "description": "",
+    "gold": 900
+  },
+  "3013": {
+    "name": "Synchronized Souls",
+    "description": "",
+    "gold": 900
+  },
+  "3020": {
+    "name": "Sorcerer's Shoes",
+    "description": "Enhances Move Speed and magic damage",
+    "gold": 1100
+  },
+  "3023": {
+    "name": "Lifewell Pendant",
+    "description": "Summon wraiths to slow and reveal enemy champions",
+    "gold": 1050
+  },
+  "3024": {
+    "name": "Glacial Buckler",
+    "description": "Increases Armor and Cooldown Reduction",
+    "gold": 900
+  },
+  "3026": {
+    "name": "Guardian Angel",
+    "description": "Periodically revives champion upon death",
+    "gold": 3200
+  },
+  "3031": {
+    "name": "Infinity Edge",
+    "description": "Massively enhances critical strikes",
+    "gold": 3450
+  },
+  "3032": {
+    "name": "Yun Tal Wildarrows",
+    "description": "",
+    "gold": 3000
+  },
+  "3033": {
+    "name": "Mortal Reminder",
+    "description": "Overcomes enemies with high Health recovery and Armor",
+    "gold": 3300
+  },
+  "3035": {
+    "name": "Last Whisper",
+    "description": "Overcomes enemies with high Armor",
+    "gold": 1450
+  },
+  "3036": {
+    "name": "Lord Dominik's Regards",
+    "description": "Overcomes enemies with high health and armor",
+    "gold": 3100
+  },
+  "3039": {
+    "name": "Atma's Reckoning",
+    "description": "",
+    "gold": 2900
+  },
+  "3040": {
+    "name": "Seraph's Embrace",
+    "description": "",
+    "gold": 2900
+  },
+  "3041": {
+    "name": "Mejai's Soulstealer",
+    "description": "Grants Ability Power for kills and assists",
+    "gold": 1500
+  },
+  "3042": {
+    "name": "Muramana",
+    "description": "",
+    "gold": 2900
+  },
+  "3044": {
+    "name": "Phage",
+    "description": "Attacks and kills give a small burst of speed",
+    "gold": 1100
+  },
+  "3046": {
+    "name": "Phantom Dancer",
+    "description": "Move faster while attacking enemies and gain a shield when on low health.",
+    "gold": 2650
+  },
+  "3047": {
+    "name": "Plated Steelcaps",
+    "description": "Enhances Move Speed and reduces incoming basic attack damage",
+    "gold": 1200
+  },
+  "3050": {
+    "name": "Zeke's Convergence",
+    "description": "Grants you and your ally bonuses when you cast your ultimate.",
+    "gold": 2200
+  },
+  "3051": {
+    "name": "Hearthbound Axe",
+    "description": "",
+    "gold": 1200
+  },
+  "3053": {
+    "name": "Sterak's Gage",
+    "description": "Shields against large bursts of damage",
+    "gold": 3200
+  },
+  "3057": {
+    "name": "Sheen",
+    "description": "Grants a bonus to next attack after spell cast",
+    "gold": 900
+  },
+  "3065": {
+    "name": "Spirit Visage",
+    "description": "Increases Health and healing effects",
+    "gold": 2700
+  },
+  "3066": {
+    "name": "Winged Moonplate",
+    "description": "",
+    "gold": 800
+  },
+  "3067": {
+    "name": "Kindlegem",
+    "description": "Increases Health and Cooldown Reduction",
+    "gold": 800
+  },
+  "3068": {
+    "name": "Sunfire Aegis",
+    "description": "High armor. Constantly deals damage to nearby enemies. Immobilize enemies to release a wave of damaging flame",
+    "gold": 2700
+  },
+  "3070": {
+    "name": "Tear of the Goddess",
+    "description": "Increases maximum Mana as Mana is spent",
+    "gold": 400
+  },
+  "3071": {
+    "name": "Black Cleaver",
+    "description": "Dealing physical damage to enemy champions reduces their Armor",
+    "gold": 3000
+  },
+  "3072": {
+    "name": "Bloodthirster",
+    "description": "Grants Attack Damage, Life Steal and Life Steal now overheals",
+    "gold": 3400
+  },
+  "3073": {
+    "name": "Experimental Hexplate",
+    "description": "Increases maximum Mana as Mana is spent",
+    "gold": 3000
+  },
+  "3074": {
+    "name": "Ravenous Hydra",
+    "description": "Melee attacks hit nearby enemies, dealing damage and restoring Health",
+    "gold": 3300
+  },
+  "3075": {
+    "name": "Thornmail",
+    "description": "",
+    "gold": 2450
+  },
+  "3076": {
+    "name": "Bramble Vest",
+    "description": "",
+    "gold": 800
+  },
+  "3077": {
+    "name": "Tiamat",
+    "description": "Melee attacks hit nearby enemies",
+    "gold": 1200
+  },
+  "3078": {
+    "name": "Trinity Force",
+    "description": "Tons of Damage",
+    "gold": 3333
+  },
+  "3082": {
+    "name": "Warden's Mail",
+    "description": "",
+    "gold": 1000
+  },
+  "3083": {
+    "name": "Warmog's Armor",
+    "description": "Grants massive Health and Health Regen",
+    "gold": 3100
+  },
+  "3084": {
+    "name": "Heartsteel",
+    "description": "Restores Health on kill or assist",
+    "gold": 3000
+  },
+  "3085": {
+    "name": "Runaan's Hurricane",
+    "description": "Ranged attacks fire two bolts at nearby enemies",
+    "gold": 2650
+  },
+  "3086": {
+    "name": "Zeal",
+    "description": "Slight bonuses to Critical Strike Chance, Move Speed and Attack Speed",
+    "gold": 1200
+  },
+  "3087": {
+    "name": "Statikk Shiv",
+    "description": "Movement builds charges that release chain lightning on basic attack",
+    "gold": 2700
+  },
+  "3089": {
+    "name": "Rabadon's Deathcap",
+    "description": "Massively increases Ability Power",
+    "gold": 3500
+  },
+  "3091": {
+    "name": "Wit's End",
+    "description": "Resist magic damage and claw your way back to life.",
+    "gold": 2800
+  },
+  "3094": {
+    "name": "Rapid Firecannon",
+    "description": "Movement builds charges that release a sieging fire attack on release",
+    "gold": 2650
+  },
+  "3095": {
+    "name": "Stormrazor",
+    "description": "Tremendously empower other Energized effects.",
+    "gold": 3000
+  },
+  "3100": {
+    "name": "Lich Bane",
+    "description": "Grants a bonus to next attack after spell cast",
+    "gold": 2900
+  },
+  "3102": {
+    "name": "Banshee's Veil",
+    "description": "Periodically blocks enemy abilities",
+    "gold": 3000
+  },
+  "3105": {
+    "name": "Aegis of the Legion",
+    "description": "Grants Armor and Magic Resistance",
+    "gold": 1100
+  },
+  "3107": {
+    "name": "Redemption",
+    "description": "Activate to heal allies and damage enemies in an area",
+    "gold": 2300
+  },
+  "3108": {
+    "name": "Fiendish Codex",
+    "description": "Increases Ability Power and Cooldown Reduction",
+    "gold": 850
+  },
+  "3109": {
+    "name": "Knight's Vow",
+    "description": "Partner with an ally to protect each other",
+    "gold": 2300
+  },
+  "3110": {
+    "name": "Frozen Heart",
+    "description": "Massively increases Armor and slows enemy basic attacks",
+    "gold": 2500
+  },
+  "3111": {
+    "name": "Mercury's Treads",
+    "description": "Increases Move Speed and reduces duration of disabling effects",
+    "gold": 1250
+  },
+  "3112": {
+    "name": "Guardian's Orb",
+    "description": "Good starting item for mages",
+    "gold": 950
+  },
+  "3113": {
+    "name": "Aether Wisp",
+    "description": "Increases Ability Power and Move Speed",
+    "gold": 900
+  },
+  "3114": {
+    "name": "Forbidden Idol",
+    "description": "Increases Heal and Shield Power, Mana Regeneration, and Cooldown Reduction",
+    "gold": 600
+  },
+  "3115": {
+    "name": "Nashor's Tooth",
+    "description": "Increases Attack Speed, Ability Power, and Cooldown Reduction",
+    "gold": 2900
+  },
+  "3116": {
+    "name": "Rylai's Crystal Scepter",
+    "description": "Abilities slow enemies",
+    "gold": 2600
+  },
+  "3117": {
+    "name": "Mobility Boots",
+    "description": "Greatly enhances Move Speed when out of combat",
+    "gold": 1000
+  },
+  "3118": {
+    "name": "Malignance",
+    "description": "Partner with an ally to protect each other",
+    "gold": 2700
+  },
+  "3119": {
+    "name": "Winter's Approach",
+    "description": "",
+    "gold": 2400
+  },
+  "3121": {
+    "name": "Fimbulwinter",
+    "description": "",
+    "gold": 2400
+  },
+  "3123": {
+    "name": "Executioner's Calling",
+    "description": "Overcomes enemies with high health gain",
+    "gold": 800
+  },
+  "3124": {
+    "name": "Guinsoo's Rageblade",
+    "description": "",
+    "gold": 3000
+  },
+  "3128": {
+    "name": "Deathfire Grasp",
+    "description": "Activate to increase all magic damage dealt to an enemy champion",
+    "gold": 2900
+  },
+  "3131": {
+    "name": "Sword of the Divine",
+    "description": "Activate to gain 100% Critical Strike Chance for a short duration",
+    "gold": 2300
+  },
+  "3133": {
+    "name": "Caulfield's Warhammer",
+    "description": "Attack Damage and Cooldown Reduction",
+    "gold": 1050
+  },
+  "3134": {
+    "name": "Serrated Dirk",
+    "description": "Increases Attack Damage and Lethality",
+    "gold": 1000
+  },
+  "3135": {
+    "name": "Void Staff",
+    "description": "Increases magic damage",
+    "gold": 3000
+  },
+  "3137": {
+    "name": "Cryptbloom",
+    "description": "Activate to remove all debuffs and grant massive Move Speed",
+    "gold": 3000
+  },
+  "3139": {
+    "name": "Mercurial Scimitar",
+    "description": "Activate to remove all crowd control debuffs and grant massive Move Speed",
+    "gold": 3200
+  },
+  "3140": {
+    "name": "Quicksilver Sash",
+    "description": "Activate to remove all crowd control debuffs",
+    "gold": 1300
+  },
+  "3142": {
+    "name": "Youmuu's Ghostblade",
+    "description": "Activate to greatly increase Move Speed",
+    "gold": 2800
+  },
+  "3143": {
+    "name": "Randuin's Omen",
+    "description": "Greatly increases defenses, activate to slow nearby enemies",
+    "gold": 2700
+  },
+  "3144": {
+    "name": "Scout's Slingshot",
+    "description": "Activate to deal magic damage and slow target champion",
+    "gold": 600
+  },
+  "3145": {
+    "name": "Hextech Alternator",
+    "description": "Increases Ability Power. Deal bonus magic damage on attack periodically.",
+    "gold": 1100
+  },
+  "3146": {
+    "name": "Hextech Gunblade",
+    "description": "Increases Attack Damage and Ability Power, activate to slow a target",
+    "gold": 3250
+  },
+  "3147": {
+    "name": "Haunting Guise",
+    "description": "Deals additional physical damage when ambushing enemies",
+    "gold": 1300
+  },
+  "3152": {
+    "name": "Hextech Rocketbelt",
+    "description": "Activate to dash forward and unleash a fiery explosion",
+    "gold": 2650
+  },
+  "3153": {
+    "name": "Blade of The Ruined King",
+    "description": "Deals damage based on target's Health, can steal Move Speed",
+    "gold": 3200
+  },
+  "3155": {
+    "name": "Hexdrinker",
+    "description": "Increases Attack Damage and Magic Resist",
+    "gold": 1300
+  },
+  "3156": {
+    "name": "Maw of Malmortius",
+    "description": "Grants bonus Attack Damage when Health is low",
+    "gold": 3100
+  },
+  "3157": {
+    "name": "Zhonya's Hourglass",
+    "description": "Activate to become invincible but unable to take actions",
+    "gold": 3250
+  },
+  "3158": {
+    "name": "Ionian Boots of Lucidity",
+    "description": "Increases Move Speed and Cooldown Reduction",
+    "gold": 900
+  },
+  "3161": {
+    "name": "Spear of Shojin",
+    "description": "Reduce damage taken from champions by a flat amount. Attack while near multiple enemy champions to increase this amount for a short time.",
+    "gold": 3100
+  },
+  "3165": {
+    "name": "Morellonomicon",
+    "description": "Increases magic damage",
+    "gold": 2850
+  },
+  "3170": {
+    "name": "Swiftmarch",
+    "description": "Improves defense and reduces duration of disabling effects",
+    "gold": 1500
+  },
+  "3171": {
+    "name": "Crimson Lucidity",
+    "description": "",
+    "gold": 1400
+  },
+  "3172": {
+    "name": "Gunmetal Greaves",
+    "description": "Mobility and Tenacity",
+    "gold": 1600
+  },
+  "3173": {
+    "name": "Chainlaced Crushers",
+    "description": "Increases Move Speed and Cooldown Reduction",
+    "gold": 1750
+  },
+  "3174": {
+    "name": "Armored Advance",
+    "description": "Deal damage to empower your heals and shields",
+    "gold": 1700
+  },
+  "3175": {
+    "name": "Spellslinger's Shoes",
+    "description": "",
+    "gold": 1600
+  },
+  "3176": {
+    "name": "Forever Forward",
+    "description": "",
+    "gold": 1400
+  },
+  "3177": {
+    "name": "Guardian's Blade",
+    "description": "Good starting item for attackers",
+    "gold": 950
+  },
+  "3179": {
+    "name": "Umbral Glaive",
+    "description": "Provides trap and ward detection periodically",
+    "gold": 2500
+  },
+  "3181": {
+    "name": "Hullbreaker",
+    "description": "",
+    "gold": 3000
+  },
+  "3184": {
+    "name": "Guardian's Hammer",
+    "description": "Good starting item for attackers",
+    "gold": 950
+  },
+  "3190": {
+    "name": "Locket of the Iron Solari",
+    "description": "Activate to shield nearby allies from damage",
+    "gold": 2200
+  },
+  "3193": {
+    "name": "Gargoyle Stoneplate",
+    "description": "Greatly increases defense near multiple enemies.",
+    "gold": 3150
+  },
+  "3211": {
+    "name": "Spectre's Cowl",
+    "description": "Improves defense and grants regeneration upon being damaged",
+    "gold": 1250
+  },
+  "322065": {
+    "name": "Shurelya's Battlesong",
+    "description": "",
+    "gold": 2600
+  },
+  "3222": {
+    "name": "Mikael's Blessing",
+    "description": "Activate to remove all disabling effects from an allied champion",
+    "gold": 2300
+  },
+  "323002": {
+    "name": "Trailblazer",
+    "description": "",
+    "gold": 2600
+  },
+  "323003": {
+    "name": "Archangel's Staff",
+    "description": "",
+    "gold": 2900
+  },
+  "323004": {
+    "name": "Manamune",
+    "description": "",
+    "gold": 2900
+  },
+  "323040": {
+    "name": "Seraph's Embrace",
+    "description": "",
+    "gold": 2900
+  },
+  "323042": {
+    "name": "Muramana",
+    "description": "",
+    "gold": 2900
+  },
+  "323050": {
+    "name": "Zeke's Convergence",
+    "description": "",
+    "gold": 2300
+  },
+  "323070": {
+    "name": "Tear of the Goddess",
+    "description": "",
+    "gold": 400
+  },
+  "323075": {
+    "name": "Thornmail",
+    "description": "",
+    "gold": 2650
+  },
+  "323107": {
+    "name": "Redemption",
+    "description": "",
+    "gold": 2800
+  },
+  "323109": {
+    "name": "Knight's Vow",
+    "description": "",
+    "gold": 2900
+  },
+  "323110": {
+    "name": "Frozen Heart",
+    "description": "",
+    "gold": 2700
+  },
+  "323119": {
+    "name": "Winter's Approach",
+    "description": "",
+    "gold": 2400
+  },
+  "323121": {
+    "name": "Fimbulwinter",
+    "description": "",
+    "gold": 2400
+  },
+  "323190": {
+    "name": "Locket of the Iron Solari",
+    "description": "",
+    "gold": 2600
+  },
+  "323222": {
+    "name": "Mikael's Blessing",
+    "description": "",
+    "gold": 2800
+  },
+  "323504": {
+    "name": "Ardent Censer",
+    "description": "",
+    "gold": 2600
+  },
+  "324005": {
+    "name": "Imperial Mandate",
+    "description": "",
+    "gold": 2750
+  },
+  "326616": {
+    "name": "Staff of Flowing Water",
+    "description": "",
+    "gold": 2600
+  },
+  "326617": {
+    "name": "Moonstone Renewer",
+    "description": "",
+    "gold": 2900
+  },
+  "326620": {
+    "name": "Echoes of Helia",
+    "description": "",
+    "gold": 2600
+  },
+  "326621": {
+    "name": "Dawncore",
+    "description": "",
+    "gold": 2900
+  },
+  "326657": {
+    "name": "Rod of Ages",
+    "description": "",
+    "gold": 2600
+  },
+  "328020": {
+    "name": "Abyssal Mask",
+    "description": "",
+    "gold": 2850
+  },
+  "3302": {
+    "name": "Terminus",
+    "description": "Kill minions periodically to heal and grant gold to a nearby ally",
+    "gold": 3000
+  },
+  "3330": {
+    "name": "Scarecrow Effigy",
+    "description": "Periodically place a Stealth Ward",
+    "gold": 0
+  },
+  "3340": {
+    "name": "Stealth Ward",
+    "description": "Periodically place a Stealth Ward",
+    "gold": 0
+  },
+  "3348": {
+    "name": "Arcane Sweeper",
+    "description": "Activate to reveal a nearby area of the map",
+    "gold": 0
+  },
+  "3349": {
+    "name": "Lucent Singularity",
+    "description": "Lux creates a light zone that <status>Slows</status> by @Slow@ and reveals the area. After 5 seconds or on <recast>Recasting</recast> this Ability, it detonates, dealing <magicDamage>@TotalDamage@ magic damage</magicDamage> and <status>Slowing</status> for an additional @SlowLingerDuration@ second.",
+    "gold": 0
+  },
+  "3363": {
+    "name": "Farsight Alteration",
+    "description": "Grants increased range and reveals the targetted area",
+    "gold": 0
+  },
+  "3364": {
+    "name": "Oracle Lens",
+    "description": "Disables nearby invisible wards and traps for a duration",
+    "gold": 0
+  },
+  "3398": {
+    "name": "Small Party Favor",
+    "description": "",
+    "gold": 0
+  },
+  "3399": {
+    "name": "Party Favor",
+    "description": "",
+    "gold": 0
+  },
+  "3400": {
+    "name": "Your Cut",
+    "description": "",
+    "gold": 0
+  },
+  "3430": {
+    "name": "Rite Of Ruin",
+    "description": "",
+    "gold": 2500
+  },
+  "3504": {
+    "name": "Ardent Censer",
+    "description": "Shield and heal effects on other units grant both of you Attack Speed and their attacks deal additional on-hit magic damage.",
+    "gold": 2200
+  },
+  "3508": {
+    "name": "Essence Reaver",
+    "description": "",
+    "gold": 2900
+  },
+  "3513": {
+    "name": "Eye of the Herald",
+    "description": "Eye of the Herald - a Gift of the Void.",
+    "gold": 0
+  },
+  "3599": {
+    "name": "Kalista's Black Spear",
+    "description": "Kalista's spear that binds an Oathsworn Ally.",
+    "gold": 0
+  },
+  "3600": {
+    "name": "Kalista's Black Spear",
+    "description": "Kalista's spear that binds an Oathsworn Ally.",
+    "gold": 0
+  },
+  "3742": {
+    "name": "Dead Man's Plate",
+    "description": "Build momentum as you move around then smash into enemies.",
+    "gold": 2900
+  },
+  "3748": {
+    "name": "Titanic Hydra",
+    "description": "Deals area of effect damage based on owner's health",
+    "gold": 3300
+  },
+  "3801": {
+    "name": "Crystalline Bracer",
+    "description": "Grants Health and Health Regen",
+    "gold": 800
+  },
+  "3802": {
+    "name": "Lost Chapter",
+    "description": "Restores Mana upon levelling up.",
+    "gold": 1200
+  },
+  "3803": {
+    "name": "Catalyst of Aeons",
+    "description": "",
+    "gold": 1300
+  },
+  "3814": {
+    "name": "Edge of Night",
+    "description": "Periodically blocks enemy abilities",
+    "gold": 3000
+  },
+  "3850": {
+    "name": "Spellthief's Edge",
+    "description": "Gain gold and upgrade by damaging enemy champions",
+    "gold": 400
+  },
+  "3851": {
+    "name": "Frostfang",
+    "description": "",
+    "gold": 400
+  },
+  "3853": {
+    "name": "Shard of True Ice",
+    "description": "",
+    "gold": 400
+  },
+  "3854": {
+    "name": "Steel Shoulderguards",
+    "description": "Gain gold and upgrade by executing minions alongside allies",
+    "gold": 400
+  },
+  "3855": {
+    "name": "Runesteel Spaulders",
+    "description": "",
+    "gold": 400
+  },
+  "3857": {
+    "name": "Pauldrons of Whiterock",
+    "description": "",
+    "gold": 400
+  },
+  "3858": {
+    "name": "Relic Shield",
+    "description": "Gain gold and upgrade by executing minions alongside allies",
+    "gold": 400
+  },
+  "3859": {
+    "name": "Targon's Buckler",
+    "description": "",
+    "gold": 400
+  },
+  "3860": {
+    "name": "Bulwark of the Mountain",
+    "description": "",
+    "gold": 400
+  },
+  "3862": {
+    "name": "Spectral Sickle",
+    "description": "Gain gold and upgrade by damaging enemy champions",
+    "gold": 400
+  },
+  "3863": {
+    "name": "Harrowing Crescent",
+    "description": "",
+    "gold": 400
+  },
+  "3864": {
+    "name": "Black Mist Scythe",
+    "description": "",
+    "gold": 400
+  },
+  "3865": {
+    "name": "World Atlas",
+    "description": "",
+    "gold": 400
+  },
+  "3866": {
+    "name": "Runic Compass",
+    "description": "",
+    "gold": 400
+  },
+  "3867": {
+    "name": "Bounty of Worlds",
+    "description": "",
+    "gold": 400
+  },
+  "3869": {
+    "name": "Celestial Opposition",
+    "description": "",
+    "gold": 400
+  },
+  "3870": {
+    "name": "Dream Maker",
+    "description": "",
+    "gold": 400
+  },
+  "3871": {
+    "name": "Zaz'Zak's Realmspike",
+    "description": "",
+    "gold": 400
+  },
+  "3876": {
+    "name": "Solstice Sleigh",
+    "description": "",
+    "gold": 400
+  },
+  "3877": {
+    "name": "Bloodsong",
+    "description": "",
+    "gold": 400
+  },
+  "3901": {
+    "name": "<rarityLegendary>Fire at Will</rarityLegendary><br><subtitleLeft><silver>500 Silver Serpents</silver></subtitleLeft>",
+    "description": "Cannon Barrage fires at an increasing rate over time (additional 6 waves over the duration).",
+    "gold": 0
+  },
+  "3902": {
+    "name": "<rarityLegendary>Death's Daughter</rarityLegendary><br><subtitleLeft><silver>500 Silver Serpents</silver></subtitleLeft>",
+    "description": "<mainText>Cannon Barrage additionally fires a mega-cannonball at the center of the Barrage, dealing <trueDamage>bonus true damage</trueDamage> and <status>Slowing</status>.</mainText>",
+    "gold": 0
+  },
+  "3903": {
+    "name": "<rarityLegendary>Raise Morale</rarityLegendary><br><subtitleLeft><silver>500 Silver Serpents</silver></subtitleLeft>",
+    "description": "Allies in the Cannon Barrage gain <speed>bonus Move Speed</speed>.",
+    "gold": 0
+  },
+  "3916": {
+    "name": "Oblivion Orb",
+    "description": "Increases magic damage",
+    "gold": 800
+  },
+  "4003": {
+    "name": "Lifeline",
+    "description": "Marks the ground, and returns you there after a few moments",
+    "gold": 1600
+  },
+  "4004": {
+    "name": "Spectral Cutlass",
+    "description": "Marks the ground, and returns you there after a few moments",
+    "gold": 2800
+  },
+  "4005": {
+    "name": "Imperial Mandate",
+    "description": "Defer damage until later.",
+    "gold": 2250
+  },
+  "4010": {
+    "name": "Bloodletter's Curse",
+    "description": "Grant Spell Shield after damaging an enemy with an ability",
+    "gold": 2500
+  },
+  "4011": {
+    "name": "Sword of Blossoming Dawn",
+    "description": "",
+    "gold": 2500
+  },
+  "4012": {
+    "name": "Sin Eater",
+    "description": "",
+    "gold": 3000
+  },
+  "4013": {
+    "name": "Lightning Braid",
+    "description": "",
+    "gold": 3000
+  },
+  "4014": {
+    "name": "Frozen Mallet",
+    "description": "",
+    "gold": 3000
+  },
+  "4015": {
+    "name": "Perplexity",
+    "description": "",
+    "gold": 2500
+  },
+  "4016": {
+    "name": "Wordless Promise",
+    "description": "",
+    "gold": 2500
+  },
+  "4017": {
+    "name": "Hellfire Hatchet",
+    "description": "",
+    "gold": 2500
+  },
+  "4401": {
+    "name": "Force of Nature",
+    "description": "Move Speed, Magic Resist, and max Health Regeneration",
+    "gold": 2800
+  },
+  "4402": {
+    "name": "Innervating Locket",
+    "description": "Cast spells to heal",
+    "gold": 2950
+  },
+  "4403": {
+    "name": "The Golden Spatula",
+    "description": "It does EVERYTHING!",
+    "gold": 7187
+  },
+  "443054": {
+    "name": "Darksteel Talons",
+    "description": "",
+    "gold": 1000
+  },
+  "443055": {
+    "name": "Fulmination",
+    "description": "",
+    "gold": 1000
+  },
+  "443056": {
+    "name": "Demon King's Crown",
+    "description": "",
+    "gold": 1000
+  },
+  "443058": {
+    "name": "Shield of Molten Stone",
+    "description": "",
+    "gold": 1000
+  },
+  "443059": {
+    "name": "Cloak of Starry Night",
+    "description": "",
+    "gold": 1000
+  },
+  "443060": {
+    "name": "Sword of the Divine",
+    "description": "",
+    "gold": 1000
+  },
+  "443061": {
+    "name": "Force Of Entropy",
+    "description": "",
+    "gold": 1000
+  },
+  "443062": {
+    "name": "Sanguine Gift",
+    "description": "",
+    "gold": 1000
+  },
+  "443063": {
+    "name": "Eleisa's Miracle",
+    "description": "",
+    "gold": 1000
+  },
+  "443064": {
+    "name": "Talisman Of Ascension",
+    "description": "",
+    "gold": 1000
+  },
+  "443069": {
+    "name": "Hamstringer",
+    "description": "",
+    "gold": 1000
+  },
+  "443079": {
+    "name": "Turbo Chemtank",
+    "description": "",
+    "gold": 1000
+  },
+  "443080": {
+    "name": "Twin Mask",
+    "description": "",
+    "gold": 1000
+  },
+  "443081": {
+    "name": "Hexbolt Companion",
+    "description": "",
+    "gold": 1000
+  },
+  "443083": {
+    "name": "Warmog's Armor",
+    "description": "",
+    "gold": 1000
+  },
+  "443090": {
+    "name": "Reaper's Toll",
+    "description": "",
+    "gold": 1000
+  },
+  "443193": {
+    "name": "Gargoyle Stoneplate",
+    "description": "",
+    "gold": 1000
+  },
+  "444636": {
+    "name": "Night Harvester",
+    "description": "",
+    "gold": 1000
+  },
+  "444637": {
+    "name": "Demonic Embrace",
+    "description": "",
+    "gold": 1000
+  },
+  "444644": {
+    "name": "Crown of the Shattered Queen",
+    "description": "",
+    "gold": 1000
+  },
+  "446632": {
+    "name": "Divine Sunderer",
+    "description": "",
+    "gold": 1000
+  },
+  "446656": {
+    "name": "Everfrost",
+    "description": "",
+    "gold": 1000
+  },
+  "446667": {
+    "name": "Radiant Virtue",
+    "description": "",
+    "gold": 1000
+  },
+  "446671": {
+    "name": "Galeforce",
+    "description": "",
+    "gold": 1000
+  },
+  "446691": {
+    "name": "Duskblade of Draktharr",
+    "description": "",
+    "gold": 1000
+  },
+  "446693": {
+    "name": "Prowler's Claw",
+    "description": "",
+    "gold": 1000
+  },
+  "447100": {
+    "name": "Mirage Blade",
+    "description": "",
+    "gold": 1000
+  },
+  "447101": {
+    "name": "Gambler's Blade",
+    "description": "",
+    "gold": 1000
+  },
+  "447102": {
+    "name": "Reality Fracture",
+    "description": "",
+    "gold": 1000
+  },
+  "447103": {
+    "name": "Hemomancer's Helm",
+    "description": "",
+    "gold": 1000
+  },
+  "447104": {
+    "name": "Innervating Locket",
+    "description": "",
+    "gold": 1000
+  },
+  "447105": {
+    "name": "Empyrean Promise",
+    "description": "",
+    "gold": 1000
+  },
+  "447106": {
+    "name": "Dragonheart",
+    "description": "",
+    "gold": 1000
+  },
+  "447107": {
+    "name": "Decapitator",
+    "description": "",
+    "gold": 1000
+  },
+  "447108": {
+    "name": "Runecarver",
+    "description": "",
+    "gold": 1000
+  },
+  "447109": {
+    "name": "Cruelty",
+    "description": "",
+    "gold": 1000
+  },
+  "447110": {
+    "name": "Moonflair Spellblade",
+    "description": "",
+    "gold": 1000
+  },
+  "447111": {
+    "name": "Overlord's Bloodmail",
+    "description": "",
+    "gold": 2500
+  },
+  "447112": {
+    "name": "Flesheater",
+    "description": "",
+    "gold": 1000
+  },
+  "447113": {
+    "name": "Detonation Orb",
+    "description": "",
+    "gold": 1000
+  },
+  "447114": {
+    "name": "Reverberation",
+    "description": "",
+    "gold": 1000
+  },
+  "447115": {
+    "name": "Regicide",
+    "description": "",
+    "gold": 1000
+  },
+  "447116": {
+    "name": "Kinkou Jitte",
+    "description": "",
+    "gold": 1000
+  },
+  "447118": {
+    "name": "Pyromancer's Cloak",
+    "description": "",
+    "gold": 1000
+  },
+  "447119": {
+    "name": "Lightning Rod",
+    "description": "",
+    "gold": 1000
+  },
+  "447120": {
+    "name": "Diamond-Tipped Spear",
+    "description": "",
+    "gold": 1000
+  },
+  "447121": {
+    "name": "Twilight's Edge",
+    "description": "",
+    "gold": 1000
+  },
+  "447122": {
+    "name": "Black Hole Gauntlet",
+    "description": "",
+    "gold": 1000
+  },
+  "447123": {
+    "name": "Puppeteer",
+    "description": "",
+    "gold": 1000
+  },
+  "4628": {
+    "name": "Horizon Focus",
+    "description": "Immobilizing a champion causes lightning to strike them",
+    "gold": 2750
+  },
+  "4629": {
+    "name": "Cosmic Drive",
+    "description": "Massive amounts of Cooldown Reduction",
+    "gold": 3000
+  },
+  "4630": {
+    "name": "Blighting Jewel",
+    "description": "",
+    "gold": 1100
+  },
+  "4632": {
+    "name": "Verdant Barrier",
+    "description": "",
+    "gold": 1600
+  },
+  "4633": {
+    "name": "Riftmaker",
+    "description": "",
+    "gold": 3100
+  },
+  "4635": {
+    "name": "Leeching Leer",
+    "description": "",
+    "gold": 1265
+  },
+  "4636": {
+    "name": "Night Harvester",
+    "description": "",
+    "gold": 2765
+  },
+  "4637": {
+    "name": "Demonic Embrace",
+    "description": "",
+    "gold": 3000
+  },
+  "4638": {
+    "name": "Watchful Wardstone",
+    "description": "",
+    "gold": 1100
+  },
+  "4641": {
+    "name": "Stirring Wardstone",
+    "description": "",
+    "gold": 350
+  },
+  "4642": {
+    "name": "Bandleglass Mirror",
+    "description": "",
+    "gold": 900
+  },
+  "4643": {
+    "name": "Vigilant Wardstone",
+    "description": "",
+    "gold": 2300
+  },
+  "4644": {
+    "name": "Crown of the Shattered Queen",
+    "description": "",
+    "gold": 2865
+  },
+  "4645": {
+    "name": "Shadowflame",
+    "description": "",
+    "gold": 3200
+  },
+  "4646": {
+    "name": "Stormsurge",
+    "description": "",
+    "gold": 2800
+  },
+  "6029": {
+    "name": "Ironspike Whip",
+    "description": "",
+    "gold": 1100
+  },
+  "6035": {
+    "name": "Silvermere Dawn",
+    "description": "",
+    "gold": 3000
+  },
+  "6333": {
+    "name": "Death's Dance",
+    "description": "",
+    "gold": 3300
+  },
+  "6609": {
+    "name": "Chempunk Chainsword",
+    "description": "",
+    "gold": 3100
+  },
+  "6610": {
+    "name": "Sundered Sky",
+    "description": "",
+    "gold": 3100
+  },
+  "6616": {
+    "name": "Staff of Flowing Water",
+    "description": "Your heals and shields reduce crowd control and grant Move Speed",
+    "gold": 2250
+  },
+  "6617": {
+    "name": "Moonstone Renewer",
+    "description": "Your heals and shields cool down faster and have greater effect on low health allies",
+    "gold": 2200
+  },
+  "6620": {
+    "name": "Echoes of Helia",
+    "description": "Damage low-health enemies to trigger a cursed explosion, dealing damage and slowing nearby foes",
+    "gold": 2200
+  },
+  "6621": {
+    "name": "Dawncore",
+    "description": "",
+    "gold": 2500
+  },
+  "6630": {
+    "name": "Goredrinker",
+    "description": "",
+    "gold": 3200
+  },
+  "663039": {
+    "name": "Atma's Reckoning",
+    "description": "",
+    "gold": 2500
+  },
+  "663056": {
+    "name": "Demon King's Crown",
+    "description": "",
+    "gold": 2500
+  },
+  "663058": {
+    "name": "Shield of Molten Stone",
+    "description": "",
+    "gold": 2500
+  },
+  "663059": {
+    "name": "Cloak of Starry Night",
+    "description": "",
+    "gold": 2500
+  },
+  "663060": {
+    "name": "Sword of the Divine",
+    "description": "",
+    "gold": 2500
+  },
+  "663064": {
+    "name": "Veigar's Talisman of Ascension",
+    "description": "",
+    "gold": 900
+  },
+  "6631": {
+    "name": "Stridebreaker",
+    "description": "",
+    "gold": 3300
+  },
+  "663146": {
+    "name": "Hextech Gunblade",
+    "description": "",
+    "gold": 2500
+  },
+  "663172": {
+    "name": "Zephyr",
+    "description": "",
+    "gold": 2500
+  },
+  "663193": {
+    "name": "Gargoyle Stoneplate",
+    "description": "",
+    "gold": 2500
+  },
+  "6632": {
+    "name": "Divine Sunderer",
+    "description": "",
+    "gold": 3450
+  },
+  "664011": {
+    "name": "Sword of Blossoming Dawn",
+    "description": "",
+    "gold": 2500
+  },
+  "664403": {
+    "name": "The Golden Spatula",
+    "description": "",
+    "gold": 2500
+  },
+  "664644": {
+    "name": "Crown of the Shattered Queen",
+    "description": "",
+    "gold": 2500
+  },
+  "6653": {
+    "name": "Liandry's Torment",
+    "description": "Charge up in combat to deal high damage over time, especially against durable enemies",
+    "gold": 3000
+  },
+  "6655": {
+    "name": "Luden's Companion",
+    "description": "High burst damage, good against fragile foes",
+    "gold": 2750
+  },
+  "6656": {
+    "name": "Everfrost",
+    "description": "",
+    "gold": 2865
+  },
+  "6657": {
+    "name": "Rod of Ages",
+    "description": "",
+    "gold": 2600
+  },
+  "6660": {
+    "name": "Bami's Cinder",
+    "description": "",
+    "gold": 900
+  },
+  "6662": {
+    "name": "Iceborn Gauntlet",
+    "description": "High Magic Resist.Passively slow nearby enemies. When spells are cast near you, release a wave of energy that damages and slows.",
+    "gold": 2900
+  },
+  "6664": {
+    "name": "Hollow Radiance",
+    "description": "Immobilize enemies to gain a shield. Activate to run faster at opponents.",
+    "gold": 2800
+  },
+  "6665": {
+    "name": "Jak'Sho, The Protean",
+    "description": "",
+    "gold": 3200
+  },
+  "6667": {
+    "name": "Radiant Virtue",
+    "description": "",
+    "gold": 2600
+  },
+  "6670": {
+    "name": "Noonquiver",
+    "description": "",
+    "gold": 1300
+  },
+  "6671": {
+    "name": "Galeforce",
+    "description": "",
+    "gold": 3500
+  },
+  "667101": {
+    "name": "Gambler's Blade",
+    "description": "",
+    "gold": 2500
+  },
+  "667109": {
+    "name": "Cruelty",
+    "description": "",
+    "gold": 2500
+  },
+  "667112": {
+    "name": "Flesheater",
+    "description": "",
+    "gold": 2500
+  },
+  "6672": {
+    "name": "Kraken Slayer",
+    "description": "",
+    "gold": 3000
+  },
+  "6673": {
+    "name": "Immortal Shieldbow",
+    "description": "",
+    "gold": 3000
+  },
+  "6675": {
+    "name": "Navori Flickerblade",
+    "description": "",
+    "gold": 2650
+  },
+  "6676": {
+    "name": "The Collector",
+    "description": "",
+    "gold": 3000
+  },
+  "667666": {
+    "name": "The Collector",
+    "description": "",
+    "gold": 3000
+  },
+  "6677": {
+    "name": "Rageknife",
+    "description": "",
+    "gold": 1100
+  },
+  "6690": {
+    "name": "Rectrix",
+    "description": "",
+    "gold": 775
+  },
+  "6691": {
+    "name": "Duskblade of Draktharr",
+    "description": "",
+    "gold": 2950
+  },
+  "6692": {
+    "name": "Eclipse",
+    "description": "",
+    "gold": 2900
+  },
+  "6693": {
+    "name": "Prowler's Claw",
+    "description": "",
+    "gold": 2850
+  },
+  "6694": {
+    "name": "Serylda's Grudge",
+    "description": "",
+    "gold": 3000
+  },
+  "6695": {
+    "name": "Serpent's Fang",
+    "description": "",
+    "gold": 2500
+  },
+  "6696": {
+    "name": "Axiom Arc",
+    "description": "",
+    "gold": 2750
+  },
+  "6697": {
+    "name": "Hubris",
+    "description": "",
+    "gold": 3000
+  },
+  "6698": {
+    "name": "Profane Hydra",
+    "description": "",
+    "gold": 2850
+  },
+  "6699": {
+    "name": "Voltaic Cyclosword",
+    "description": "",
+    "gold": 3000
+  },
+  "6700": {
+    "name": "Shield of the Rakkor",
+    "description": "",
+    "gold": 2675
+  },
+  "6701": {
+    "name": "Opportunity",
+    "description": "",
+    "gold": 2700
+  },
+  "6702": {
+    "name": "Scouting Ahead",
+    "description": "",
+    "gold": 0
+  },
+  "7050": {
+    "name": "Gangplank Placeholder",
+    "description": "New Gangplank interface coming soon!",
+    "gold": 0
+  },
+  "8001": {
+    "name": "Anathema's Chains",
+    "description": "",
+    "gold": 2500
+  },
+  "8010": {
+    "name": "Bloodletter's Curse",
+    "description": "",
+    "gold": 2900
+  },
+  "8020": {
+    "name": "Abyssal Mask",
+    "description": "",
+    "gold": 2650
+  },
+  "9168": {
+    "name": "Locked Weapon Slot",
+    "description": "",
+    "gold": 0
+  },
+  "9171": {
+    "name": "Cyclonic Slicers",
+    "description": "",
+    "gold": 0
+  },
+  "9172": {
+    "name": "YuumiBot",
+    "description": "",
+    "gold": 0
+  },
+  "9173": {
+    "name": "Radiant Field",
+    "description": "",
+    "gold": 0
+  },
+  "9174": {
+    "name": "Statikk Sword",
+    "description": "",
+    "gold": 0
+  },
+  "9175": {
+    "name": "Lioness's Lament",
+    "description": "",
+    "gold": 0
+  },
+  "9176": {
+    "name": "Gatling Bunny-Guns",
+    "description": "",
+    "gold": 0
+  },
+  "9177": {
+    "name": "Searing Shortbow",
+    "description": "",
+    "gold": 0
+  },
+  "9178": {
+    "name": "The Annihilator",
+    "description": "",
+    "gold": 0
+  },
+  "9179": {
+    "name": "Battle Bunny Crossbow",
+    "description": "",
+    "gold": 0
+  },
+  "9180": {
+    "name": "UwU Blaster",
+    "description": "",
+    "gold": 0
+  },
+  "9181": {
+    "name": "Vortex Glove",
+    "description": "",
+    "gold": 0
+  },
+  "9183": {
+    "name": "Blade-o-rang",
+    "description": "",
+    "gold": 0
+  },
+  "9184": {
+    "name": "Bunny Mega-Blast",
+    "description": "",
+    "gold": 0
+  },
+  "9185": {
+    "name": "Anti-Shark Sea Mine",
+    "description": "",
+    "gold": 0
+  },
+  "9187": {
+    "name": "T.I.B.B.E.R.S",
+    "description": "",
+    "gold": 0
+  },
+  "9188": {
+    "name": "Ani-Mines",
+    "description": "",
+    "gold": 0
+  },
+  "9189": {
+    "name": "Final City Transit",
+    "description": "",
+    "gold": 0
+  },
+  "9190": {
+    "name": "Echoing Batblades",
+    "description": "",
+    "gold": 0
+  },
+  "9192": {
+    "name": "Paw Print Poisoner",
+    "description": "",
+    "gold": 0
+  },
+  "9193": {
+    "name": "Iceblast Armor",
+    "description": "",
+    "gold": 0
+  },
+  "9271": {
+    "name": "Unceasing Cyclone",
+    "description": "",
+    "gold": 0
+  },
+  "9272": {
+    "name": "YuumiBot_Final_FINAL",
+    "description": "",
+    "gold": 0
+  },
+  "9273": {
+    "name": "Explosive Embrace",
+    "description": "",
+    "gold": 0
+  },
+  "9274": {
+    "name": "Prumbis's Electrocarver",
+    "description": "",
+    "gold": 0
+  },
+  "9275": {
+    "name": "Enveloping Light",
+    "description": "",
+    "gold": 0
+  },
+  "9276": {
+    "name": "Double Bun-Bun Barrage",
+    "description": "",
+    "gold": 0
+  },
+  "9277": {
+    "name": "Evolved Embershot",
+    "description": "",
+    "gold": 0
+  },
+  "9278": {
+    "name": "Animapocalypse",
+    "description": "",
+    "gold": 0
+  },
+  "9279": {
+    "name": "Bunny Prime Ballista",
+    "description": "",
+    "gold": 0
+  },
+  "9280": {
+    "name": "OwO Blaster",
+    "description": "",
+    "gold": 0
+  },
+  "9281": {
+    "name": "Tempest's Gauntlet",
+    "description": "",
+    "gold": 0
+  },
+  "9283": {
+    "name": "Quad-o-rang",
+    "description": "",
+    "gold": 0
+  },
+  "9284": {
+    "name": "Rapid Rabbit Raindown",
+    "description": "",
+    "gold": 0
+  },
+  "9285": {
+    "name": "Neverending Mobstomper",
+    "description": "",
+    "gold": 0
+  },
+  "9287": {
+    "name": "T.I.B.B.E.R.S (B.E.E.G Edition)",
+    "description": "",
+    "gold": 0
+  },
+  "9288": {
+    "name": "Jinx's Tri-Namite",
+    "description": "",
+    "gold": 0
+  },
+  "9289": {
+    "name": "FC Limited Express",
+    "description": "",
+    "gold": 0
+  },
+  "9290": {
+    "name": "Vayne's Chromablades",
+    "description": "",
+    "gold": 0
+  },
+  "9292": {
+    "name": "Bearfoot Chem-Dispenser",
+    "description": "",
+    "gold": 0
+  },
+  "9293": {
+    "name": "Deep Freeze",
+    "description": "",
+    "gold": 0
+  },
+  "9300": {
+    "name": "Meow Meow",
+    "description": "",
+    "gold": 0
+  },
+  "9301": {
+    "name": "Shield Slam",
+    "description": "",
+    "gold": 0
+  },
+  "9302": {
+    "name": "Sound Wave",
+    "description": "",
+    "gold": 0
+  },
+  "9303": {
+    "name": "Pillory Swipe",
+    "description": "",
+    "gold": 0
+  },
+  "9304": {
+    "name": "Steel Tempest",
+    "description": "",
+    "gold": 0
+  },
+  "9305": {
+    "name": "Tentacle Slam",
+    "description": "",
+    "gold": 0
+  },
+  "9306": {
+    "name": "Winged Dagger",
+    "description": "",
+    "gold": 0
+  },
+  "9307": {
+    "name": "Guiding Hex",
+    "description": "",
+    "gold": 0
+  },
+  "9308": {
+    "name": "Bunny Hop",
+    "description": "",
+    "gold": 0
+  },
+  "9400": {
+    "name": "Battle Cat Barrage",
+    "description": "",
+    "gold": 0
+  },
+  "9401": {
+    "name": "Light of the Lion",
+    "description": "",
+    "gold": 0
+  },
+  "9402": {
+    "name": "Anima Echo",
+    "description": "",
+    "gold": 0
+  },
+  "9403": {
+    "name": "Savage Slice",
+    "description": "",
+    "gold": 0
+  },
+  "9404": {
+    "name": "Wandering Storms",
+    "description": "",
+    "gold": 0
+  },
+  "9405": {
+    "name": "Grizzly Smash",
+    "description": "",
+    "gold": 0
+  },
+  "9406": {
+    "name": "Lover's Ricochet",
+    "description": "",
+    "gold": 0
+  },
+  "9407": {
+    "name": "Hopped-Up Hex",
+    "description": "",
+    "gold": 0
+  },
+  "9408": {
+    "name": "Carrot Crash",
+    "description": "",
+    "gold": 0
+  },
+  "994403": {
+    "name": "Golden Spatula",
+    "description": "",
+    "gold": 2500
+  }
+}

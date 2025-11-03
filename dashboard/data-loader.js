@@ -49,7 +49,7 @@ const AppData = {
 async function loadPlayerList() {
     // Load list of players from players.json
     try {
-        const response = await fetch('../players.json');
+        const response = await fetch('players.json');
         if (!response.ok) {
             throw new Error('Failed to load players.json');
         }
@@ -310,7 +310,7 @@ async function loadAllData(playerIds) {
     try {
         // Load data from all selected players
         for (const playerId of playerIdArray) {
-            const dataPath = `../data/${playerId}`;
+            const dataPath = `data/${playerId}`;
             
             updateLoadingStatus(`Loading data for ${playerId}...`);
             

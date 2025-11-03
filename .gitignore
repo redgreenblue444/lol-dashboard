@@ -2,13 +2,23 @@
 .env
 *.key
 
-# Match data
+# Match data (temporary files)
 match_history.json
 raw_matches.json
-*.json
 
-# Generated data files
+# JSON files (keep players.json and static/ JSON files)
+*.json
+!players.json
+!static/**/*.json
+
+# Generated data files - Note: CSV files in data/player_name/ are needed for the site
+# Only exclude CSV files in root data/ directory if any
 data/*.csv
+!data/*/*.csv
+
+# Raw JSON match files (only keep processed CSVs)
+data/*/raw_matches_*.json
+data/backup_2024/
 
 # Python
 __pycache__/
@@ -47,4 +57,14 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Development files (not needed for static site)
+src/
+docs/
+archive/
+requirements.txt
+PRD.md
+REPLIT_PRD.md
+extraction_log.txt
+dashboard/
 
