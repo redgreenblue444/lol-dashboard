@@ -51,7 +51,7 @@ MONTHS = {
 
 
 class RiotAPIClient:
-    """Riot API client with conservative rate limiting"""
+    """Riot API client with con§ative rate limiting"""
     
     def __init__(self, api_key: str, region: str = "americas"):
         self.api_key = api_key

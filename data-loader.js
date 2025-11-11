@@ -111,6 +111,10 @@ async function loadPlayerList() {
             const checkboxes = document.querySelectorAll('.player-checkbox');
             checkboxes.forEach(cb => cb.checked = e.target.checked);
             updatePlayerDropdownText();
+            // Update URL params when select all changes
+            if (AppData.players.length > 0) {
+                updateURLParams();
+            }
         });
         
         // Update text when individual checkboxes change
@@ -123,6 +127,10 @@ async function loadPlayerList() {
                 const noneChecked = Array.from(playerCheckboxes).every(c => !c.checked);
                 selectAllCheckbox.checked = allChecked;
                 selectAllCheckbox.indeterminate = !allChecked && !noneChecked;
+                // Update URL when player selection changes (but only after initial load)
+                if (AppData.players.length > 0) {
+                    updateURLParams();
+                }
             });
         });
         
@@ -547,6 +555,9 @@ function applyDateFilters() {
     AppData.dateFilters.startDate = startInput.valueAsDate;
     AppData.dateFilters.endDate = endInput.valueAsDate;
     AppData.dateFilters.timeBucket = document.getElementById('timeBucket').value;
+    
+    // Update URL parameters
+    updateURLParams();
     
     // Refresh all visualizations
     refreshDashboard();
@@ -2136,6 +2147,144 @@ function updateAllCharts() {
 }
 
 // ============================================================================
+// URL Parameter Management
+// ============================================================================
+
+function getURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        players: params.get('players') ? params.get('players').split(',') : null,
+        startDate: params.get('startDate'),
+        endDate: params.get('endDate'),
+        timeBucket: params.get('timeBucket'),
+        timePeriod: params.get('timePeriod'),
+        queue: params.get('queue'),
+        champion: params.get('champion')
+    };
+}
+
+function applyURLParams() {
+    const urlParams = getURLParams();
+    
+    // Apply player selection
+    if (urlParams.players && urlParams.players.length > 0) {
+        // Uncheck all players first
+        document.querySelectorAll('.player-checkbox').forEach(cb => cb.checked = false);
+        const selectAllCheckbox = document.getElementById('selectAllPlayers');
+        if (selectAllCheckbox) selectAllCheckbox.checked = false;
+        
+        // Check selected players
+        urlParams.players.forEach(playerId => {
+            const checkbox = document.getElementById(`player-${playerId}`);
+            if (checkbox) checkbox.checked = true;
+        });
+        
+        updatePlayerDropdownText();
+    }
+    
+    // Apply date filters
+    if (urlParams.startDate) {
+        const startInput = document.getElementById('startDate');
+        if (startInput) {
+            startInput.value = urlParams.startDate;
+            AppData.dateFilters.startDate = new Date(urlParams.startDate);
+        }
+    }
+    
+    if (urlParams.endDate) {
+        const endInput = document.getElementById('endDate');
+        if (endInput) {
+            endInput.value = urlParams.endDate;
+            AppData.dateFilters.endDate = new Date(urlParams.endDate);
+        }
+    }
+    
+    // Apply time bucket
+    if (urlParams.timeBucket) {
+        const timeBucketSelect = document.getElementById('timeBucket');
+        if (timeBucketSelect) {
+            timeBucketSelect.value = urlParams.timeBucket;
+            AppData.dateFilters.timeBucket = urlParams.timeBucket;
+        }
+    }
+    
+    // Apply time period filter
+    if (urlParams.timePeriod) {
+        const timePeriodSelect = document.getElementById('timePeriodFilter');
+        if (timePeriodSelect) {
+            timePeriodSelect.value = urlParams.timePeriod;
+            AppData.filters.timePeriod = urlParams.timePeriod;
+        }
+    }
+    
+    // Apply queue filter
+    if (urlParams.queue) {
+        const queueSelect = document.getElementById('queueFilter');
+        if (queueSelect) {
+            queueSelect.value = urlParams.queue;
+            AppData.filters.queueType = urlParams.queue;
+        }
+    }
+    
+    // Apply champion filter (will be set after champions are loaded)
+    if (urlParams.champion) {
+        AppData.filters.champion = urlParams.champion;
+    }
+}
+
+function updateURLParams() {
+    const params = new URLSearchParams();
+    
+    // Add player selection
+    const selectedPlayers = getSelectedPlayers();
+    if (selectedPlayers.length > 0 && selectedPlayers.length < AppData.players.length) {
+        params.set('players', selectedPlayers.join(','));
+    }
+    
+    // Add date filters
+    if (AppData.dateFilters.startDate) {
+        const startDateStr = AppData.dateFilters.startDate.toISOString().split('T')[0];
+        if (startDateStr !== '2024-01-01') { // Only add if not default
+            params.set('startDate', startDateStr);
+        }
+    }
+    
+    if (AppData.dateFilters.endDate) {
+        const endDateStr = AppData.dateFilters.endDate.toISOString().split('T')[0];
+        const todayStr = new Date().toISOString().split('T')[0];
+        if (endDateStr !== todayStr) { // Only add if not today
+            params.set('endDate', endDateStr);
+        }
+    }
+    
+    // Add time bucket
+    if (AppData.dateFilters.timeBucket && AppData.dateFilters.timeBucket !== 'monthly') {
+        params.set('timeBucket', AppData.dateFilters.timeBucket);
+    }
+    
+    // Add time period filter
+    if (AppData.filters.timePeriod && AppData.filters.timePeriod !== 'all') {
+        params.set('timePeriod', AppData.filters.timePeriod);
+    }
+    
+    // Add queue filter
+    if (AppData.filters.queueType && AppData.filters.queueType !== 'all') {
+        params.set('queue', AppData.filters.queueType);
+    }
+    
+    // Add champion filter
+    if (AppData.filters.champion && AppData.filters.champion !== 'all') {
+        params.set('champion', AppData.filters.champion);
+    }
+    
+    // Update URL without page reload
+    const newURL = params.toString() 
+        ? `${window.location.pathname}?${params.toString()}`
+        : window.location.pathname;
+    window.history.replaceState({}, '', newURL);
+}
+
+// ============================================================================
 // Event Handlers
 // ============================================================================
 
@@ -2144,10 +2293,14 @@ function setupEventListeners() {
     const timePeriodFilter = document.getElementById('timePeriodFilter');
     const queueFilter = document.getElementById('queueFilter');
     const championFilter = document.getElementById('championFilter');
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    const timeBucketSelect = document.getElementById('timeBucket');
     
     if (timePeriodFilter) {
         timePeriodFilter.addEventListener('change', (e) => {
             AppData.filters.timePeriod = e.target.value;
+            updateURLParams();
             refreshDashboard();
         });
     }
@@ -2155,6 +2308,7 @@ function setupEventListeners() {
     if (queueFilter) {
         queueFilter.addEventListener('change', (e) => {
             AppData.filters.queueType = e.target.value;
+            updateURLParams();
             refreshDashboard();
         });
     }
@@ -2162,9 +2316,36 @@ function setupEventListeners() {
     if (championFilter) {
         championFilter.addEventListener('change', (e) => {
             AppData.filters.champion = e.target.value;
+            updateURLParams();
             refreshDashboard();
         });
     }
+    
+    // Date filter change handlers
+    if (startDateInput) {
+        startDateInput.addEventListener('change', () => {
+            AppData.dateFilters.startDate = startDateInput.valueAsDate;
+            updateURLParams();
+        });
+    }
+    
+    if (endDateInput) {
+        endDateInput.addEventListener('change', () => {
+            AppData.dateFilters.endDate = endDateInput.valueAsDate;
+            updateURLParams();
+        });
+    }
+    
+    if (timeBucketSelect) {
+        timeBucketSelect.addEventListener('change', (e) => {
+            AppData.dateFilters.timeBucket = e.target.value;
+            updateURLParams();
+            refreshDashboard();
+        });
+    }
+    
+    // Note: Player checkbox change handlers are already set up in loadPlayerList()
+    // They already call updateURLParams(), so we don't need to add them here again
 }
 
 function refreshDashboard() {
@@ -2197,7 +2378,10 @@ async function initialize() {
         return;
     }
     
-    // Automatically load data for all players
+    // Apply URL parameters to filters (before loading data)
+    applyURLParams();
+    
+    // Get selected players (from URL params or default to all)
     const selectedPlayers = getSelectedPlayers();
     
     if (selectedPlayers.length === 0) {
@@ -2218,7 +2402,21 @@ async function initialize() {
         
         // Update all sections
         updateChampionFilter();
+        
+        // Apply champion filter from URL if present (after champion filter is populated)
+        const urlParams = getURLParams();
+        if (urlParams.champion) {
+            const championSelect = document.getElementById('championFilter');
+            if (championSelect) {
+                championSelect.value = urlParams.champion;
+                AppData.filters.champion = urlParams.champion;
+            }
+        }
+        
         refreshDashboard();
+        
+        // Update URL with current filter state
+        updateURLParams();
         
         console.log('Dashboard initialized successfully!');
     } else {
